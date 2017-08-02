@@ -1,0 +1,76 @@
+//apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.sourceCompatibility
+        targetCompatibility rootProject.ext.targetCompatibility
+    }
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError true
+    }
+
+}
+
+//数据库版本以及Dao的相关设置
+greendao {
+    //数据库schema版本
+    schemaVersion 2
+    //设置DaoMaster DaoSession Dao包名，默认的是bean所在的包名
+    daoPackage "com.supets.pet.greendao"
+    targetGenDir 'src/main/java'
+    //设置DaoMaster DaoSeeeion Dao目录，默认是build/generated/source/greendao
+    //targetGenDir 'src/main/greendao'
+    //设置true,自动生成测试单元
+    //generateTests true
+    //设置生成的单元测试目录，默认是src/androidTest/java
+    targetGenDirTests 'src/androidTest/java'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.supets.commons:commonui:2.2.0'
+
+    compile 'com.supets.lib:okhttplib:2.0.1'
+    compile 'com.supets.lib:routerlib:2.1.0'
+    compile 'com.supets.lib:maillib:2.2.0'
+    compile 'com.supets.lib:jsonlib:2.0.0'
+    compile 'com.supets.lib:jsoneditlib:1.4.0'
+
+    //compile 'com.facebook.stetho:stetho:1.4.1'
+    //compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'net.zetetic:android-database-sqlcipher:3.5.4' //数据库加密时添加
+    compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0'
+    //使用数据库升级辅助GreenDaoUpgradleHepler时添加
+}

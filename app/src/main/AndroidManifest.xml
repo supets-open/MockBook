@@ -1,0 +1,81 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.supets.pet.mockui">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="true">
+        <!--Android7.0新增的广播权限验证-->
+        <receiver
+            android:name="com.supets.pet.service.CrashService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="mock.crash.service" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.supets.pet.service.NetWorkInterceptionService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="mock.crash.network" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.supets.pet.service.MockApiProvider"
+            android:authorities="com.supets.pet.mockprovider"
+            android:exported="true" />
+
+        <activity
+            android:name="com.supets.pet.mock.ui.MockUiActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.supets.pet.mock.ui.MockCrashUiActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockInfoActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockDataListActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockConfigActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockTestActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockConfigJsonActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockModelActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockModelEditActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockToolActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockEmailListActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockEmailEditActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.supets.pet.mock.ui.MockUrlRuleActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+
+</manifest>

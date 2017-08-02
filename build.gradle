@@ -1,0 +1,49 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            url('http://10.12.32.78:8082/nexus/content/groups/public')
+        }
+        maven { url "https://jitpack.io" }
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        maven {
+            url('http://10.12.32.78:8082/nexus/content/groups/public')
+        }
+        maven { url "https://jitpack.io" }
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+
+        jcenter()
+    }
+}
+
+//定义整个工程的build版本和java版本
+ext {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+
+    minSdkVersion = 14
+    targetSdkVersion = 22
+    compileSdkVersion = 25
+    buildToolsVersion = "25.0.2"
+    supportLibVersion = "25.3.0"
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

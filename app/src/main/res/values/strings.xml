@@ -1,0 +1,21 @@
+<resources>
+
+    <string name="app_name">桔子测试</string>
+
+    <string name="debug_switch">打开调试(不会抓取数据)</string>
+    <string name="json_switch">抓取数据(不能打开调试)</string>
+
+    <string name="debug_title">桔子测试 V3.1</string>
+
+    <string name="interface_filter_guice">接口过滤规则(支持空格分割,包含匹配)</string>
+    <string name="jsonedit">json编辑器</string>
+
+    <string name="email_name_config">发送邮箱配置(只支持163邮箱)</string>
+    <string name="email_name_label">邮箱名</string>
+    <string name="email_pass_label">邮箱密码</string>
+
+    <string name="crash_title">崩溃日志</string>
+    <string name="send_mail">发邮件</string>
+    <string name="emaillist">邮件列表</string>
+
+</resources>
