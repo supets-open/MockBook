@@ -1,6 +1,5 @@
 package com.supets.pet.mock.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,7 +15,7 @@ import com.supets.pet.mockui.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockUiActivity extends Activity {
+public class MockUiActivity extends PullMsgActivity {
 
 
     @Override
@@ -37,6 +36,8 @@ public class MockUiActivity extends Activity {
         adapter.setData(datas);
         adapter.notifyDataSetChanged();
 
+        startMsgService();
+
     }
 
     ListView mListView;
@@ -53,6 +54,12 @@ public class MockUiActivity extends Activity {
 
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopMsgService();
+    }
 
     class MockAdapter extends BaseAdapter {
 
