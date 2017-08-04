@@ -84,18 +84,13 @@
         <activity
             android:name="com.supets.pet.mock.ui.MockUrlRuleActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--权限检查-->
+        <!--权限检查测试-->
         <activity
             android:name="com.supets.pet.permission.PermissionMainActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name="com.supets.pet.permission.PermissionCheckActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name="com.supets.pet.permission.PermissionsActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
