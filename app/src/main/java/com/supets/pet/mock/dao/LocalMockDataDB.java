@@ -1,5 +1,6 @@
-package com.supets.pet.mock.db;
+package com.supets.pet.mock.dao;
 
+import com.supets.pet.greendao.LocalMockDataDao;
 import com.supets.pet.greendao.SessionFactory;
 import com.supets.pet.mock.bean.LocalMockData;
 
@@ -7,28 +8,32 @@ import java.util.List;
 
 public class LocalMockDataDB extends SessionFactory {
 
+
+    private  static final LocalMockDataDao dao=getDbSession().getLocalMockDataDao();
+
+
     public static List<LocalMockData> queryAllMockData(String url) {
-        return getDbSession().getLocalMockDataDao().queryRaw("where url= ?", url);
+        return dao.queryRaw("where url= ?", url);
     }
 
     public static List<LocalMockData> queryAll() {
-        return getDbSession().getLocalMockDataDao().loadAll();
+        return dao.loadAll();
     }
 
     public static void insertMockData(LocalMockData status) {
-        getDbSession().getLocalMockDataDao().insert(status);
+        dao.insert(status);
     }
 
     public static void updateMockData(LocalMockData status) {
-        getDbSession().getLocalMockDataDao().update(status);
+        dao.update(status);
     }
 
     public static void deleteMockData(LocalMockData status) {
-        getDbSession().getLocalMockDataDao().delete(status);
+        dao.delete(status);
     }
 
     public static void deleteAll() {
-        getDbSession().getLocalMockDataDao().deleteAll();
+        dao.deleteAll();
     }
 
 }

@@ -12,7 +12,7 @@ import com.supets.commons.widget.CommonHeader;
 import com.supets.lib.mail.MailUtil;
 import com.supets.pet.jsonview.JSONEditView;
 import com.supets.pet.mock.config.MockConfig;
-import com.supets.pet.mock.db.EmailDataDB;
+import com.supets.pet.mock.dao.EmailDataDB;
 import com.supets.pet.mockui.R;
 
 /**

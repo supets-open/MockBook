@@ -5,12 +5,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.supets.lib.supetscontext.App;
-import com.supets.lib.supetsrouter.uinav.UINav;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.config.MockConfig;
-import com.supets.pet.mock.db.MockDataDB;
-import com.supets.pet.mock.ui.MockCrashUiActivity;
+import com.supets.pet.mock.dao.MockDataDB;
 
 import java.util.Date;
 

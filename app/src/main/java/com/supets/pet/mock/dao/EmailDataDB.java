@@ -1,7 +1,8 @@
-package com.supets.pet.mock.db;
+package com.supets.pet.mock.dao;
 
 import android.support.annotation.NonNull;
 
+import com.supets.pet.greendao.EmailDataDao;
 import com.supets.pet.greendao.SessionFactory;
 import com.supets.pet.mock.bean.EmailData;
 import com.supets.pet.mock.config.MockConfig;
@@ -10,28 +11,32 @@ import java.util.List;
 
 public class EmailDataDB extends SessionFactory {
 
+
+   private  static final EmailDataDao   emailDataDao=getDbSession().getEmailDataDao();
+
+
     public static List<EmailData> queryAll() {
-        return getDbSession().getEmailDataDao().queryBuilder().list();
+        return emailDataDao.queryBuilder().list();
     }
 
     public static List<EmailData> queryEmailDataById(String id) {
-        return getDbSession().getEmailDataDao().queryRaw("where _id = ?  ", id);
+        return emailDataDao.queryRaw("where _id = ?  ", id);
     }
 
     public static void insertEmailData(EmailData status) {
-        getDbSession().getEmailDataDao().insert(status);
+        emailDataDao.insert(status);
     }
 
     public static void updateEmailData(EmailData status) {
-        getDbSession().getEmailDataDao().update(status);
+        emailDataDao.update(status);
     }
 
     public static void deleteEmailData(EmailData status) {
-        getDbSession().getEmailDataDao().delete(status);
+        emailDataDao.delete(status);
     }
 
     public static void deleteAll() {
-        getDbSession().getEmailDataDao().deleteAll();
+        emailDataDao.deleteAll();
     }
 
     @NonNull

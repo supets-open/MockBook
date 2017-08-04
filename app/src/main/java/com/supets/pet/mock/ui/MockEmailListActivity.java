@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.bean.EmailData;
-import com.supets.pet.mock.db.EmailDataDB;
+import com.supets.pet.mock.dao.EmailDataDB;
 import com.supets.pet.mockui.R;
 
 import java.util.ArrayList;

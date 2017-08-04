@@ -9,7 +9,7 @@ import android.widget.EditText;
 import com.supets.commons.widget.CommonHeader;
 import com.supets.lib.supetscontext.App;
 import com.supets.pet.mock.bean.EmailData;
-import com.supets.pet.mock.db.EmailDataDB;
+import com.supets.pet.mock.dao.EmailDataDB;
 import com.supets.pet.mockui.R;
 
 

@@ -2,7 +2,7 @@ package com.supets.pet.mock.test;
 
 
 import com.supets.pet.mock.bean.LocalMockData;
-import com.supets.pet.mock.db.LocalMockDataDB;
+import com.supets.pet.mock.dao.LocalMockDataDB;
 import com.supets.pet.mock.core.IMockDataMapper;
 
 import java.util.List;

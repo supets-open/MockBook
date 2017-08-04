@@ -9,7 +9,7 @@ import android.widget.EditText;
 import com.supets.commons.widget.CommonHeader;
 import com.supets.lib.supetscontext.App;
 import com.supets.pet.mock.bean.MockExampleData;
-import com.supets.pet.mock.db.MockExampleDataDB;
+import com.supets.pet.mock.dao.MockExampleDataDB;
 import com.supets.pet.mockui.R;
 
 public class MockModelEditActivity extends Activity {

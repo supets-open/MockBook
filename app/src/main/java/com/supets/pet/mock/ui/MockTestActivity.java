@@ -7,15 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.bean.LocalMockData;
-import com.supets.pet.mock.db.LocalMockDataDB;
-import com.supets.pet.mock.db.MockDataDB;
+import com.supets.pet.mock.dao.LocalMockDataDB;
+import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mockui.R;
 
 import java.util.ArrayList;

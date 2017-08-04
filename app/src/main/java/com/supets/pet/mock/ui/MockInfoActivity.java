@@ -14,8 +14,8 @@ import com.supets.lib.mail.MailUtil;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.config.MockConfig;
 import com.supets.pet.mock.core.FormatLogProcess;
-import com.supets.pet.mock.db.EmailDataDB;
-import com.supets.pet.mock.db.MockDataDB;
+import com.supets.pet.mock.dao.EmailDataDB;
+import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mockui.R;
 
 import java.util.List;

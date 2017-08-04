@@ -1,4 +1,4 @@
-package com.supets.pet.mock.db;
+package com.supets.pet.mock.dao;
 
 import android.database.Cursor;
 
@@ -11,28 +11,30 @@ import java.util.List;
 
 public class MockDataDB extends SessionFactory {
 
+    private  static final MockDataDao dao=getDbSession().getMockDataDao();
+
     public static List<MockData> queryAllMockData(String url) {
-        return getDbSession().getMockDataDao().queryRaw("where url = ?", url);
+        return dao.queryRaw("where url = ?", url);
     }
 
     public static List<MockData> queryAll() {
-        return getDbSession().getMockDataDao().queryBuilder().orderDesc(MockDataDao.Properties.Time).list();
+        return dao.queryBuilder().orderDesc(MockDataDao.Properties.Time).list();
     }
 
     public static List<MockData> queryMockDataById(String id) {
-        return getDbSession().getMockDataDao().queryRaw("where _id = ?  ", id);
+        return dao.queryRaw("where _id = ?  ", id);
     }
 
     public static void insertMockData(MockData status) {
-        getDbSession().getMockDataDao().insert(status);
+        dao.insert(status);
     }
 
     public static void updateMockData(MockData status) {
-        getDbSession().getMockDataDao().update(status);
+        dao.update(status);
     }
 
     public static void deleteMockData(MockData status) {
-        getDbSession().getMockDataDao().delete(status);
+        dao.delete(status);
     }
 
     private static final String SQL_DISTINCT_ENAME = "SELECT DISTINCT " + MockDataDao.Properties.Url.columnName + " FROM " + MockDataDao.TABLENAME;
@@ -54,6 +56,6 @@ public class MockDataDB extends SessionFactory {
 
 
     public static void deleteAll() {
-        getDbSession().getMockDataDao().deleteAll();
+        dao.deleteAll();
     }
 }

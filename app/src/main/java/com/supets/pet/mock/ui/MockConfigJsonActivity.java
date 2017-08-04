@@ -17,9 +17,9 @@ import com.supets.pet.mock.bean.LocalMockData;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.bean.MockExampleData;
 import com.supets.pet.mock.core.FormatLogProcess;
-import com.supets.pet.mock.db.LocalMockDataDB;
-import com.supets.pet.mock.db.MockDataDB;
-import com.supets.pet.mock.db.MockExampleDataDB;
+import com.supets.pet.mock.dao.LocalMockDataDB;
+import com.supets.pet.mock.dao.MockDataDB;
+import com.supets.pet.mock.dao.MockExampleDataDB;
 import com.supets.pet.mockui.R;
 
 import java.util.ArrayList;
