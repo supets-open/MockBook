@@ -69,11 +69,6 @@ public class ProxyInfo
             builder.append("host." + name).append(" = ");
             builder.append("(" + type + ")(((android.view.View)source).findViewById( " + id + "));\n");
             builder.append("\n};");
-
-
-
-
-
         }
         builder.append("  }\n");
 

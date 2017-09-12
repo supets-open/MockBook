@@ -74,6 +74,6 @@ dependencies {
     compile 'net.zetetic:android-database-sqlcipher:3.5.4' //数据库加密时添加
     compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0'
     //使用数据库升级辅助GreenDaoUpgradleHepler时添加
-    apt project(":libioc")
+    apt project(':libCompileApi')
 
 }

@@ -9,8 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/libioc" />
-            <option value="$PROJECT_DIR$/libioc2" />
+            <option value="$PROJECT_DIR$/libCompileApi" />
+            <option value="$PROJECT_DIR$/libannotation" />
             <option value="$PROJECT_DIR$/mocklib" />
           </set>
         </option>
