@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MockBook.iml" filepath="$PROJECT_DIR$/MockBook.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libioc/libioc.iml" filepath="$PROJECT_DIR$/libioc/libioc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libioc2/libioc2.iml" filepath="$PROJECT_DIR$/libioc2/libioc2.iml" />
       <module fileurl="file://$PROJECT_DIR$/mocklib/mocklib.iml" filepath="$PROJECT_DIR$/mocklib/mocklib.iml" />
     </modules>
   </component>

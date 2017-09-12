@@ -4,7 +4,7 @@ buildscript {
     repositories {
         mavenLocal()
         maven {
-            url('http://10.12.32.78:8082/nexus/content/groups/public')
+            url('http://localhost:8082/nexus/content/groups/public')
         }
         maven { url "https://jitpack.io" }
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
@@ -16,6 +16,9 @@ buildscript {
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+
     }
 }
 
@@ -23,7 +26,7 @@ allprojects {
     repositories {
         mavenLocal()
         maven {
-            url('http://10.12.32.78:8082/nexus/content/groups/public')
+            url('http://localhost:8082/nexus/content/groups/public')
         }
         maven { url "https://jitpack.io" }
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }

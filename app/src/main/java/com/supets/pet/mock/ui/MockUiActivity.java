@@ -10,18 +10,25 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.supets.commons.widget.CommonHeader;
+import com.supets.pet.mock.ViewInjector;
 import com.supets.pet.mockui.R;
+import com.zhy.ioc.Bind;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MockUiActivity extends PullMsgActivity {
 
+    @Bind(R.id.list)
+    ListView mListView;
+    @Bind(R.id.header)
+    CommonHeader header;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mock_tab);
+        ViewInjector.injectView(this);
 
         initView();
 
@@ -36,19 +43,15 @@ public class MockUiActivity extends PullMsgActivity {
         adapter.setData(datas);
         adapter.notifyDataSetChanged();
 
-        startMsgService();
-
+        //startMsgService();
     }
 
-    ListView mListView;
     MockAdapter adapter;
 
     private void initView() {
-        CommonHeader header = (CommonHeader) findViewById(R.id.header);
         header.getTitleTextView().setText(R.string.debug_title);
         header.getLeftButton().setVisibility(View.GONE);
 
-        mListView = (ListView) findViewById(R.id.list);
         adapter = new MockAdapter();
         mListView.setAdapter(adapter);
 
@@ -58,7 +61,7 @@ public class MockUiActivity extends PullMsgActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopMsgService();
+      //  stopMsgService();
     }
 
     class MockAdapter extends BaseAdapter {

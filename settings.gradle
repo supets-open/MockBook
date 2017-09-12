@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':libioc', ':libioc2'
 include ':mocklib'

@@ -1,6 +1,7 @@
 //apply plugin: 'com.android.library'
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -73,4 +74,6 @@ dependencies {
     compile 'net.zetetic:android-database-sqlcipher:3.5.4' //数据库加密时添加
     compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0'
     //使用数据库升级辅助GreenDaoUpgradleHepler时添加
+    apt project(":libioc")
+
 }
