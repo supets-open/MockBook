@@ -25,7 +25,7 @@ import javax.tools.Diagnostic;
 import javax.tools.JavaFileObject;
 
 /**
- * Created by zhy on 16/4/22.
+ *http://blog.csdn.net/lmj623565791/article/details/51931859
  */
 @AutoService(Processor.class)
 public class ViewInjectProcessor extends AbstractProcessor
