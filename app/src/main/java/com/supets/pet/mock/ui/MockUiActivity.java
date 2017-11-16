@@ -43,8 +43,6 @@ public class MockUiActivity extends Activity {
         datas.add("工具助手");
         adapter.setData(datas);
         adapter.notifyDataSetChanged();
-
-        //startMsgService();
     }
 
     MockAdapter adapter;
@@ -58,12 +56,6 @@ public class MockUiActivity extends Activity {
 
     }
 
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-      //  stopMsgService();
-    }
 
     class MockAdapter extends BaseAdapter {
 

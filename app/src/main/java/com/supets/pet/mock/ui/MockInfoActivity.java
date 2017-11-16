@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.supets.commons.widget.CommonHeader;
 import com.supets.lib.mail.MailUtil;
+import com.supets.pet.mock.Utils;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.config.MockConfig;
 import com.supets.pet.mock.core.FormatLogProcess;
@@ -44,11 +45,12 @@ public class MockInfoActivity extends Activity {
             name.setText(FormatLogProcess.format(mockData.getUrl()));
 
             TextView param = (TextView) findViewById(R.id.param);
-            param.setText(mockData.getRequestParam());
+            param.setText(Utils.formatParam(mockData.getRequestParam()));
 
         }
 
     }
+
 
     private void initView() {
         CommonHeader header = (CommonHeader) findViewById(R.id.header);
@@ -67,21 +69,21 @@ public class MockInfoActivity extends Activity {
                 doSendEmail();
             }
         });
-       findViewById(R.id.formatjson).setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent = new Intent(MockInfoActivity.this, MockToolActivity.class);
-               intent.putExtra("json", mockData.getData());
-               startActivity(intent);
-           }
-       });
+        findViewById(R.id.formatjson).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MockInfoActivity.this, MockToolActivity.class);
+                intent.putExtra("json", mockData.getData());
+                startActivity(intent);
+            }
+        });
 
 
     }
 
 
     private void doSendEmail() {
-        String[] list =EmailDataDB.getEmailList();
+        String[] list = EmailDataDB.getEmailList();
 
         final String[] finalList = list;
         new AlertDialog.Builder(this)
