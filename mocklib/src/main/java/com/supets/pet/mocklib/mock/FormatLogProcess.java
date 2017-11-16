@@ -28,13 +28,11 @@ public final class FormatLogProcess {
 
         try {
 
-            if (!isJpg(url)) {
-                Intent intent = new Intent(MOCK_SERVICE_NETWORK);
-                intent.putExtra("url", url);
-                intent.putExtra("requestParam", requestParam);
-                intent.putExtra("message", message);
-                App.INSTANCE.sendBroadcast(intent);
-            }
+            Intent intent = new Intent(MOCK_SERVICE_NETWORK);
+            intent.putExtra("url", url);
+            intent.putExtra("requestParam", requestParam);
+            intent.putExtra("message", !isJpg(url) ? message : "");
+            App.INSTANCE.sendBroadcast(intent);
 
             if (isJson(message)) {
                 String jsonStr = FormatLogProcess.format(message);
