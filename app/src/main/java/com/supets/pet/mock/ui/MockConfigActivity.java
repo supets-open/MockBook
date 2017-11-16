@@ -6,9 +6,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.supets.commons.widget.CommonHeader;
-import com.supets.lib.supetscontext.App;
 import com.supets.pet.mock.config.MockConfig;
 import com.supets.pet.mockui.R;
 
@@ -55,7 +55,7 @@ public class MockConfigActivity extends Activity implements View.OnClickListener
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(mApi.getText().toString())) {
                     MockConfig.setBaseAPI(mApi.getText().toString().trim());
-                    App.toast("修改成功");
+                    Toast.makeText(MockConfigActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -70,7 +70,7 @@ public class MockConfigActivity extends Activity implements View.OnClickListener
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(emailname.getText().toString())) {
                     MockConfig.setEmailName(emailname.getText().toString().trim());
-                    App.toast("修改成功");
+                    Toast.makeText(MockConfigActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -86,7 +86,7 @@ public class MockConfigActivity extends Activity implements View.OnClickListener
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(emailpass.getText().toString())) {
                     MockConfig.setEmailPass(emailpass.getText().toString().trim());
-                    App.toast("修改成功");
+                    Toast.makeText(MockConfigActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
                 }
 
             }

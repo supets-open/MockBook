@@ -3,7 +3,7 @@ package com.supets.pet.mocklib.mock;
 import android.content.Intent;
 import android.util.Log;
 
-import com.supets.lib.supetscontext.App;
+import com.supets.commons.App;
 
 import org.json.JSONObject;
 
@@ -28,15 +28,13 @@ public final class FormatLogProcess {
 
         try {
 
-//            if (MockConfig.isFilterGuice(url)
-//                    && MockConfig.getJsonSwitch()
-//                    && !MockConfig.getDebugMode()) {
-            Intent intent = new Intent(MOCK_SERVICE_NETWORK);
-            intent.putExtra("url", url);
-            intent.putExtra("requestParam", requestParam);
-            intent.putExtra("message", message);
-            App.INSTANCE.sendBroadcast(intent);
-//            }
+            if (!isJpg(url)) {
+                Intent intent = new Intent(MOCK_SERVICE_NETWORK);
+                intent.putExtra("url", url);
+                intent.putExtra("requestParam", requestParam);
+                intent.putExtra("message", message);
+                App.INSTANCE.sendBroadcast(intent);
+            }
 
             if (isJson(message)) {
                 String jsonStr = FormatLogProcess.format(message);

@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.content.ContentResolverCompat;
 
-import com.supets.lib.supetscontext.App;
+import com.supets.commons.App;
 import com.supets.pet.mocklib.core.IMockDataMapper;
 
 class MockDataMapper implements IMockDataMapper {

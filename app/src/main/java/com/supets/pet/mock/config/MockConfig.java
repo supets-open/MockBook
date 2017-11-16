@@ -2,8 +2,6 @@ package com.supets.pet.mock.config;
 
 import android.content.SharedPreferences;
 
-import com.supets.pet.crash.BasePref;
-
 public class MockConfig extends BasePref {
 
     private static final String Name = "mock_config";

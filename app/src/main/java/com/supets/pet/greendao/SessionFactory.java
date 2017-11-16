@@ -1,6 +1,6 @@
 package com.supets.pet.greendao;
 
-import com.supets.lib.supetscontext.App;
+import com.supets.commons.App;
 
 public class SessionFactory {
 

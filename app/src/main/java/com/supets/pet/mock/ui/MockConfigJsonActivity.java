@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.supets.commons.App;
 import com.supets.commons.widget.CommonHeader;
-import com.supets.lib.supetscontext.App;
 import com.supets.pet.mock.bean.LocalMockData;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.bean.MockExampleData;

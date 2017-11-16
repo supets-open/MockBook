@@ -7,7 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
-import com.supets.lib.supetscontext.App;
+import com.supets.commons.App;
 import com.supets.pet.greendao.MigrationSQLiteOpenHelper;
 
 public class MockApiProvider extends ContentProvider {

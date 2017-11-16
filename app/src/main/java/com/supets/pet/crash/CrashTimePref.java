@@ -3,8 +3,6 @@ package com.supets.pet.crash;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import com.supets.pet.crash.BasePref;
-
 public class CrashTimePref extends BasePref {
 
 	private static final String CRASHTIME = "expire";

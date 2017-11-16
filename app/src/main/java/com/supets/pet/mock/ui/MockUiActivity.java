@@ -1,5 +1,6 @@
 package com.supets.pet.mock.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,7 +18,7 @@ import com.zhy.ioc.Bind;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockUiActivity extends PullMsgActivity {
+public class MockUiActivity extends Activity {
 
     @Bind(R.id.list)
     ListView mListView;

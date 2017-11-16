@@ -2,7 +2,6 @@ package com.supets.pet.mock.core;
 
 import com.supets.lib.supetsrouter.rpc.BaseProxy;
 import com.supets.lib.supetsrouter.rpc.IBaseUI;
-import com.supets.lib.supetsrouter.rpc.Module;
 import com.supets.pet.mock.test.MockModel;
 
 /**
@@ -12,11 +11,7 @@ class MockProxy extends BaseProxy<IBaseUI, IMockService> {
 
     @Override
     public String getModuleClassName() {
-        return "com.supets.pet.mock.test.MockModel";
+        return MockModel.class.getName();
     }
 
-    @Override
-    public Module<IBaseUI, IMockService> getDefaultModule() {
-        return new MockModel();
-    }
 }

@@ -3,8 +3,7 @@ package com.supets.pet.crash;
 import android.content.Context;
 import android.content.Intent;
 
-import com.supets.lib.supetscontext.App;
-import com.supets.pet.service.CrashService;
+import com.supets.commons.App;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -12,6 +11,8 @@ import java.io.Writer;
 import java.lang.Thread.UncaughtExceptionHandler;
 
 public class DefaultBugHandler implements UncaughtExceptionHandler {
+
+    public static final String MOCK_SERVICE_CRASH = "mock.crash.service";
 
     private UncaughtExceptionHandler mDefaultHandler;
     private static DefaultBugHandler INSTANCE;
@@ -50,7 +51,7 @@ public class DefaultBugHandler implements UncaughtExceptionHandler {
     }
 
     private void sendBroadCast(String file) {
-        Intent intent = new Intent(CrashService.MOCK_SERVICE_CRASH);
+        Intent intent = new Intent(MOCK_SERVICE_CRASH);
         intent.putExtra("crashlog", file);
         App.INSTANCE.sendBroadcast(intent);
     }

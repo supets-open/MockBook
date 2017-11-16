@@ -3,7 +3,7 @@ package com.supets.pet.mock.core;
 import android.content.Intent;
 import android.util.Log;
 
-import com.supets.lib.supetscontext.App;
+import com.supets.commons.App;
 import com.supets.pet.mock.config.MockConfig;
 import com.supets.pet.service.NetWorkInterceptionService;
 

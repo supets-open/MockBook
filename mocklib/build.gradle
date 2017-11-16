@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 group = 'com.supets.pet'
-version = '1.0.0'
+version = '2.0.0'
 
 uploadArchives {
     repositories {
@@ -47,9 +47,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.0'
     testCompile 'junit:junit:4.12'
 
+    compile 'com.cloudpet.base:baserouter:1.0.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-    compile 'com.supets.lib:jsonlib:2.0.0'
-    compile 'com.supets.lib:contextlib:2.0.0'
-    compile 'com.supets.lib:routerlib:2.1.0'
 
 }

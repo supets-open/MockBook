@@ -1,4 +1,4 @@
-package com.supets.pet.crash;
+package com.supets.pet.mock.config;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.supets.commons.App;
 
 
-class BasePref {
+ class BasePref {
 
 	protected static SharedPreferences getPref(String name) {
 		if (TextUtils.isEmpty(name)) {

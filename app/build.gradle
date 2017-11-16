@@ -58,12 +58,9 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 
-    compile 'com.supets.commons:commonui:2.2.0'
-
-    compile 'com.supets.lib:okhttplib:2.0.1'
-    compile 'com.supets.lib:routerlib:2.1.0'
+    compile 'com.cloudpet.base:baserouter:1.0.0'
+    compile 'com.cloudpet.ui:commonui:1.1.2'
     compile 'com.supets.lib:maillib:2.2.0'
-    compile 'com.supets.lib:jsonlib:2.0.0'
     compile 'com.supets.lib:jsoneditlib:1.4.0'
 
     //compile 'com.facebook.stetho:stetho:1.4.1'
@@ -75,5 +72,6 @@ dependencies {
     compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0'
     //使用数据库升级辅助GreenDaoUpgradleHepler时添加
     apt project(':libCompileApi')
+
 
 }
