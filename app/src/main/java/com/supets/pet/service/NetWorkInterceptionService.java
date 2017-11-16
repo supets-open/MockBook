@@ -31,6 +31,7 @@ public class NetWorkInterceptionService extends BroadcastReceiver {
                     data.setRequestParam(intent.getStringExtra("requestParam"));
                     data.setTime(new Date());
                     MockDataDB.insertMockData(data);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

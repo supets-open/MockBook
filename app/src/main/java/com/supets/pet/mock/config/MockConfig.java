@@ -1,6 +1,7 @@
 package com.supets.pet.mock.config;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 
 public class MockConfig extends BasePref {
 
@@ -78,7 +79,10 @@ public class MockConfig extends BasePref {
     public static boolean isFilterGuice(String url) {
         String json = getBaseAPI();
         String[] filters = json.split("\\s+");
+
+
         for (int i = 0; i < filters.length; i++) {
+            Log.v("filters",url+"\n"+filters[i]);
             if (url.contains(filters[i])) {
                 return true;
             }
