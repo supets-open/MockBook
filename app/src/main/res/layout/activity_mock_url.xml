@@ -18,7 +18,7 @@
         <EditText
             android:id="@+id/webview"
             android:layout_width="0dp"
-            android:background="#ffffff"
+            android:background="#e5e5e5"
             android:padding="15dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
