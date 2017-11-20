@@ -84,6 +84,7 @@
             android:name="com.supets.pet.mock.ui.MockEmailEditActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
+            android:windowSoftInputMode="stateHidden"
             android:name="com.supets.pet.mock.ui.MockUrlRuleActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 

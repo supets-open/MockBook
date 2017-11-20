@@ -5,7 +5,7 @@
     <string name="debug_switch">打开调试(不会抓取数据)</string>
     <string name="json_switch">抓取数据(不能打开调试)</string>
 
-    <string name="debug_title">桔子测试 V3.1</string>
+    <string name="debug_title">桔子测试 V3.2</string>
 
     <string name="interface_filter_guice">接口过滤规则(支持空格分割,包含匹配)</string>
     <string name="jsonedit">json编辑器</string>
@@ -29,5 +29,27 @@
         <!--窗体退出动画-->
         <item name="android:windowExitAnimation">@anim/msg_exit</item>
     </style>
+
+
+    <string-array name="testurlconfig">
+        <item >cloudpet://main</item>
+        <item >cloudpet://message</item>
+        <item >cloudpet://userCenter</item>
+        <item >cloudpet://familyDetail?id=1001</item>
+        <item >cloudpet://familyCalendar?id=1001</item>
+        <item >cloudpet://familyPets?id=1001</item>
+        <item >cloudpet://familyCommentList?id=1001</item>
+        <item >cloudpet://familyApply</item>
+        <item >cloudpet://familyOrderList</item>
+        <item >cloudpet://familyOrderInfo?order_code=54656445</item>
+        <item >cloudpet://myOrderList</item>
+        <item >cloudpet://myOrderInfo?order_code=54656445</item>
+        <item >cloudpet://service</item>
+        <item >cloudpet://fosterCareService</item>
+        <item >cloudpet://guaranteeService</item>
+        <item >cloudpet://userVideoVerify</item>
+        <item >cloudpet://serviceFee</item>
+        <item >cloudpet://serviceRule</item>
+    </string-array>
 
 </resources>

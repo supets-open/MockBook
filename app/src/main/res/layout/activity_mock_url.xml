@@ -30,4 +30,11 @@
             android:text="测试一把" />
     </LinearLayout>
 
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
+
 </LinearLayout>

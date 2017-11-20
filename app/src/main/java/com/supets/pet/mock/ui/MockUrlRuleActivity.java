@@ -5,34 +5,40 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.WebView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.supets.commons.widget.CommonHeader;
-import com.supets.lib.supetsrouter.uinav.UINav;
+import com.supets.pet.mock.ViewInjector;
 import com.supets.pet.mockui.R;
+import com.zhy.ioc.Bind;
 
-/**
- * supets_shopmail
- *
- * @user lihongjiang
- * @description
- * @date 2017/6/22
- * @updatetime 2017/6/22
- */
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MockUrlRuleActivity extends Activity {
 
+    @Bind(R.id.list)
+    ListView mListView;
 
-    private EditText mWebView;
+    @Bind(R.id.webview)
+    EditText mWebView;
+
+    @Bind(R.id.header)
+    CommonHeader mHeader;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mock_url);
+        ViewInjector.injectView(this);
 
-        CommonHeader mHeader = (CommonHeader) findViewById(R.id.header);
         mHeader.getTitleTextView().setText("映射测试");
         mHeader.getLeftButton().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +47,6 @@ public class MockUrlRuleActivity extends Activity {
             }
         });
 
-        mWebView = (EditText) findViewById(R.id.webview);
         mWebView.setText("supets://main");
 
         findViewById(R.id.testgo).setOnClickListener(new View.OnClickListener() {
@@ -56,5 +61,60 @@ public class MockUrlRuleActivity extends Activity {
                 }
             }
         });
+
+        UrlRuleAdapter adapter = new UrlRuleAdapter();
+        String[] urls = getResources().getStringArray(R.array.testurlconfig);
+        adapter.setData(Arrays.asList(urls));
+        mListView.setAdapter(adapter);
     }
+
+
+    class UrlRuleAdapter extends BaseAdapter {
+
+        public List<String> data = new ArrayList<>();
+
+        public void setData(List<String> data) {
+            this.data = data;
+        }
+
+        @Override
+        public int getCount() {
+            return data.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return data.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(final int position, View view, ViewGroup viewGroup) {
+
+            if (view == null) {
+                view = LayoutInflater.from(viewGroup.getContext())
+                        .inflate(R.layout.mock_list_tab_item, viewGroup, false);
+            }
+
+            ((TextView) view.findViewById(R.id.name)).setText(data.get(position));
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse((String) getItem(position)));
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            return view;
+        }
+    }
+
 }

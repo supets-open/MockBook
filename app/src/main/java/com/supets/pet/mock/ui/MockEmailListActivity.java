@@ -31,8 +31,37 @@ public class MockEmailListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mock_tab);
-
+        initdata();
         initView();
+    }
+
+    private void initdata() {
+        EmailDataDB.deleteAll();
+
+        EmailData emailData = new EmailData();
+        emailData.setEmail("254608684@qq.com");
+        emailData.setName("李洪江");
+        EmailDataDB.insertEmailData(emailData);
+
+        EmailData emailData1 = new EmailData();
+        emailData1.setEmail("395705449@qq.com");
+        emailData1.setName("刘旭");
+        EmailDataDB.insertEmailData(emailData1);
+
+        EmailData emailData2 = new EmailData();
+        emailData2.setEmail("728994184@qq.com");
+        emailData2.setName("海鹏");
+        EmailDataDB.insertEmailData(emailData2);
+
+        EmailData emailData3 = new EmailData();
+        emailData3.setEmail("1625112201@qq.com");
+        emailData3.setName("王吉");
+        EmailDataDB.insertEmailData(emailData3);
+
+        EmailData emailData4 = new EmailData();
+        emailData4.setEmail("980440939@qq.com");
+        emailData4.setName("朱从伟");
+        EmailDataDB.insertEmailData(emailData4);
     }
 
     private void updateData() {
@@ -108,7 +137,7 @@ public class MockEmailListActivity extends Activity {
                         .inflate(R.layout.mock_list_emaillist_item, viewGroup, false);
             }
 
-            ((TextView) view.findViewById(R.id.name)).setText(data.get(position).getName());
+            ((TextView) view.findViewById(R.id.name)).setText(data.get(position).getName()+"   "+data.get(position).getEmail());
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
