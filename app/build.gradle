@@ -67,6 +67,9 @@ dependencies {
     //compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
+    compile 'com.zhy:okhttputils:2.6.2'
+
+
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'net.zetetic:android-database-sqlcipher:3.5.4' //数据库加密时添加
     compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0'

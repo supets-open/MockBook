@@ -25,6 +25,12 @@
         android:textColor="#333333"
         android:textSize="15sp" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:text="接口探测"
+        android:id="@+id/sencondTest"
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/formatjson"
         android:layout_width="match_parent"

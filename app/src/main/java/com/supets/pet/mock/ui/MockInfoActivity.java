@@ -18,13 +18,18 @@ import com.supets.pet.mock.core.FormatLogProcess;
 import com.supets.pet.mock.dao.EmailDataDB;
 import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mockui.R;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.List;
+
+import okhttp3.Call;
 
 public class MockInfoActivity extends Activity {
 
 
     private MockData mockData;
+    private EditText mEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,7 @@ public class MockInfoActivity extends Activity {
         List<MockData> datas = MockDataDB.queryMockDataById(id);
         if (datas != null && datas.size() > 0) {
             mockData = datas.get(0);
-            EditText mEditText = (EditText) findViewById(R.id.list);
+            mEditText = (EditText) findViewById(R.id.list);
             mEditText.setText(FormatLogProcess.format(mockData.getData()));
 
             TextView name = (TextView) findViewById(R.id.name);
@@ -48,6 +53,27 @@ public class MockInfoActivity extends Activity {
             param.setText(Utils.formatParam(mockData.getRequestParam()));
 
         }
+
+
+        findViewById(R.id.sencondTest).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                OkHttpUtils.post().url(mockData.getUrl())
+                        .params(Utils.formatHashMap(mockData.getRequestParam())).build().execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        mEditText.setText(e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        mEditText.setText(response);
+                    }
+                });
+
+            }
+        });
 
     }
 
