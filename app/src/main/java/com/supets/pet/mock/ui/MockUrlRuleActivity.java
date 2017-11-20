@@ -104,13 +104,7 @@ public class MockUrlRuleActivity extends Activity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    try {
-                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse((String) getItem(position)));
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                    mWebView.setText((String) getItem(position));
                 }
             });
             return view;
