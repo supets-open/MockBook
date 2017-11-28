@@ -41,6 +41,7 @@ public class MockUiActivity extends Activity {
         datas.add("邮件管理");
         datas.add("映射测试");
         datas.add("工具助手");
+        datas.add("测试界面");
         adapter.setData(datas);
         adapter.notifyDataSetChanged();
     }
@@ -123,6 +124,10 @@ public class MockUiActivity extends Activity {
 
                     if (position == 6) {
                         Intent intent = new Intent(view.getContext(), MockToolActivity.class);
+                        view.getContext().startActivity(intent);
+                    }
+                    if (position == 7) {
+                        Intent intent = new Intent(view.getContext(), MockKeyActivity.class);
                         view.getContext().startActivity(intent);
                     }
                 }

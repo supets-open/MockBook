@@ -88,6 +88,11 @@
             android:name="com.supets.pet.mock.ui.MockUrlRuleActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <activity
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:name="com.supets.pet.mock.ui.MockKeyActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
     </application>
 
 </manifest>
