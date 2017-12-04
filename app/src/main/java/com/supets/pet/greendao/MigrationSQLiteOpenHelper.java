@@ -16,6 +16,10 @@ public  class MigrationSQLiteOpenHelper extends DaoMaster.OpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         MigrationHelper.DEBUG = true;
-        MigrationHelper.migrate(db, MockDataDao.class);
+        MigrationHelper.migrate(db,
+                MockDataDao.class,
+                CrashDataDao.class,
+                LocalMockDataDao.class,
+                EmailDataDao.class);
     }
 }
