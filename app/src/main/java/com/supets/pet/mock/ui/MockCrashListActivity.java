@@ -26,10 +26,6 @@ public class MockCrashListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mock_tab);
 
-        CrashData  temp=new CrashData();
-        temp.setCrash("这是一个测试异常信息！");
-        CrashDataDB.insertCrashData(temp);
-
         initView();
         update();
 

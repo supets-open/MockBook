@@ -1,9 +1,9 @@
 package com.supets.pet.crash;
 
 import android.content.Context;
-import android.content.Intent;
 
-import com.supets.commons.App;
+import com.supets.pet.mock.bean.CrashData;
+import com.supets.pet.mock.dao.CrashDataDB;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -51,9 +51,9 @@ public class DefaultBugHandler implements UncaughtExceptionHandler {
     }
 
     private void sendBroadCast(String file) {
-        Intent intent = new Intent(MOCK_SERVICE_CRASH);
-        intent.putExtra("crashlog", file);
-        App.INSTANCE.sendBroadcast(intent);
+        CrashData data = new CrashData();
+        data.setCrash(file);
+        CrashDataDB.insertCrashData(data);
     }
 
     private String saveBugFileInfo(Throwable ex) {
