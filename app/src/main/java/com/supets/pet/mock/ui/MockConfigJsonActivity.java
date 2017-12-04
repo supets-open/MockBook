@@ -63,7 +63,7 @@ public class MockConfigJsonActivity extends Activity {
 
     private void initView() {
         CommonHeader header = (CommonHeader) findViewById(R.id.header);
-        header.getTitleTextView().setText("接口数据配置详情");
+        header.getTitleTextView().setText("配置接口待测数据");
         header.getLeftButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

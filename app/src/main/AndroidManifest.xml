@@ -64,6 +64,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.supets.pet.mock.ui.MockTestActivity"
+            android:windowSoftInputMode="adjustNothing"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.supets.pet.mock.ui.MockConfigJsonActivity"
