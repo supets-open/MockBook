@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#eeeeee"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <TextView
@@ -24,18 +24,20 @@
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:layout_margin="10dp"
-            android:background="#dddddd"
+            android:background="#ffffff"
             android:text="待测"
             android:textColor="#333333"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/configjson"
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:layout_margin="10dp"
-            android:background="#ff0000"
-            android:text="配置" />
+            android:background="#ff4d88"
+            android:text="配置"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
 
     </LinearLayout>
 
