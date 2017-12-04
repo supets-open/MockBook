@@ -68,6 +68,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.supets.pet.mock.ui.MockConfigJsonActivity"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.supets.pet.mock.ui.MockModelActivity"
