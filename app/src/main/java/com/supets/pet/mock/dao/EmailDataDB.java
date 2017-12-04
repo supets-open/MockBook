@@ -12,7 +12,7 @@ import java.util.List;
 public class EmailDataDB extends SessionFactory {
 
 
-   private  static final EmailDataDao   emailDataDao=getDbSession().getEmailDataDao();
+    private static final EmailDataDao emailDataDao = getDbSession().getEmailDataDao();
 
 
     public static List<EmailData> queryAll() {
@@ -24,7 +24,15 @@ public class EmailDataDB extends SessionFactory {
     }
 
     public static void insertEmailData(EmailData status) {
-        emailDataDao.insert(status);
+        List<EmailData> list =
+                emailDataDao.queryRaw("where email = ? ", status.getEmail());
+        if (list != null && list.size() > 0) {
+            list.get(0).setEmail(status.getEmail());
+            list.get(0).setName(status.getName());
+            updateEmailData(list.get(0));
+        } else {
+            emailDataDao.insert(status);
+        }
     }
 
     public static void updateEmailData(EmailData status) {
@@ -41,15 +49,16 @@ public class EmailDataDB extends SessionFactory {
 
     @NonNull
     public static String[] getEmailList() {
-        String[] list;List<EmailData> data = EmailDataDB.queryAll();
+        String[] list;
+        List<EmailData> data = EmailDataDB.queryAll();
         if (data != null && data.size() > 0) {
             list = new String[data.size()];
             for (int i = 0; i < data.size(); i++) {
-                list[i] = data.get(i).getName()+"<"+data.get(i).getEmail()+">";
+                list[i] = data.get(i).getName() + "<" + data.get(i).getEmail() + ">";
             }
         } else {
             list = new String[1];
-            list[0] ="发件人<" + MockConfig.getEmailName()+">";
+            list[0] = "发件人<" + MockConfig.getEmailName() + ">";
         }
         return list;
     }
