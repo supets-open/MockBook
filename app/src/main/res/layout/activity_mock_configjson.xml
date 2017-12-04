@@ -18,25 +18,20 @@
         android:textColor="#333333"
         android:textSize="15sp" />
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ListView
             android:id="@+id/datalist"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_height="match_parent"/>
 
         <EditText
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_toEndOf="@id/datalist"
-            android:layout_toRightOf="@id/datalist"
             android:gravity="left" />
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

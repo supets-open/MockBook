@@ -41,7 +41,7 @@ public class MockUiActivity extends Activity {
         datas.add("邮件管理");
         datas.add("映射测试");
         datas.add("工具助手");
-        datas.add("测试界面");
+        //datas.add("测试界面");
         adapter.setData(datas);
         adapter.notifyDataSetChanged();
     }
