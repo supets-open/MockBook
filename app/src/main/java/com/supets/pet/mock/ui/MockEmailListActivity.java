@@ -40,9 +40,10 @@ public class MockEmailListActivity extends Activity {
         String[] names = getResources().getStringArray(R.array.defaultEmail);
         for (String name : names) {
             EmailData emailData = new EmailData();
-            String[] emails = name.split("-");
+            String[] emails=name.split("-");
             emailData.setEmail(emails[1]);
             emailData.setName(emails[0]);
+            EmailDataDB.insertEmailData(emailData);
         }
 
     }

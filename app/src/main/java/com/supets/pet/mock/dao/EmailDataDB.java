@@ -26,11 +26,7 @@ public class EmailDataDB extends SessionFactory {
     public static void insertEmailData(EmailData status) {
         List<EmailData> list =
                 emailDataDao.queryRaw("where email = ? ", status.getEmail());
-        if (list != null && list.size() > 0) {
-            list.get(0).setEmail(status.getEmail());
-            list.get(0).setName(status.getName());
-            updateEmailData(list.get(0));
-        } else {
+        if (list == null || list.isEmpty()) {
             emailDataDao.insert(status);
         }
     }
