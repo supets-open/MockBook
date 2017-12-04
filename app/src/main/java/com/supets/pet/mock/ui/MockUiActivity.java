@@ -41,7 +41,7 @@ public class MockUiActivity extends Activity {
         datas.add("邮件管理");
         datas.add("映射测试");
         datas.add("JSON助手");
-        //datas.add("版本更新");
+        datas.add("异常管理");
         adapter.setData(datas);
         adapter.notifyDataSetChanged();
     }
@@ -126,8 +126,13 @@ public class MockUiActivity extends Activity {
                         Intent intent = new Intent(view.getContext(), MockToolActivity.class);
                         view.getContext().startActivity(intent);
                     }
+//                    if (position == 7) {
+//                        Intent intent = new Intent(view.getContext(), MockKeyActivity.class);
+//                        view.getContext().startActivity(intent);
+//                    }
+
                     if (position == 7) {
-                        Intent intent = new Intent(view.getContext(), MockKeyActivity.class);
+                        Intent intent = new Intent(view.getContext(), MockCrashListActivity.class);
                         view.getContext().startActivity(intent);
                     }
                 }

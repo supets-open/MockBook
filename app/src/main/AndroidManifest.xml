@@ -64,12 +64,12 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.supets.pet.mock.ui.MockTestActivity"
-            android:windowSoftInputMode="adjustNothing"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name="com.supets.pet.mock.ui.MockConfigJsonActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.supets.pet.mock.ui.MockModelActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
@@ -83,17 +83,20 @@
             android:name="com.supets.pet.mock.ui.MockEmailListActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
+            android:name="com.supets.pet.mock.ui.MockCrashListActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
             android:name="com.supets.pet.mock.ui.MockEmailEditActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:windowSoftInputMode="stateHidden"
             android:name="com.supets.pet.mock.ui.MockUrlRuleActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:windowSoftInputMode="stateHidden|adjustPan"
             android:name="com.supets.pet.mock.ui.MockKeyActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
     </application>
 
