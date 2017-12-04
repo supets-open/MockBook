@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.supets.commons.widget.CommonHeader;
@@ -29,7 +28,7 @@ public class MockInfoActivity extends Activity {
 
 
     private MockData mockData;
-    private EditText mEditText;
+    private TextView mEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,7 @@ public class MockInfoActivity extends Activity {
         List<MockData> datas = MockDataDB.queryMockDataById(id);
         if (datas != null && datas.size() > 0) {
             mockData = datas.get(0);
-            mEditText = (EditText) findViewById(R.id.list);
+            mEditText = (TextView) findViewById(R.id.list);
             mEditText.setText(FormatLogProcess.format(mockData.getData()));
 
             TextView name = (TextView) findViewById(R.id.name);
