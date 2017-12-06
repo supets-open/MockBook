@@ -101,23 +101,8 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
-        <service
-            android:name="com.supets.pet.robmoney.AirAccessibilityService"
-            android:enabled="true"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.accessibilityservice"
-                android:resource="@xml/accessibility_service_config" />
-        </service>
-
         <!--<service-->
-            <!--android:name="com.supets.pet.robmoney.RobMoneyService"-->
+            <!--android:name="com.supets.pet.robmoney.AirAccessibilityService"-->
             <!--android:enabled="true"-->
             <!--android:exported="true"-->
             <!--android:label="@string/app_name"-->
@@ -125,10 +110,25 @@
             <!--<intent-filter>-->
                 <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
             <!--</intent-filter>-->
+
             <!--<meta-data-->
                 <!--android:name="android.accessibilityservice"-->
-                <!--android:resource="@xml/accessibility_service_config2"/>-->
+                <!--android:resource="@xml/accessibility_service_config" />-->
         <!--</service>-->
+
+        <service
+            android:name="com.supets.pet.robmoney.RobMoneyService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config2"/>
+        </service>
     </application>
 
 </manifest>
