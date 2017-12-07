@@ -1,2 +1,2 @@
-include ':app', ':libCompileApi', ':libannotation'
+include ':app', ':appred',':libCompileApi', ':libannotation'
 include ':mocklib'
