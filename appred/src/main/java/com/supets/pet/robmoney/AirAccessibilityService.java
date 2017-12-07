@@ -19,7 +19,7 @@ import java.util.List;
 
 public class AirAccessibilityService extends AccessibilityService {
 
-    public static boolean ALL = false;
+    public static boolean ALL = true;
     private List<AccessibilityNodeInfo> parents;
     private boolean auto = false;
     private int lastbagnum;
