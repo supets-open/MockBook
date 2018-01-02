@@ -20,6 +20,7 @@ import java.util.List;
 public class AirAccessibilityService extends AccessibilityService {
 
     public static boolean ALL = true;
+    public static boolean isClose = true;
     private List<AccessibilityNodeInfo> parents;
     private boolean auto = false;
     private int lastbagnum;
@@ -33,6 +34,7 @@ public class AirAccessibilityService extends AccessibilityService {
     //唤醒屏幕相关
     private PowerManager pm;
     private PowerManager.WakeLock wl = null;
+
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
@@ -91,9 +93,14 @@ public class AirAccessibilityService extends AccessibilityService {
                     WXMAIN = true;
                 } else if (className.contains("com.tencent.mm.plugin.luckymoney.ui")) {
                     click("com.tencent.mm:id/bwn");
+                    click("com.tencent.mm:id/c2i");
+
+                    if (isClose) {
+                        click("com.tencent.mm:id/c07");
+                    }
                     auto = false;
                     WXMAIN = false;
-                }else {
+                } else {
                     WXMAIN = false;
                     lastMAIN = className;
                 }
@@ -142,9 +149,10 @@ public class AirAccessibilityService extends AccessibilityService {
             if (info.getChildCount() == 0) {
                 if (info.getText() != null) {
 
-                    boolean isred="领取红包".equals(info.getText().toString());
+                    boolean isred = "领取红包".equals(info.getText().toString());
+                    boolean isred2 = "查看红包".equals(info.getText().toString());
 
-                    if (isred) {
+                    if (isred || isred2) {
                         if (info.isClickable()) {
                             info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
                         }
@@ -170,12 +178,11 @@ public class AirAccessibilityService extends AccessibilityService {
 
         }
     }
-    private void wakeAndUnlock2(boolean b)
-    {
-        if(b)
-        {
+
+    private void wakeAndUnlock2(boolean b) {
+        if (b) {
             //获取电源管理器对象
-            pm=(PowerManager) getSystemService(Context.POWER_SERVICE);
+            pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 
             //获取PowerManager.WakeLock对象，后面的参数|表示同时传入两个值，最后的是调试用的Tag
             wl = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "bright");
@@ -184,14 +191,12 @@ public class AirAccessibilityService extends AccessibilityService {
             wl.acquire();
 
             //得到键盘锁管理器对象
-            km= (KeyguardManager)getSystemService(Context.KEYGUARD_SERVICE);
+            km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
             kl = km.newKeyguardLock("unLock");
 
             //解锁
             kl.disableKeyguard();
-        }
-        else
-        {
+        } else {
             //锁屏
             kl.reenableKeyguard();
 
