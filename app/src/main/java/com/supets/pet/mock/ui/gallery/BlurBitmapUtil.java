@@ -1,4 +1,4 @@
-package com.supets.pet.mock.ui.home;
+package com.supets.pet.mock.ui.gallery;
 
 import android.content.Context;
 import android.graphics.Bitmap;

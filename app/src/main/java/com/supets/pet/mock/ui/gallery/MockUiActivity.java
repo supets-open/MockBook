@@ -1,6 +1,5 @@
-package com.supets.pet.mock.ui.test;
+package com.supets.pet.mock.ui.gallery;
 
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,26 +10,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ryan.rv_gallery.AnimManager;
 import com.ryan.rv_gallery.GalleryRecyclerView;
 import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.ViewInjector;
-import com.supets.pet.mock.ui.MockConfigActivity;
-import com.supets.pet.mock.ui.MockCrashListActivity;
-import com.supets.pet.mock.ui.MockDataListActivity;
-import com.supets.pet.mock.ui.MockEmailListActivity;
-import com.supets.pet.mock.ui.MockModelActivity;
-import com.supets.pet.mock.ui.MockTestActivity;
-import com.supets.pet.mock.ui.MockToolActivity;
-import com.supets.pet.mock.ui.MockUrlRuleActivity;
 import com.supets.pet.mockui.R;
 import com.zhy.ioc.Bind;
 
@@ -39,15 +26,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MockUiActivity extends AppCompatActivity implements GalleryRecyclerView.OnItemClickListener  {
+public class MockUiActivity extends AppCompatActivity implements GalleryRecyclerView.OnItemClickListener {
 
-//    @Bind(R.id.rv_list)
-//    ListView mListView;
     @Bind(R.id.header)
     CommonHeader header;
-
-    private   MockAdapter adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,105 +45,6 @@ public class MockUiActivity extends AppCompatActivity implements GalleryRecycler
     private void initView() {
         header.getTitleTextView().setText(R.string.debug_title);
         header.getLeftButton().setVisibility(View.GONE);
-
-        adapter = new MockAdapter();
-        //mListView.setAdapter(adapter);
-
-        //List<String> datas = new ArrayList<>();
-        //datas.add("数据抓取");
-        //datas.add("接口测试");
-        //datas.add("数据模型");
-        //datas.add("测试配置");
-       // datas.add("邮件管理");
-       // datas.add("映射测试");
-       // datas.add("JSON助手");
-       // datas.add("异常管理");
-        //adapter.setData(datas);
-        //adapter.notifyDataSetChanged();
-    }
-
-
-    class MockAdapter extends BaseAdapter {
-
-
-        public List<String> data = new ArrayList<>();
-
-        public void setData(List<String> data) {
-            this.data = data;
-        }
-
-        @Override
-        public int getCount() {
-            return data.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return data.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(final int position, View view, ViewGroup viewGroup) {
-
-            if (view == null) {
-                view = LayoutInflater.from(viewGroup.getContext())
-                        .inflate(R.layout.mock_list_tab_item, viewGroup, false);
-            }
-
-            ((TextView) view.findViewById(R.id.name)).setText(data.get(position));
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (position == 0) {
-                        Intent intent = new Intent(view.getContext(), MockDataListActivity.class);
-                        view.getContext().startActivity(intent);
-                    }
-
-                    if (position == 1) {
-                        Intent intent = new Intent(view.getContext(), MockTestActivity.class);
-                        view.getContext().startActivity(intent);
-                    }
-                    if (position == 2) {
-                        Intent intent = new Intent(view.getContext(), MockModelActivity.class);
-                        view.getContext().startActivity(intent);
-                    }
-                    if (position == 3) {
-                        Intent intent = new Intent(view.getContext(), MockConfigActivity.class);
-                        view.getContext().startActivity(intent);
-                    }
-
-                    if (position == 4) {
-                        Intent intent = new Intent(view.getContext(), MockEmailListActivity.class);
-                        view.getContext().startActivity(intent);
-                    }
-
-                    if (position == 5) {
-                        Intent intent = new Intent(view.getContext(), MockUrlRuleActivity.class);
-                        view.getContext().startActivity(intent);
-                    }
-
-                    if (position == 6) {
-                        Intent intent = new Intent(view.getContext(), MockToolActivity.class);
-                        view.getContext().startActivity(intent);
-                    }
-//                    if (position == 7) {
-//                        Intent intent = new Intent(view.getContext(), MockKeyActivity.class);
-//                        view.getContext().startActivity(intent);
-//                    }
-
-                    if (position == 7) {
-                        Intent intent = new Intent(view.getContext(), MockCrashListActivity.class);
-                        view.getContext().startActivity(intent);
-                    }
-                }
-            });
-            return view;
-        }
     }
 
     /////////
