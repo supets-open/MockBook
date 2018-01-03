@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.bean.MockData;
-import com.supets.pet.mock.core.FormatLogProcess;
+import com.supets.pet.mock.utils.FormatLogProcess;
 import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mockui.R;
 

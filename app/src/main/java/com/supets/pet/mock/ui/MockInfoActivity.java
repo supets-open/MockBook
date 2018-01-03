@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import com.supets.commons.widget.CommonHeader;
 import com.supets.lib.mail.MailUtil;
-import com.supets.pet.mock.Utils;
+import com.supets.pet.mock.utils.Utils;
 import com.supets.pet.mock.bean.MockData;
-import com.supets.pet.mock.config.MockConfig;
-import com.supets.pet.mock.core.FormatLogProcess;
+import com.supets.pet.mock.config.Config;
+import com.supets.pet.mock.utils.FormatLogProcess;
 import com.supets.pet.mock.dao.EmailDataDB;
 import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mockui.R;
@@ -119,8 +119,8 @@ public class MockInfoActivity extends Activity {
                         MailUtil.setPort(25);
                         MailUtil.setServer("smtp.163.com");
                         MailUtil.setFrom("疯狂桔子安卓团队");
-                        MailUtil.setUser(MockConfig.getEmailName());
-                        MailUtil.setPassword(MockConfig.getEmailPass());
+                        MailUtil.setUser(Config.getEmailName());
+                        MailUtil.setPassword(Config.getEmailPass());
                         MailUtil.sendEmail(finalList[which],
                                 getString(R.string.crash_title),
                                 new StringBuffer().append("接口名称：")

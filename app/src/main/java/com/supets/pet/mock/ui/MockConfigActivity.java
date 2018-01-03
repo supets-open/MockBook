@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.supets.commons.widget.CommonHeader;
-import com.supets.pet.mock.config.MockConfig;
+import com.supets.pet.mock.config.Config;
 import com.supets.pet.mockui.R;
 
 public class MockConfigActivity extends Activity implements View.OnClickListener {
@@ -40,21 +40,21 @@ public class MockConfigActivity extends Activity implements View.OnClickListener
 
         mDebugSwitch = (CheckBox) findViewById(R.id.debugmode);
         mDebugSwitch.setOnClickListener(this);
-        mDebugSwitch.setChecked(MockConfig.getDebugMode());
+        mDebugSwitch.setChecked(Config.getDebugMode());
 
         mDebugMore = (CheckBox) findViewById(R.id.jsonswitch);
         mDebugMore.setOnClickListener(this);
-        mDebugMore.setChecked(MockConfig.getJsonSwitch());
+        mDebugMore.setChecked(Config.getJsonSwitch());
 
         mApi = (EditText) findViewById(R.id.api);
-        mApi.setText(MockConfig.getBaseAPI());
+        mApi.setText(Config.getBaseAPI());
 
         View apisave = findViewById(R.id.apisave);
         apisave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(mApi.getText().toString())) {
-                    MockConfig.setBaseAPI(mApi.getText().toString().trim());
+                    Config.setBaseAPI(mApi.getText().toString().trim());
                     Toast.makeText(MockConfigActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
                 }
 
@@ -62,14 +62,14 @@ public class MockConfigActivity extends Activity implements View.OnClickListener
         });
 
         final EditText emailname = (EditText) findViewById(R.id.emailname);
-        emailname.setText(MockConfig.getEmailName());
+        emailname.setText(Config.getEmailName());
 
         View emailnamesave = findViewById(R.id.emailnamesave);
         emailnamesave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(emailname.getText().toString())) {
-                    MockConfig.setEmailName(emailname.getText().toString().trim());
+                    Config.setEmailName(emailname.getText().toString().trim());
                     Toast.makeText(MockConfigActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
                 }
 
@@ -78,14 +78,14 @@ public class MockConfigActivity extends Activity implements View.OnClickListener
 
 
         final EditText emailpass = (EditText) findViewById(R.id.emailpass);
-        emailpass.setText(MockConfig.getEmailPass());
+        emailpass.setText(Config.getEmailPass());
 
         View emailpasssave = findViewById(R.id.emailpasssave);
         emailpasssave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(emailpass.getText().toString())) {
-                    MockConfig.setEmailPass(emailpass.getText().toString().trim());
+                    Config.setEmailPass(emailpass.getText().toString().trim());
                     Toast.makeText(MockConfigActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
                 }
 
@@ -97,11 +97,11 @@ public class MockConfigActivity extends Activity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if (v == mDebugSwitch) {
-            MockConfig.setDebugMode(mDebugSwitch.isChecked());
+            Config.setDebugMode(mDebugSwitch.isChecked());
         }
 
         if (v == mDebugMore) {
-            MockConfig.setJsonSwitch(mDebugMore.isChecked());
+            Config.setJsonSwitch(mDebugMore.isChecked());
         }
     }
 }

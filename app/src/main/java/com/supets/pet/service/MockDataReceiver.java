@@ -6,12 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.supets.pet.mock.bean.MockData;
-import com.supets.pet.mock.config.MockConfig;
+import com.supets.pet.mock.config.Config;
 import com.supets.pet.mock.dao.MockDataDB;
 
 import java.util.Date;
 
-public class NetWorkInterceptionService extends BroadcastReceiver {
+public class MockDataReceiver extends BroadcastReceiver {
 
     public static final String MOCK_SERVICE_NETWORK = "mock.crash.network";
 
@@ -21,9 +21,9 @@ public class NetWorkInterceptionService extends BroadcastReceiver {
 
         if (MOCK_SERVICE_NETWORK.equals(intent.getAction())) {
 
-            if (MockConfig.isFilterGuice(intent.getStringExtra("url"))
-                    && MockConfig.getJsonSwitch()
-                    && !MockConfig.getDebugMode()) {
+            if (Config.isFilterGuice(intent.getStringExtra("url"))
+                    && Config.getJsonSwitch()
+                    && !Config.getDebugMode()) {
                 try {
                     MockData data = new MockData();
                     data.setUrl(intent.getStringExtra("url"));

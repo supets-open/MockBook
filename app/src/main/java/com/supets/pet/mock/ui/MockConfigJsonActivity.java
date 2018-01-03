@@ -16,7 +16,7 @@ import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.bean.LocalMockData;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.bean.MockExampleData;
-import com.supets.pet.mock.core.FormatLogProcess;
+import com.supets.pet.mock.utils.FormatLogProcess;
 import com.supets.pet.mock.dao.LocalMockDataDB;
 import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mock.dao.MockExampleDataDB;

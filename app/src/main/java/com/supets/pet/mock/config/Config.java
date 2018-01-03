@@ -3,7 +3,7 @@ package com.supets.pet.mock.config;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-public class MockConfig extends BasePref {
+public class Config extends BasePref {
 
     private static final String Name = "mock_config";
 

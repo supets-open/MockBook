@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import com.supets.pet.greendao.EmailDataDao;
 import com.supets.pet.greendao.SessionFactory;
 import com.supets.pet.mock.bean.EmailData;
-import com.supets.pet.mock.config.MockConfig;
+import com.supets.pet.mock.config.Config;
 
 import java.util.List;
 
@@ -54,7 +54,7 @@ public class EmailDataDB extends SessionFactory {
             }
         } else {
             list = new String[1];
-            list[0] = "发件人<" + MockConfig.getEmailName() + ">";
+            list[0] = "发件人<" + Config.getEmailName() + ">";
         }
         return list;
     }

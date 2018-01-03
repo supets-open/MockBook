@@ -9,8 +9,10 @@ import android.net.Uri;
 
 import com.supets.commons.App;
 import com.supets.pet.greendao.MigrationSQLiteOpenHelper;
+import com.supets.pet.mock.config.Config;
+import com.supets.pet.mockui.R;
 
-public class MockApiProvider extends ContentProvider {
+public class MockDataProvider extends ContentProvider {
 
     private static final String AUTHORITY = "com.supets.pet.mockprovider";
     //匹配成功后的匹配码  
@@ -59,9 +61,13 @@ public class MockApiProvider extends ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
+        if (!Config.getDebugMode()){
+            return  null;
+        }
+
         switch (uriMatcher.match(uri)) {
             case MATCH_ALL_CODE:
-                return  db.rawQuery("select * from LOCAL_MOCK_DATA  where url=?", selectionArgs);
+                return  db.rawQuery(getContext().getString(R.string.querysql), selectionArgs);
             case MATCH_ONE_CODE:
                 break;
             default:

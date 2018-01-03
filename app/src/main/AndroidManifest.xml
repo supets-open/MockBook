@@ -22,7 +22,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.supets.pet.service.NetWorkInterceptionService"
+            android:name="com.supets.pet.service.MockDataReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="mock.crash.network" />
@@ -30,7 +30,7 @@
         </receiver>
 
         <provider
-            android:name="com.supets.pet.service.MockApiProvider"
+            android:name="com.supets.pet.service.MockDataProvider"
             android:authorities="com.supets.pet.mockprovider"
             android:exported="true" />
 

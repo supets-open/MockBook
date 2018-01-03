@@ -1,4 +1,4 @@
-package com.supets.pet.mock;
+package com.supets.pet.mock.utils;
 
 import java.net.URLDecoder;
 import java.util.HashMap;
