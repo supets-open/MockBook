@@ -40,7 +40,11 @@ public class MzBannerAdapter extends RecyclerView.Adapter<MzBannerAdapter.MzView
         final int P = position % urlList.size();
         String url = urlList.get(P);
         ImageView img = holder.imageView;
-        Picasso.with(context).load(url).into(img);
+
+
+        Picasso.with(context).load(url).centerInside()
+                .fit().into(img);
+
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

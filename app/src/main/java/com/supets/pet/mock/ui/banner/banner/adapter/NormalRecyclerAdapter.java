@@ -41,7 +41,8 @@ public class NormalRecyclerAdapter extends RecyclerView.Adapter<NormalRecyclerAd
             return;
         String url = urlList.get(position % urlList.size());
         ImageView img = (ImageView) holder.itemView;
-        Picasso.with(context).load(url).into(img);
+        Picasso.with(context).load(url).centerInside()
+                .fit().into(img);
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,7 +10,7 @@
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:orientation="horizontal"
+        app:orientationEx="horizontal"
      />
 
     <com.supets.pet.mock.ui.banner.banner.RecyclerViewBannerNormal
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="20dp"
-        app:orientation="vertical"
+        app:orientationEx="vertical"
       />
 </LinearLayout>
 
