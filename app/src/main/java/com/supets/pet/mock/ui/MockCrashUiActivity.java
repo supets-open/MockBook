@@ -1,6 +1,5 @@
 package com.supets.pet.mock.ui;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -26,8 +25,8 @@ public class MockCrashUiActivity extends AppCompatActivity {
 
         String crashlog = getIntent().getStringExtra("crashlog");
 
-        if (crashlog==null){
-            crashlog="这是一封测试邮件,不需要回复";
+        if (crashlog == null) {
+            crashlog = "这是一封测试邮件,不需要回复";
         }
 
         mHeader = (CommonHeader) findViewById(R.id.header);
@@ -52,7 +51,7 @@ public class MockCrashUiActivity extends AppCompatActivity {
     }
 
     private void doSendEmail() {
-        String[] list =EmailDataDB.getEmailList();
+        String[] list = EmailDataDB.getEmailList();
 
         final String[] finalList = list;
         new AlertDialog.Builder(this)

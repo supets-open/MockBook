@@ -1,6 +1,5 @@
 package com.supets.pet.mock.ui;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -48,7 +47,7 @@ public class MockToolActivity extends AppCompatActivity {
         String json = getIntent().getStringExtra("json");
         jsonEditView.formatJson(json);
 
-        if (TextUtils.isEmpty(json)){
+        if (TextUtils.isEmpty(json)) {
             return;
         }
 
@@ -63,7 +62,7 @@ public class MockToolActivity extends AppCompatActivity {
 
 
     private void doSendEmail() {
-        String[] list =EmailDataDB.getEmailList();
+        String[] list = EmailDataDB.getEmailList();
 
         final String[] finalList = list;
         new AlertDialog.Builder(this)

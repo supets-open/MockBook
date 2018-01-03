@@ -1,6 +1,5 @@
 package com.supets.pet.mock.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,8 +13,8 @@ import android.widget.TextView;
 
 import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.bean.MockData;
-import com.supets.pet.mock.utils.FormatLogProcess;
 import com.supets.pet.mock.dao.MockDataDB;
+import com.supets.pet.mock.utils.FormatLogProcess;
 import com.supets.pet.mockui.R;
 
 import java.text.SimpleDateFormat;

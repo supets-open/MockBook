@@ -1,6 +1,5 @@
 package com.supets.pet.mock.ui;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,12 +10,12 @@ import android.widget.TextView;
 
 import com.supets.commons.widget.CommonHeader;
 import com.supets.lib.mail.MailUtil;
-import com.supets.pet.mock.utils.Utils;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.config.Config;
-import com.supets.pet.mock.utils.FormatLogProcess;
 import com.supets.pet.mock.dao.EmailDataDB;
 import com.supets.pet.mock.dao.MockDataDB;
+import com.supets.pet.mock.utils.FormatLogProcess;
+import com.supets.pet.mock.utils.Utils;
 import com.supets.pet.mockui.R;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;

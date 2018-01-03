@@ -1,6 +1,5 @@
 package com.supets.pet.mock.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -56,7 +55,7 @@ public class MockConfigActivity extends AppCompatActivity implements View.OnClic
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(mApi.getText().toString())) {
                     Config.setBaseAPI(mApi.getText().toString().trim());
-                    Toast.makeText(MockConfigActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MockConfigActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -71,7 +70,7 @@ public class MockConfigActivity extends AppCompatActivity implements View.OnClic
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(emailname.getText().toString())) {
                     Config.setEmailName(emailname.getText().toString().trim());
-                    Toast.makeText(MockConfigActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MockConfigActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -87,7 +86,7 @@ public class MockConfigActivity extends AppCompatActivity implements View.OnClic
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(emailpass.getText().toString())) {
                     Config.setEmailPass(emailpass.getText().toString().trim());
-                    Toast.makeText(MockConfigActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MockConfigActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                 }
 
             }

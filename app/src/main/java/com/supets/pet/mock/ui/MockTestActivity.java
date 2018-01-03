@@ -1,6 +1,5 @@
 package com.supets.pet.mock.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -85,14 +84,14 @@ public class MockTestActivity extends AppCompatActivity {
         }
     }
 
-  private   class MockAdapter extends BaseAdapter {
+    private class MockAdapter extends BaseAdapter {
 
 
         public List<LocalMockData> data = new ArrayList<>();
 
 
         public void setData(List<LocalMockData> data) {
-            this.data .addAll(data);
+            this.data.addAll(data);
         }
 
         @Override

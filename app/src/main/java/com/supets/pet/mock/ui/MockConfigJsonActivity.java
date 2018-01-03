@@ -1,6 +1,5 @@
 package com.supets.pet.mock.ui;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,10 +16,10 @@ import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.bean.LocalMockData;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.bean.MockExampleData;
-import com.supets.pet.mock.utils.FormatLogProcess;
 import com.supets.pet.mock.dao.LocalMockDataDB;
 import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mock.dao.MockExampleDataDB;
+import com.supets.pet.mock.utils.FormatLogProcess;
 import com.supets.pet.mockui.R;
 
 import java.util.ArrayList;

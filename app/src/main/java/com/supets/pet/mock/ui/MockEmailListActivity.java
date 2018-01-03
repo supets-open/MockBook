@@ -1,6 +1,5 @@
 package com.supets.pet.mock.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -41,7 +40,7 @@ public class MockEmailListActivity extends AppCompatActivity {
         String[] names = getResources().getStringArray(R.array.defaultEmail);
         for (String name : names) {
             EmailData emailData = new EmailData();
-            String[] emails=name.split("-");
+            String[] emails = name.split("-");
             emailData.setEmail(emails[1]);
             emailData.setName(emails[0]);
             EmailDataDB.insertEmailData(emailData);

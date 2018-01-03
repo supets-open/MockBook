@@ -1,14 +1,13 @@
 package com.supets.pet.mock.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
-import com.supets.commons.widget.CommonHeader;
 import com.supets.commons.App;
+import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.bean.MockExampleData;
 import com.supets.pet.mock.dao.MockExampleDataDB;
 import com.supets.pet.mockui.R;
@@ -39,7 +38,7 @@ public class MockModelEditActivity extends AppCompatActivity {
         title = (EditText) findViewById(R.id.title);
         json = (EditText) findViewById(R.id.json);
 
-        if (mockExampleData!=null){
+        if (mockExampleData != null) {
             title.setText(mockExampleData.getName());
             json.setText(mockExampleData.getData());
         }
