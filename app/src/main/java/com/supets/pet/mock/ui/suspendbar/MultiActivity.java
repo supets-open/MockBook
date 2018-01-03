@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -33,38 +32,23 @@ public class MultiActivity extends AppCompatActivity {
     mFeedList.setAdapter(adapter);
     mFeedList.setHasFixedSize(true);
 
-    mFeedList.addOnScrollListener(new RecyclerView.OnScrollListener() {
-      @Override public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-        super.onScrollStateChanged(recyclerView, newState);
-        mSuspensionHeight = mSuspensionBar.getHeight();
+    mFeedList.addOnScrollListener(new SuspensionBarScrollListener(mSuspensionBar) {
+      @Override
+      int getItemViewType() {
+        return 0;
       }
 
-      @Override public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-        super.onScrolled(recyclerView, dx, dy);
-        if (adapter.getItemViewType(mCurrentPosition + 1) == MultiFeedAdapter.TYPE_TIME) {
-          View view = linearLayoutManager.findViewByPosition(mCurrentPosition + 1);
-          if (view != null) {
-            if (view.getTop() <= mSuspensionHeight) {
-              mSuspensionBar.setY(-(mSuspensionHeight - view.getTop()));
-            } else {
-              mSuspensionBar.setY(0);
-            }
-          }
-        }
-
-        if (mCurrentPosition != linearLayoutManager.findFirstVisibleItemPosition()) {
-          mCurrentPosition = linearLayoutManager.findFirstVisibleItemPosition();
-          mSuspensionBar.setY(0);
-
-          updateSuspensionBar();
-        }
+      @Override
+      void updateSuspensionBar(int position) {
+        mCurrentPosition=position;
+        updateSuspensionBar2();
       }
     });
 
-    updateSuspensionBar();
+    updateSuspensionBar2();
   }
 
-  private void updateSuspensionBar() {
+  private void updateSuspensionBar2() {
     mSuspensionTv.setText(getTime(mCurrentPosition));
   }
 

@@ -16,6 +16,7 @@ import com.supets.pet.mockui.R;
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder> {
   private static final String TAG = "FeedAdapter";
 
+
   @Override public FeedHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View itemView =
         LayoutInflater.from(parent.getContext()).inflate(R.layout.item_feed, parent, false);
