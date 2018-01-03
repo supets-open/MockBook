@@ -1,60 +1,73 @@
-package com.supets.pet.mock.ui;
+package com.supets.pet.mock.ui.home;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ryan.rv_gallery.AnimManager;
+import com.ryan.rv_gallery.GalleryRecyclerView;
 import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.ViewInjector;
+import com.supets.pet.mock.ui.MockConfigActivity;
+import com.supets.pet.mock.ui.MockCrashListActivity;
+import com.supets.pet.mock.ui.MockDataListActivity;
+import com.supets.pet.mock.ui.MockEmailListActivity;
+import com.supets.pet.mock.ui.MockModelActivity;
+import com.supets.pet.mock.ui.MockTestActivity;
+import com.supets.pet.mock.ui.MockToolActivity;
+import com.supets.pet.mock.ui.MockUrlRuleActivity;
 import com.supets.pet.mockui.R;
 import com.zhy.ioc.Bind;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockUiActivity extends Activity {
+public class MockUiActivity extends AppCompatActivity implements GalleryRecyclerView.OnItemClickListener {
 
-    @Bind(R.id.list)
-    ListView mListView;
+    //    @Bind(R.id.rv_list)
+//    ListView mListView;
     @Bind(R.id.header)
     CommonHeader header;
+
+    private MockAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mock_tab);
+        setContentView(R.layout.activity_main);
         ViewInjector.injectView(this);
-
+        onCreate2();
         initView();
 
-        List<String> datas = new ArrayList<>();
-        datas.add("数据抓取");
-        datas.add("接口测试");
-        datas.add("数据模型");
-        datas.add("测试配置");
-        datas.add("邮件管理");
-        datas.add("映射测试");
-        datas.add("JSON助手");
-        datas.add("异常管理");
-        adapter.setData(datas);
-        adapter.notifyDataSetChanged();
     }
 
-    MockAdapter adapter;
 
     private void initView() {
         header.getTitleTextView().setText(R.string.debug_title);
         header.getLeftButton().setVisibility(View.GONE);
 
         adapter = new MockAdapter();
-        mListView.setAdapter(adapter);
+        //mListView.setAdapter(adapter);
 
+        //List<String> datas = new ArrayList<>();
+        //datas.add("数据抓取");
+        //datas.add("接口测试");
+        //datas.add("数据模型");
+        //datas.add("测试配置");
+        // datas.add("邮件管理");
+        // datas.add("映射测试");
+        // datas.add("JSON助手");
+        // datas.add("异常管理");
+        //adapter.setData(datas);
+        //adapter.notifyDataSetChanged();
     }
 
 
@@ -141,4 +154,47 @@ public class MockUiActivity extends Activity {
         }
     }
 
+    /////////
+    private GalleryRecyclerView mRecyclerView;
+
+
+    protected void onCreate2() {
+
+        mRecyclerView = findViewById(R.id.rv_list);
+
+        final RecyclerAdapter adapter = new RecyclerAdapter(getApplicationContext(), getDatas());
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.initFlingSpeed(9000)                                   // 设置滑动速度（像素/s）
+                .initPageParams(0, 60)     // 设置页边距和左右图片的可见宽度，单位dp
+                .setAnimFactor(0.15f)                                   // 设置切换动画的参数因子
+                .setAnimType(AnimManager.ANIM_BOTTOM_TO_TOP)            // 设置切换动画类型，目前有AnimManager.ANIM_BOTTOM_TO_TOP和目前有AnimManager.ANIM_TOP_TO_BOTTOM
+                .setOnItemClickListener(this);                          // 设置点击事件
+    }
+
+
+    /***
+     * 测试数据
+     * @return
+     */
+    public List<Integer> getDatas() {
+        TypedArray ar = getResources().obtainTypedArray(R.array.test_arr);
+        final int[] resIds = new int[ar.length()];
+        for (int i = 0; i < ar.length(); i++) {
+            resIds[i] = ar.getResourceId(i, 0);
+        }
+        ar.recycle();
+        List<Integer> tDatas = new ArrayList<>();
+        for (int resId : resIds) {
+            tDatas.add(resId);
+        }
+        return tDatas;
+    }
+
+
+    @Override
+    public void onItemClick(View view, int position) {
+
+    }
 }

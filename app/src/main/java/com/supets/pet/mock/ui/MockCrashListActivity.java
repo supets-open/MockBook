@@ -3,6 +3,7 @@ package com.supets.pet.mock.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import com.supets.pet.mockui.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockCrashListActivity extends Activity {
+public class MockCrashListActivity extends AppCompatActivity {
 
 
     @Override

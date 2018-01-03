@@ -2,6 +2,7 @@ package com.supets.pet.mock.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -12,7 +13,7 @@ import com.supets.pet.mock.bean.MockExampleData;
 import com.supets.pet.mock.dao.MockExampleDataDB;
 import com.supets.pet.mockui.R;
 
-public class MockModelEditActivity extends Activity {
+public class MockModelEditActivity extends AppCompatActivity {
 
     private MockExampleData mockExampleData;
 

@@ -3,6 +3,7 @@ package com.supets.pet.mock.ui;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,7 @@ import java.util.List;
  * @updatetime 2017/6/19
  */
 
-public class MockConfigJsonActivity extends Activity {
+public class MockConfigJsonActivity extends AppCompatActivity {
 
     private ListView mListView;
     private EditText content;

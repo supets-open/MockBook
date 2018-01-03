@@ -2,10 +2,11 @@ package com.supets.pet.mock.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.supets.pet.mockui.R;
 
-public class MockKeyActivity extends Activity {
+public class MockKeyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

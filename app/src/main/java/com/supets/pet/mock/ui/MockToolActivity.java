@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 
@@ -24,7 +25,7 @@ import com.supets.pet.mockui.R;
  * @updatetime 2017/6/21
  */
 
-public class MockToolActivity extends Activity {
+public class MockToolActivity extends AppCompatActivity {
 
 
     private CommonHeader mCommonHeader;

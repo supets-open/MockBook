@@ -11,6 +11,7 @@
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true">
         <!--Android7.0新增的广播权限验证-->
@@ -34,14 +35,7 @@
             android:authorities="com.supets.pet.mockprovider"
             android:exported="true" />
 
-        <!--<service-->
-        <!--android:name="com.supets.pet.service.PullMsgService"-->
-        <!--android:exported="false"-->
-        <!--android:process=":supetsmsg" />-->
-
-        <activity
-            android:name="com.supets.pet.mock.ui.MockUiActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        <activity android:name="com.supets.pet.mock.ui.home.MockUiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,52 +43,28 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="com.supets.pet.mock.ui.MockCrashUiActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockInfoActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockDataListActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockConfigActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="com.supets.pet.mock.ui.MockCrashUiActivity" />
+        <activity android:name="com.supets.pet.mock.ui.MockInfoActivity" />
+        <activity android:name="com.supets.pet.mock.ui.MockDataListActivity" />
+        <activity android:name="com.supets.pet.mock.ui.MockConfigActivity" />
         <activity
             android:name="com.supets.pet.mock.ui.MockTestActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name="com.supets.pet.mock.ui.MockConfigJsonActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockModelActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockModelEditActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockToolActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockEmailListActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockCrashListActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockEmailEditActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="com.supets.pet.mock.ui.MockModelActivity" />
+        <activity android:name="com.supets.pet.mock.ui.MockModelEditActivity" />
+        <activity android:name="com.supets.pet.mock.ui.MockToolActivity" />
+        <activity android:name="com.supets.pet.mock.ui.MockEmailListActivity" />
+        <activity android:name="com.supets.pet.mock.ui.MockCrashListActivity" />
+        <activity android:name="com.supets.pet.mock.ui.MockEmailEditActivity" />
         <activity
             android:name="com.supets.pet.mock.ui.MockUrlRuleActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name="com.supets.pet.mock.ui.MockKeyActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
     </application>

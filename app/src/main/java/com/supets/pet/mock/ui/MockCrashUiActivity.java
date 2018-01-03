@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,7 +14,7 @@ import com.supets.pet.mock.config.Config;
 import com.supets.pet.mock.dao.EmailDataDB;
 import com.supets.pet.mockui.R;
 
-public class MockCrashUiActivity extends Activity {
+public class MockCrashUiActivity extends AppCompatActivity {
 
     CommonHeader mHeader;
     TextView mCrashLog;

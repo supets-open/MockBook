@@ -20,6 +20,9 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
+
     }
     buildTypes {
         release {
@@ -75,4 +78,5 @@ dependencies {
     apt project(':libCompileApi')
 
 
+    compile project(path: ':rv-gallery')
 }
