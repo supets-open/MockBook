@@ -11,9 +11,9 @@
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:roundIcon="@drawable/icon"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <!--Android7.0新增的广播权限验证-->
         <receiver
             android:name="com.supets.pet.service.CrashService"
@@ -66,6 +66,31 @@
         <activity
             android:name="com.supets.pet.mock.ui.MockKeyActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <!--测试-->
+        <activity android:name="com.supets.pet.mock.ui.gallery.GalleryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.supets.pet.mock.ui.suspendbar.MultiActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.supets.pet.mock.ui.suspendbar.SuspendActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
 
     </application>
 

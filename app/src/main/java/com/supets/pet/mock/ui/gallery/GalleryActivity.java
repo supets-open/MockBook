@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MockUiActivity extends AppCompatActivity implements GalleryRecyclerView.OnItemClickListener {
+public class GalleryActivity extends AppCompatActivity implements GalleryRecyclerView.OnItemClickListener {
 
     @Bind(R.id.header)
     CommonHeader header;
@@ -34,7 +34,7 @@ public class MockUiActivity extends AppCompatActivity implements GalleryRecycler
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_gallery);
         ViewInjector.injectView(this);
         onCreate2();
         initView();
