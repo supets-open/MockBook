@@ -123,8 +123,19 @@ public class MockInfoActivity extends Activity {
                         MailUtil.setPassword(MockConfig.getEmailPass());
                         MailUtil.sendEmail(finalList[which],
                                 getString(R.string.crash_title),
-                                mockData.getUrl() + "\r\n" + mockData.getRequestParam() + "\r\n" +
-                                        mockData.getData());
+                                new StringBuffer().append("接口名称：")
+                                        .append("\r\n")
+                                        .append(mockData.getUrl())
+                                        .append("\r\n")
+                                        .append("请求参数：")
+                                        .append("\r\n")
+                                        .append(Utils.formatParam(mockData.getRequestParam()))
+                                        .append("\r\n")
+                                        .append("请求结果：")
+                                        .append("\r\n")
+                                        .append(FormatLogProcess.format(mockData.getData()))
+                                        .toString()
+                        );
                     }
                 }).show();
     }
