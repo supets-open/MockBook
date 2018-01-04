@@ -61,6 +61,7 @@ dependencies {
 
     compile 'com.cloudpet.base:baserouter:1.0.0'
     compile 'com.cloudpet.ui:commonui:1.1.2'
+    compile 'com.cloudpet.ui:themelib:1.2.0'
     compile 'com.supets.lib:maillib:2.2.0'
     compile 'com.supets.lib:jsoneditlib:1.4.0'
 

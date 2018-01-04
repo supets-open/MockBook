@@ -1,7 +1,8 @@
 package com.supets.pet.mock.ui.home;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.ListView;
 
@@ -13,12 +14,14 @@ import com.zhy.ioc.Bind;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockUiActivity extends AppCompatActivity {
+public class MockUiActivity extends TabLayoutBottomActivity {
 
-    @Bind(R.id.list)
-    ListView mListView;
+    @Bind(R.id.left_drawer2)
+    ListView mListMenuView;
     @Bind(R.id.header)
     CommonHeader header;
+    @Bind(R.id.drawer_layout)
+    DrawerLayout mSlideMenu;
 
     private MockAdapter adapter;
 
@@ -26,7 +29,6 @@ public class MockUiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mock_tab);
         ViewInjector.injectView(this);
         initView();
     }
@@ -34,10 +36,18 @@ public class MockUiActivity extends AppCompatActivity {
 
     private void initView() {
         header.getTitleTextView().setText(R.string.debug_title);
-        header.getLeftButton().setVisibility(View.GONE);
+        header.getWholeView().setBackgroundResource(R.color.appcolor);
+        header.getLeftButton().setBackgroundResource(0);
+        header.getLeftButton().setText("头像");
+        header.getLeftButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSlideMenu.openDrawer(GravityCompat.START);
+            }
+        });
 
         adapter = new MockAdapter();
-        mListView.setAdapter(adapter);
+        mListMenuView.setAdapter(adapter);
 
         List<String> datas = new ArrayList<>();
         datas.add("数据抓取");

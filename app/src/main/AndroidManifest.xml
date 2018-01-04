@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/CustomAppTheme">
         <!--Android7.0新增的广播权限验证-->
         <receiver
             android:name="com.supets.pet.service.CrashService"

@@ -49,7 +49,7 @@ public class MockAdapter extends BaseAdapter {
 
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.mock_list_tab_item, viewGroup, false);
+                    .inflate(R.layout.mock_list_home_item, viewGroup, false);
         }
 
         ((TextView) view.findViewById(R.id.name)).setText(data.get(position));
