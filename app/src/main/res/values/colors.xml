@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-
     <!--颜色-->
+    <color name="white">#ffffff</color>
     <color name="appcolor">#00BFFF</color>
     <drawable name="statusbarcolor">@color/appcolor</drawable>
     <!--固定设置了bar颜色，用于Activity-->

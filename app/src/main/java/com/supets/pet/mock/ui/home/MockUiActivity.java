@@ -35,16 +35,17 @@ public class MockUiActivity extends TabLayoutBottomActivity {
 
 
     private void initView() {
-        header.getTitleTextView().setText(R.string.debug_title);
+        header.getTitleTextView().setText("");
         header.getWholeView().setBackgroundResource(R.color.appcolor);
         header.getLeftButton().setBackgroundResource(0);
-        header.getLeftButton().setText("头像");
+        header.getLeftButton().setText(R.string.debug_title);
         header.getLeftButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSlideMenu.openDrawer(GravityCompat.START);
             }
         });
+        header.getRightButton2().setImageResource(R.drawable.icon_add);
 
         adapter = new MockAdapter();
         mListMenuView.setAdapter(adapter);
