@@ -11,15 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class TabContentFragment extends BaseFragment {
+public class TabSetFragment extends BaseFragment {
 
     private ListView mList;
     private MockAdapter adapter;
 
-    public static TabContentFragment newInstance(String content) {
+    public static TabSetFragment newInstance(String content) {
         Bundle arguments = new Bundle();
         arguments.putString("content", content);
-        TabContentFragment tabContentFragment = new TabContentFragment();
+        TabSetFragment tabContentFragment = new TabSetFragment();
         tabContentFragment.setArguments(arguments);
         return tabContentFragment;
     }

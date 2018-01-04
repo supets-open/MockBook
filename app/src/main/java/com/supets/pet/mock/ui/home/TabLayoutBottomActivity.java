@@ -55,13 +55,15 @@ public class TabLayoutBottomActivity extends AppCompatActivity {
 
     private void initContent() {
         tabIndicators = new ArrayList<>();
-        tabIndicators.add("管理");
-        tabIndicators.add("测试");
-        tabIndicators.add("设置");
+        tabIndicators.add("数据抓取");
+        tabIndicators.add("接口测试");
+        tabIndicators.add("更多功能");
+
         tabFragments = new ArrayList<>();
-        for (String s : tabIndicators) {
-            tabFragments.add(TabContentFragment.newInstance(s));
-        }
+        tabFragments.add(TabDataFragment.newInstance("数据"));
+        tabFragments.add(TabAPIFragment.newInstance("接口"));
+        tabFragments.add(TabSetFragment.newInstance("设置"));
+
         contentAdapter = new ContentPagerAdapter(getSupportFragmentManager());
         mContentVp.setAdapter(contentAdapter);
     }
