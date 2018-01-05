@@ -112,10 +112,8 @@ public class MockConfigActivity extends AppCompatActivity implements View.OnClic
         }
 
         if (v == mToastMode) {
-            if (mToastMode.isChecked()) {
-                //ListenClipboardService.start(this);
-                Config.setToastSwitch(mToastMode.isChecked());
-            }
+            //ListenClipboardService.start(this);
+            Config.setToastSwitch(mToastMode.isChecked());
         }
     }
 
