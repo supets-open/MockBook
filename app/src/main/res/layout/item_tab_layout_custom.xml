@@ -8,13 +8,14 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
         android:src="@drawable/icon_wenhao"/>
 
     <TextView
         android:id="@+id/tv_menu_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Item"
-        android:textColor="#333333"/>
+        android:textSize="14dp"
+        android:textColor="@color/home_tab_color_selector"/>
 
 </LinearLayout>
