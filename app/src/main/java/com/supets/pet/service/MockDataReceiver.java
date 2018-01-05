@@ -35,7 +35,7 @@ public class MockDataReceiver extends BroadcastReceiver {
                     data.setTime(new Date());
                     MockDataDB.insertMockData(data);
 
-                    if (Config.getToastSwitch()||!FormatLogProcess.isJson(data.getData())) {
+                    if (!Config.getToastSwitch() || !FormatLogProcess.isJson(data.getData())) {
                         String message =
                                 new StringBuffer().append("接口名称：")
                                         .append("\r\n")

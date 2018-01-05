@@ -157,7 +157,7 @@
             android:id="@+id/toastmode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/toast_config"
+            android:text="@string/toast_config1"
             android:textColor="@android:color/black"
             android:textSize="15sp" />
 

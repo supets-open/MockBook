@@ -14,7 +14,8 @@
     <string name="email_name_label">邮箱名</string>
     <string name="email_pass_label">邮箱密码</string>
 
-    <string name="toast_config">悬浮窗打开</string>
+    <string name="toast_config">悬浮窗设置</string>
+    <string name="toast_config1">打开只抓取非JSON数据</string>
 
     <string name="crash_title">崩溃日志</string>
     <string name="send_mail">发邮件</string>
