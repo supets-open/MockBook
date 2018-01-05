@@ -25,6 +25,7 @@ public final class ClipMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_clip_main);
         mTextView =findViewById(R.id.text_view);
         Intent intent = getIntent();
         tryToShowContent(intent);

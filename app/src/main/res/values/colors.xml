@@ -6,7 +6,7 @@
 
     <!--颜色-->
     <color name="white">#ffffff</color>
-    <color name="appcolor">#00BFFF</color>
+    <color name="appcolor">#40E0D0</color>
     <drawable name="statusbarcolor">@color/appcolor</drawable>
     <!--固定设置了bar颜色，用于Activity-->
     <style name="StatusBarFixColorStyle">
