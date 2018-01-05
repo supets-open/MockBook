@@ -9,6 +9,7 @@ public class Config extends BasePref {
 
     private static final String DebugMode = "DebugMode";
     private static final String JsonSwitch = "JsonSwitch";
+    private static final String ToastSwitch = "ToastSwitch";
     private static final String BaseAPI = "api_key";
 
 
@@ -90,4 +91,14 @@ public class Config extends BasePref {
         return false;
     }
 
+    public static boolean getToastSwitch() {
+        SharedPreferences preferences = getPref(Name);
+        return preferences.getBoolean(ToastSwitch, false);
+    }
+
+    public static void setToastSwitch(boolean toastSwitch) {
+        SharedPreferences.Editor editor = edit(Name);
+        editor = editor.putBoolean(ToastSwitch, toastSwitch);
+        editor.commit();
+    }
 }

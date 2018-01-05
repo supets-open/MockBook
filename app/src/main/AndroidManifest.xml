@@ -6,6 +6,10 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:name="com.supets.pet.MyApplication"
         android:allowBackup="true"
@@ -67,43 +71,60 @@
             android:name="com.supets.pet.mock.ui.MockKeyActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
+
         <!--测试-->
-        <activity android:name="com.supets.pet.mock.ui.gallery.GalleryActivity">
+        <service
+            android:name="com.supets.pet.uctoast.ListenClipboardService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":process"/>
+
+        <receiver
+            android:name="com.supets.pet.uctoast.BootCompletedReceiver"
+            android:enabled="true"
+            android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-        </activity>
+        </receiver>
 
-        <activity android:name="com.supets.pet.mock.ui.suspendbar.MultiActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <!--测试-->
+        <!--<activity android:name="com.supets.pet.mock.ui.gallery.GalleryActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.supets.pet.mock.ui.suspendbar.SuspendActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.supets.pet.mock.ui.banner.BannerMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <!--<activity android:name="com.supets.pet.mock.ui.suspendbar.MultiActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.supets.pet.mock.ui.banner.BannerNormalActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity android:name="com.supets.pet.mock.ui.suspendbar.SuspendActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity android:name="com.supets.pet.mock.ui.banner.BannerMainActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity android:name="com.supets.pet.mock.ui.banner.BannerNormalActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
 
     </application>
 

@@ -8,6 +8,9 @@ import android.content.Intent;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.config.Config;
 import com.supets.pet.mock.dao.MockDataDB;
+import com.supets.pet.mock.utils.FormatLogProcess;
+import com.supets.pet.mock.utils.Utils;
+import com.supets.pet.uctoast.TipViewController;
 
 import java.util.Date;
 
@@ -31,6 +34,26 @@ public class MockDataReceiver extends BroadcastReceiver {
                     data.setRequestParam(intent.getStringExtra("requestParam"));
                     data.setTime(new Date());
                     MockDataDB.insertMockData(data);
+
+                    if (Config.getToastSwitch()) {
+                        String message =
+                                new StringBuffer().append("接口名称：")
+                                        .append("\r\n")
+                                        .append(data.getUrl())
+                                        .append("\r\n")
+                                        .append("请求参数：")
+                                        .append("\r\n")
+                                        .append(Utils.formatParam(data.getRequestParam()))
+                                        .append("\r\n")
+                                        .append("请求结果：")
+                                        .append("\r\n")
+                                        .append(FormatLogProcess.format(data.getData()))
+                                        .toString();
+
+                        TipViewController mTipViewController = new TipViewController(context, message);
+                        mTipViewController.setViewDismissHandler(null);
+                        mTipViewController.show();
+                    }
 
                 } catch (Exception e) {
                     e.printStackTrace();
