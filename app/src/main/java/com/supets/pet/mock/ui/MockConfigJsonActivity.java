@@ -62,7 +62,7 @@ public class MockConfigJsonActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        CommonHeader header = (CommonHeader) findViewById(R.id.header);
+        CommonHeader header = findViewById(R.id.header);
         header.getTitleTextView().setText("配置接口待测数据");
         header.getLeftButton().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,14 +82,14 @@ public class MockConfigJsonActivity extends AppCompatActivity {
 
         });
 
-        mListView = (ListView) findViewById(R.id.datalist);
+        mListView = findViewById(R.id.datalist);
         adapter = new MockAdapter();
         mListView.setAdapter(adapter);
 
-        content = (EditText) findViewById(R.id.content);
+        content = findViewById(R.id.content);
         content.setText(localMockData.getData());
 
-        TextView name = (TextView) findViewById(R.id.name);
+        TextView name = findViewById(R.id.name);
         name.setText(localMockData.getUrl());
     }
 
