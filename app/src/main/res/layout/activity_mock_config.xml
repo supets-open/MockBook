@@ -71,10 +71,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="15dp"
-                android:background="#ff00f0"
+                android:background="@color/appcolor"
                 android:padding="10dp"
                 android:text="修改"
-                android:textColor="#333333"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -109,10 +109,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="15dp"
-                android:background="#ff00f0"
+                android:background="@color/appcolor"
                 android:padding="10dp"
                 android:text="修改"
-                android:textColor="#333333"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -137,10 +137,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="15dp"
-                android:background="#ff00f0"
+                android:background="@color/appcolor"
                 android:padding="10dp"
                 android:text="修改"
-                android:textColor="#333333"
+                android:textColor="@color/white"
                 android:textSize="15sp" />
         </LinearLayout>
 

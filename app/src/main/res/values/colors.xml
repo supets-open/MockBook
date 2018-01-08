@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#964A64</color>
+    <color name="colorPrimaryDark">#730D30</color>
+    <color name="colorAccent">#E61A5F</color>
 
     <!--颜色-->
     <color name="white">#ffffff</color>
-    <color name="appcolor">#40E0D0</color>
+    <color name="appcolor">#E61A5F</color>
     <drawable name="statusbarcolor">@color/appcolor</drawable>
     <!--固定设置了bar颜色，用于Activity-->
     <style name="StatusBarFixColorStyle">
