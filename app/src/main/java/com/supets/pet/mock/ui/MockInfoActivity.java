@@ -42,13 +42,13 @@ public class MockInfoActivity extends AppCompatActivity {
         List<MockData> datas = MockDataDB.queryMockDataById(id);
         if (datas != null && datas.size() > 0) {
             mockData = datas.get(0);
-            mEditText = (TextView) findViewById(R.id.list);
+            mEditText = findViewById(R.id.list);
             mEditText.setText(FormatLogProcess.format(mockData.getData()));
 
-            TextView name = (TextView) findViewById(R.id.name);
+            TextView name = findViewById(R.id.name);
             name.setText(FormatLogProcess.format(mockData.getUrl()));
 
-            TextView param = (TextView) findViewById(R.id.param);
+            TextView param = findViewById(R.id.param);
             param.setText(Utils.formatParam(mockData.getRequestParam()));
 
         }
@@ -78,7 +78,7 @@ public class MockInfoActivity extends AppCompatActivity {
 
 
     private void initView() {
-        CommonHeader header = (CommonHeader) findViewById(R.id.header);
+        CommonHeader header = findViewById(R.id.header);
         header.getTitleTextView().setText("接口数据详情");
         header.getLeftButton().setOnClickListener(new View.OnClickListener() {
             @Override

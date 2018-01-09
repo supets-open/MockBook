@@ -73,9 +73,10 @@ dependencies {
 
     //compile 'com.facebook.stetho:stetho:1.4.1'
     //compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    //compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
     compile 'com.zhy:okhttputils:2.6.2'
+
 
 
     compile 'org.greenrobot:greendao:3.2.0'
@@ -86,5 +87,6 @@ dependencies {
 
 //    compile project(path: ':rv-gallery')
 //    compile project(path: ':recyclerlib')
-
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-7'
 }

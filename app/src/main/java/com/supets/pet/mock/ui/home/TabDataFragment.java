@@ -10,6 +10,10 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mock.ui.BaseFragment;
@@ -26,6 +30,7 @@ public class TabDataFragment extends BaseFragment {
 
     private ListView mList;
     private MockDataAdapter adapter;
+    private SmartRefreshLayout smartRefreshLayout;
 
     public static TabDataFragment newInstance(String content) {
         Bundle arguments = new Bundle();
@@ -44,36 +49,87 @@ public class TabDataFragment extends BaseFragment {
     @Override
     public void findViews(View view) {
         mList = view.findViewById(R.id.list);
+        smartRefreshLayout = view.findViewById(R.id.refreshLayout);
+        smartRefreshLayout.setEnableLoadmore(false);
     }
 
     @Override
     public void setListeners() {
+        smartRefreshLayout.setOnLoadmoreListener(new OnLoadmoreListener() {
+            @Override
+            public void onLoadmore(RefreshLayout refreshlayout) {
+                update();
+            }
+        });
 
+        smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                offset = 0;
+                update();
+                refreshlayout.resetNoMoreData();
+                refreshlayout.finishRefresh(true);
+            }
+        });
     }
 
     @Override
     public void process() {
         adapter = new MockDataAdapter();
         mList.setAdapter(adapter);
+        offset = 0;
         update();
     }
 
+    private int offset = 0;
+
     private void update() {
-        List<MockData> datas = MockDataDB.queryAll();
-        if (datas != null) {
-            adapter.setData(datas);
-            adapter.notifyDataSetChanged();
+        List<MockData> datas = MockDataDB.queryAllPage(offset);
+        boolean nomore = datas == null || datas.size()<20;
+
+        if (offset == 0) {
+            if (!nomore) {
+                adapter.addHomeData(datas);
+                offset++;
+                smartRefreshLayout.setEnableLoadmore(true);
+                //smartRefreshLayout.autoLoadmore();
+            } else {
+                adapter.addHomeData(null);
+                smartRefreshLayout.setEnableLoadmore(false);
+            }
+        } else {
+            if (!nomore) {
+                adapter.addMoreData(datas);
+                offset++;
+            }
+            smartRefreshLayout.finishLoadmore(100, true, nomore);
         }
+
+
     }
 
-    class MockDataAdapter extends BaseAdapter {
+    private class MockDataAdapter extends BaseAdapter {
 
 
         public List<MockData> data = new ArrayList<>();
 
-
         public void setData(List<MockData> data) {
             this.data = data;
+        }
+
+        public void addHomeData(List<MockData> data) {
+            this.data.clear();
+            if (data != null) {
+                this.data.addAll(data);
+            }
+            notifyDataSetChanged();
+        }
+
+        public void addMoreData(List<MockData> data) {
+            if (data != null) {
+                this.data.addAll(data);
+                notifyDataSetChanged();
+            }
         }
 
         @Override

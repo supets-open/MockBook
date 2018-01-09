@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.supets.pet.mock.bean.LocalMockData;
 import com.supets.pet.mock.dao.LocalMockDataDB;
 import com.supets.pet.mock.ui.BaseFragment;
@@ -24,6 +25,7 @@ public class TabAPIFragment extends BaseFragment {
 
     private ListView mList;
     private MockTestAdapter adapter;
+    private SmartRefreshLayout smartRefreshLayout;
 
     public static TabAPIFragment newInstance(String content) {
         Bundle arguments = new Bundle();
@@ -42,6 +44,9 @@ public class TabAPIFragment extends BaseFragment {
     @Override
     public void findViews(View view) {
         mList = view.findViewById(R.id.list);
+        smartRefreshLayout = view.findViewById(R.id.refreshLayout);
+        smartRefreshLayout.setEnableLoadmore(false);
+        smartRefreshLayout.setEnableRefresh(false);
     }
 
     @Override
