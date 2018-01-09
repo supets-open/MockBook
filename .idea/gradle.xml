@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/libCompileApi" />
             <option value="$PROJECT_DIR$/libannotation" />
             <option value="$PROJECT_DIR$/mocklib" />
+            <option value="$PROJECT_DIR$/recyclerlib" />
             <option value="$PROJECT_DIR$/rv-gallery" />
           </set>
         </option>

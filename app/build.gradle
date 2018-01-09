@@ -59,6 +59,12 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.android.support:cardview-v7:26.1.0'
+
+
     compile 'com.cloudpet.base:baserouter:1.0.0'
     compile 'com.cloudpet.ui:commonui:1.1.2'
     compile 'com.cloudpet.ui:themelib:1.2.0'
@@ -78,7 +84,7 @@ dependencies {
     //使用数据库升级辅助GreenDaoUpgradleHepler时添加
     apt project(':libCompileApi')
 
+//    compile project(path: ':rv-gallery')
+//    compile project(path: ':recyclerlib')
 
-    compile project(path: ':rv-gallery')
-    compile 'com.squareup.picasso:picasso:2.5.2'
 }

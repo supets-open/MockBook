@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#964A64</color>
-    <color name="colorPrimaryDark">#730D30</color>
-    <color name="colorAccent">#E61A5F</color>
 
     <!--颜色-->
     <color name="white">#ffffff</color>
