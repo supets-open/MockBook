@@ -35,7 +35,7 @@ public class MockDataListActivity extends AppCompatActivity {
     }
 
     private void update() {
-        List<MockData> datas = MockDataDB.queryAll();
+        List<MockData> datas = MockDataDB.queryAllPage(0);
         if (datas != null) {
             adapter.setData(datas);
             adapter.notifyDataSetChanged();
