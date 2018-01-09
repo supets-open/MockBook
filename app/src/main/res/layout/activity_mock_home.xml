@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/beauty1" />
+                android:src="@drawable/tuzi" />
 
             <ListView
                 android:id="@+id/left_drawer2"
