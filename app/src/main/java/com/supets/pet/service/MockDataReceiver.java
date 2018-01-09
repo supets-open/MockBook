@@ -41,13 +41,13 @@ public class MockDataReceiver extends BroadcastReceiver {
                                         .append("\r\n")
                                         .append(data.getUrl())
                                         .append("\r\n")
-                                        .append("请求结果：")
-                                        .append("\r\n")
-                                        .append(FormatLogProcess.format(data.getData()))
-                                        .append("\r\n")
                                         .append("请求参数：")
                                         .append("\r\n")
                                         .append(Utils.formatParam(data.getRequestParam()))
+                                        .append("\r\n")
+                                        .append("请求结果：")
+                                        .append("\r\n")
+                                        .append(FormatLogProcess.format(data.getData()))
                                         .toString();
 
                         TipViewController mTipViewController = new TipViewController(context, message);
