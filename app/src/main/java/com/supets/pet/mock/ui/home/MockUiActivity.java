@@ -36,7 +36,7 @@ public class MockUiActivity extends TabLayoutBottomActivity {
 
 
     private void initView() {
-        header.getTitleTextView().setText(R.string.debug_title);
+        header.getTitleTextView().setText(R.string.app_name);
         header.getTitleTextView().setTextColor(ContextCompat.getColor(this,R.color.white));
         header.getWholeView().setBackgroundResource(R.color.appcolor);
         header.getLeftButton().setVisibility(View.GONE);

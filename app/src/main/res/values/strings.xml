@@ -5,8 +5,6 @@
     <string name="debug_switch">打开调试(不会抓取数据)</string>
     <string name="json_switch">抓取数据(不能打开调试)</string>
 
-    <string name="debug_title">兔子测试 V4.0</string>
-
     <string name="interface_filter_guice">接口过滤规则(支持空格分割,包含匹配)</string>
     <string name="jsonedit">JSON助手</string>
 
