@@ -20,6 +20,7 @@ import com.supets.pet.mock.dao.LocalMockDataDB;
 import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mock.dao.MockExampleDataDB;
 import com.supets.pet.mock.utils.FormatLogProcess;
+import com.supets.pet.mock.utils.Utils;
 import com.supets.pet.mockui.R;
 
 import java.util.ArrayList;
@@ -87,7 +88,7 @@ public class MockConfigJsonActivity extends AppCompatActivity {
         mListView.setAdapter(adapter);
 
         content = findViewById(R.id.content);
-        content.setText(localMockData.getData());
+        content.setText(FormatLogProcess.format(localMockData.getData()));
 
         TextView name = findViewById(R.id.name);
         name.setText(localMockData.getUrl());
@@ -137,11 +138,11 @@ public class MockConfigJsonActivity extends AppCompatActivity {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        content.setText(temp.getData());
+                        content.setText(FormatLogProcess.format(temp.getData()));
                     }
                 });
                 if (FormatLogProcess.isJson(temp.getData())) {
-                    (view.findViewById(R.id.status)).setBackgroundColor(Color.parseColor("#00ff00"));
+                    (view.findViewById(R.id.status)).setBackgroundColor(getResources().getColor(R.color.appcolor));
                 } else {
                     (view.findViewById(R.id.status)).setBackgroundColor(Color.parseColor("#ff0000"));
                 }
@@ -153,7 +154,7 @@ public class MockConfigJsonActivity extends AppCompatActivity {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        content.setText(temp.getData());
+                        content.setText(FormatLogProcess.format(temp.getData()));
                     }
                 });
                 if (FormatLogProcess.isJson(temp.getData())) {
@@ -169,7 +170,7 @@ public class MockConfigJsonActivity extends AppCompatActivity {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        content.setText(temp.getData());
+                        content.setText(FormatLogProcess.format(temp.getData()));
                     }
                 });
                 if (FormatLogProcess.isJson(temp.getData())) {
