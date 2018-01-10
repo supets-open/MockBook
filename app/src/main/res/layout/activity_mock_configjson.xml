@@ -18,25 +18,24 @@
         android:textColor="#333333"
         android:textSize="15sp" />
 
-    <LinearLayout
+
+    <ListView
+        android:id="@+id/datalist"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
+
+    <EditText
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_margin="10dp"
+        android:background="@color/appcolor"
+        android:gravity="left"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:textColor="#333333"
+        android:textSize="15sp" />
 
-        <ListView
-            android:id="@+id/datalist"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:divider="@null"
-            android:dividerHeight="0dp" />
-
-        <EditText
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/appcolor"
-            android:gravity="left"
-            android:textColor="#333333"
-            android:textSize="14sp" />
-    </LinearLayout>
 </LinearLayout>
