@@ -33,6 +33,7 @@
         android:layout_margin="10dp"
         android:background="@color/appcolor"
         android:gravity="left"
+
         android:padding="10dp"
         android:scrollbars="vertical"
         android:textColor="#333333"
