@@ -18,8 +18,7 @@
         android:roundIcon="@drawable/ic_launcher"
         android:theme="@style/AppTheme">
 
-        <!--测试-->
-        <activity android:name="com.supets.pet.gallery.GalleryActivity">
+        <activity android:name="com.supets.pet.MainTabActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,49 +26,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.supets.pet.suspendbar.MultiActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.supets.pet.suspendbar.SuspendActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.supets.pet.banner.BannerMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.supets.pet.banner.BannerNormalActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="com.supets.pet.pull.activity.LoadMoreActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="com.supets.pet.pull.activity.LoadMoreWrapperActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name="com.supets.pet.gallery.GalleryActivity" />
+        <activity android:name="com.supets.pet.suspendbar.MultiActivity" />
+        <activity android:name="com.supets.pet.suspendbar.SuspendActivity" />
+        <activity android:name="com.supets.pet.banner.BannerMainActivity" />
+        <activity android:name="com.supets.pet.banner.BannerNormalActivity" />
+        <activity android:name="com.supets.pet.pull.activity.LoadMoreActivity" />
+        <activity android:name="com.supets.pet.pull.activity.LoadMoreWrapperActivity" />
 
     </application>
 </manifest>

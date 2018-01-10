@@ -127,7 +127,7 @@ public class LoadMoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         RecyclerViewHolder(View itemView) {
             super(itemView);
-            tvItem = (TextView) itemView.findViewById(R.id.tv_item);
+            tvItem = itemView.findViewById(R.id.tv_item);
         }
     }
 
@@ -139,9 +139,9 @@ public class LoadMoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         FootViewHolder(View itemView) {
             super(itemView);
-            pbLoading = (ProgressBar) itemView.findViewById(R.id.pb_loading);
-            tvLoading = (TextView) itemView.findViewById(R.id.tv_loading);
-            llEnd = (LinearLayout) itemView.findViewById(R.id.ll_end);
+            pbLoading = itemView.findViewById(R.id.pb_loading);
+            tvLoading = itemView.findViewById(R.id.tv_loading);
+            llEnd = itemView.findViewById(R.id.ll_end);
         }
     }
 

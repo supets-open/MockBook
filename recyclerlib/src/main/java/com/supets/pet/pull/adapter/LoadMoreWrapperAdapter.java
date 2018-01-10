@@ -47,7 +47,7 @@ public class LoadMoreWrapperAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         RecyclerViewHolder(View itemView) {
             super(itemView);
-            tvItem = (TextView) itemView.findViewById(R.id.tv_item);
+            tvItem = itemView.findViewById(R.id.tv_item);
         }
     }
 }
