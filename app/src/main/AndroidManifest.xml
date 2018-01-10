@@ -52,7 +52,7 @@
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name="com.supets.pet.mock.ui.MockConfigJsonActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name="com.supets.pet.mock.ui.MockModelActivity" />
         <activity android:name="com.supets.pet.mock.ui.MockModelEditActivity" />
         <activity android:name="com.supets.pet.mock.ui.MockToolActivity" />
