@@ -26,14 +26,17 @@
         <ListView
             android:id="@+id/datalist"
             android:layout_width="100dp"
-            android:dividerHeight="0dp"
+            android:layout_height="match_parent"
             android:divider="@null"
-            android:layout_height="match_parent" />
+            android:dividerHeight="0dp" />
 
         <EditText
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="left" />
+            android:background="@color/appcolor"
+            android:gravity="left"
+            android:textColor="#333333"
+            android:textSize="14sp" />
     </LinearLayout>
 </LinearLayout>
