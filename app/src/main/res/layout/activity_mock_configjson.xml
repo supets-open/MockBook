@@ -18,13 +18,13 @@
         android:textColor="#333333"
         android:textSize="15sp" />
 
-
     <ListView
         android:id="@+id/datalist"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:divider="@null"
         android:dividerHeight="0dp" />
+
 
     <EditText
         android:id="@+id/content"
