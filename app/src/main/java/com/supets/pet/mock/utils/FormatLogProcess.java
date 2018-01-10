@@ -1,5 +1,7 @@
 package com.supets.pet.mock.utils;
 
+import android.text.TextUtils;
+
 import org.json.JSONObject;
 
 public final class FormatLogProcess {
@@ -18,6 +20,11 @@ public final class FormatLogProcess {
      * 得到格式化json数据  退格用\t 换行用\r
      */
     public static String format(String jsonStr) {
+
+        if (TextUtils.isEmpty(jsonStr)){
+            return jsonStr;
+        }
+
         int level = 0;
         StringBuffer jsonForMatStr = new StringBuffer();
         for (int i = 0; i < jsonStr.length(); i++) {
