@@ -12,6 +12,7 @@
         android:background="@color/colorPrimaryDark"
         app:popupTheme="@style/ToolbarPopupTheme"
         app:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title="下拉刷新和加载更多"
         app:titleTextColor="@android:color/white" />
 
     <android.support.v4.widget.SwipeRefreshLayout

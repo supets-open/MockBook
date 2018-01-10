@@ -13,6 +13,7 @@
         android:background="@color/colorPrimaryDark"
         app:popupTheme="@style/ToolbarPopupTheme"
         app:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title="画廊"
         app:titleTextColor="@android:color/white" />
 
     <RelativeLayout

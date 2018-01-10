@@ -34,7 +34,7 @@ public class GalleryActivity extends AppCompatActivity implements GalleryRecycle
         setContentView(R.layout.activity_gallery);
         toolbar = findViewById(R.id.toolbar);
         // 使用Toolbar替换ActionBar
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         onCreate2();
     }
 

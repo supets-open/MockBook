@@ -50,7 +50,7 @@ public class LoadMoreWrapperActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
 
         // 使用Toolbar替换ActionBar
-        setSupportActionBar(toolbar);
+       // setSupportActionBar(toolbar);
 
         // 设置刷新控件颜色
         swipeRefreshLayout.setColorSchemeColors(Color.parseColor("#4DB6AC"));
