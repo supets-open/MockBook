@@ -22,7 +22,7 @@
     <ListView
         android:id="@+id/datalist"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="200dp"
         android:divider="@null"
         android:dividerHeight="0dp" />
 
@@ -33,7 +33,6 @@
         android:layout_margin="10dp"
         android:background="@color/appcolor"
         android:gravity="left"
-
         android:padding="10dp"
         android:scrollbars="vertical"
         android:textColor="#333333"
