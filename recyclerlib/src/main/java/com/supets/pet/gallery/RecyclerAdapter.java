@@ -8,13 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.supets.pet.mockui.R;
+
+import com.example.recyclerlib.R;
 
 import java.util.List;
 
-/**
- * Created by RyanLee on 2017/12/7.
- */
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHolder> {
     private final String TAG = "RecyclerAdapter";
@@ -63,7 +61,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHold
 
             Log.d(TAG, "MyHolder");
 
-            mView = (ImageView) itemView.findViewById(R.id.iv_photo);
+            mView = itemView.findViewById(R.id.iv_photo);
         }
     }
 

@@ -6,10 +6,14 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
-    <com.supets.commons.widget.CommonHeader
-        android:id="@+id/header"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:titleTextColor="@android:color/white" />
 
     <RelativeLayout
         android:id="@+id/rl_container"

@@ -1,8 +1,19 @@
 <resources>
-    <color name="colorPrimary">#964A64</color>
-    <color name="colorPrimaryDark">#730D30</color>
-    <color name="colorAccent">#E61A5F</color>
+    <color name="colorPrimary">#4DB6AC</color>
+    <color name="colorPrimaryDark">#4DB6AC</color>
+    <color name="colorAccent">#4DB6AC</color>
 
+    <string name="appname">学习框架</string>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat.Light">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
 
     <integer-array name="test_arr">
         <item>@drawable/beauty1</item>

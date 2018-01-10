@@ -2,6 +2,7 @@ package com.supets.pet.banner;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 
@@ -14,12 +15,17 @@ import java.util.List;
 
 public class BannerNormalActivity extends AppCompatActivity {
     RecyclerViewBannerNormal banner, banner2;
-
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_banner2);
+        toolbar = findViewById(R.id.toolbar);
+        // 使用Toolbar替换ActionBar
+        setSupportActionBar(toolbar);
+
+
         banner = findViewById(R.id.banner);
         banner2 = findViewById(R.id.banner2);
         List<String> list = new ArrayList<>();

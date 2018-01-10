@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -17,7 +18,6 @@ import android.widget.Toast;
 import com.example.recyclerlib.R;
 import com.ryan.rv_gallery.AnimManager;
 import com.ryan.rv_gallery.GalleryRecyclerView;
-import com.supets.commons.widget.CommonHeader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,28 +26,18 @@ import java.util.Map;
 
 public class GalleryActivity extends AppCompatActivity implements GalleryRecyclerView.OnItemClickListener {
 
-
-    CommonHeader header;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-
-        header=findViewById(R.id.header);
-
+        toolbar = findViewById(R.id.toolbar);
+        // 使用Toolbar替换ActionBar
+        setSupportActionBar(toolbar);
         onCreate2();
-        initView();
-
     }
 
-
-    private void initView() {
-        header.getTitleTextView().setText("gallery");
-        header.getLeftButton().setVisibility(View.GONE);
-    }
-
-    /////////
     private GalleryRecyclerView mRecyclerView;
     private RelativeLayout mContainer;
 

@@ -12,8 +12,11 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <application>
-
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/appname"
+        android:roundIcon="@drawable/ic_launcher"
+        android:theme="@style/AppTheme">
 
         <!--测试-->
         <activity android:name="com.supets.pet.gallery.GalleryActivity">
@@ -27,7 +30,6 @@
         <activity android:name="com.supets.pet.suspendbar.MultiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -46,6 +48,22 @@
             </intent-filter>
         </activity>
         <activity android:name="com.supets.pet.banner.BannerNormalActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.supets.pet.pull.activity.LoadMoreActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.supets.pet.pull.activity.LoadMoreWrapperActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
