@@ -12,6 +12,7 @@
         android:background="@color/colorPrimaryDark"
         app:popupTheme="@style/ToolbarPopupTheme"
         app:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title="3D广告"
         app:titleTextColor="@android:color/white" />
 
     <com.supets.pet.banner.banner.BannerLayout

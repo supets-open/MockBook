@@ -19,7 +19,7 @@
             app:popupTheme="@style/ToolbarPopupTheme"
             app:theme="@style/ThemeOverlay.AppCompat.Dark"
             app:titleTextColor="@android:color/white"
-            app:title="poigram" />
+            app:title="悬浮" />
 
     </android.support.design.widget.AppBarLayout>
 

@@ -16,7 +16,7 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ToolbarPopupTheme"
             app:theme="@style/ThemeOverlay.AppCompat.Dark"
-            app:title="poigram"
+            app:title="悬浮"
             app:titleTextColor="@android:color/white" />
     </android.support.design.widget.AppBarLayout>
 
