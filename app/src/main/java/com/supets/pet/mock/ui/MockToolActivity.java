@@ -34,7 +34,7 @@ public class MockToolActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mocktool_jsonedit);
 
-        mCommonHeader = (CommonHeader) findViewById(R.id.header);
+        mCommonHeader = findViewById(R.id.header);
         mCommonHeader.getLeftButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,7 +43,7 @@ public class MockToolActivity extends AppCompatActivity {
         });
         mCommonHeader.getTitleTextView().setText(R.string.jsonedit);
 
-        JSONEditView jsonEditView = (JSONEditView) findViewById(R.id.jsonEditView);
+        JSONEditView jsonEditView = findViewById(R.id.jsonEditView);
         String json = getIntent().getStringExtra("json");
         jsonEditView.formatJson(json);
 

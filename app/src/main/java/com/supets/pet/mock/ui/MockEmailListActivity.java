@@ -64,7 +64,7 @@ public class MockEmailListActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        CommonHeader header = (CommonHeader) findViewById(R.id.header);
+        CommonHeader header = findViewById(R.id.header);
         header.getTitleTextView().setText("邮件列表");
         header.getLeftButton().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +83,7 @@ public class MockEmailListActivity extends AppCompatActivity {
 
         });
 
-        mListView = (ListView) findViewById(R.id.list);
+        mListView = findViewById(R.id.list);
         adapter = new MockAdapter();
         mListView.setAdapter(adapter);
     }

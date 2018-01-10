@@ -11,7 +11,7 @@ android:orientation="horizontal">
     android:layout_gravity="center_vertical"
     android:layout_marginLeft="5dp"
     android:layout_marginStart="5dp"
-    android:background="#00ff00" />
+    android:background="@color/appcolor" />
 
 <TextView
     android:id="@+id/name"

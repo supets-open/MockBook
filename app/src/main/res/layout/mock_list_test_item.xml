@@ -34,7 +34,7 @@
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:layout_margin="10dp"
-            android:background="#ff4d88"
+            android:background="@color/appcolor"
             android:text="配置数据"
             android:textColor="#ffffff"
             android:textSize="12dp" />

@@ -36,15 +36,15 @@ public class MockEmailEditActivity extends AppCompatActivity {
 
     private void initView() {
 
-        name = (EditText) findViewById(R.id.name);
-        email = (EditText) findViewById(R.id.email);
+        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
 
         if (mockExampleData != null) {
             name.setText(mockExampleData.getName());
             email.setText(mockExampleData.getEmail());
         }
 
-        CommonHeader header = (CommonHeader) findViewById(R.id.header);
+        CommonHeader header = findViewById(R.id.header);
         header.getTitleTextView().setText(mockExampleData == null ? "添加邮箱" : "修改邮箱");
         header.getLeftButton().setOnClickListener(new View.OnClickListener() {
             @Override

@@ -92,7 +92,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#ffff44"
+            android:background="@color/appcolor"
             android:gravity="center"
             android:text="格式化编辑"
             android:textColor="#333333"

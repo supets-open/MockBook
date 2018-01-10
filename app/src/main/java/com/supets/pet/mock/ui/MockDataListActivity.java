@@ -109,7 +109,7 @@ public class MockDataListActivity extends AppCompatActivity {
 
 
             if (FormatLogProcess.isJson(data.get(position).getData())) {
-                (view.findViewById(R.id.status)).setBackgroundColor(Color.parseColor("#00ff00"));
+                (view.findViewById(R.id.status)).setBackgroundColor(getResources().getColor(R.color.appcolor));
             } else {
                 (view.findViewById(R.id.status)).setBackgroundColor(Color.parseColor("#ff0000"));
             }
