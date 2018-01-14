@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
-import com.supets.commons.App;
+import com.supets.pet.mocklib.App;
+
 
 public class BasePref {
 

@@ -3,7 +3,8 @@ package com.supets.pet.mocklib.crash;
 import android.content.Context;
 import android.content.Intent;
 
-import com.supets.commons.App;
+
+import com.supets.pet.mocklib.App;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
