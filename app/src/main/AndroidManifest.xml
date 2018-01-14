@@ -35,7 +35,7 @@
             android:authorities="com.supets.pet.mockprovider"
             android:exported="true" />
 
-        <activity android:name="com.supets.pet.mock.ui.home.MockUiActivity">
+        <activity android:name="com.supets.pet.mock.ui.home.MockFlashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,6 +43,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.supets.pet.mock.ui.home.MockUiActivity" />
         <activity android:name="com.supets.pet.mock.ui.MockCrashUiActivity" />
         <activity android:name="com.supets.pet.mock.ui.MockInfoActivity" />
         <activity android:name="com.supets.pet.mock.ui.MockDataListActivity" />
@@ -72,7 +73,7 @@
             android:name="com.supets.pet.uctoast.ListenClipboardService"
             android:enabled="true"
             android:exported="true"
-            android:process=":process"/>
+            android:process=":process" />
 
         <receiver
             android:name="com.supets.pet.uctoast.BootCompletedReceiver"
