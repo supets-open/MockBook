@@ -30,7 +30,6 @@ public class TabDataFragment extends BaseFragment {
 
     private ListView mList;
     private MockDataAdapter adapter;
-    private SmartRefreshLayout smartRefreshLayout;
 
     public static TabDataFragment newInstance(String content) {
         Bundle arguments = new Bundle();
@@ -49,28 +48,26 @@ public class TabDataFragment extends BaseFragment {
     @Override
     public void findViews(View view) {
         mList = view.findViewById(R.id.list);
-        smartRefreshLayout = view.findViewById(R.id.refreshLayout);
-        smartRefreshLayout.setEnableLoadmore(false);
     }
 
     @Override
     public void setListeners() {
-        smartRefreshLayout.setOnLoadmoreListener(new OnLoadmoreListener() {
-            @Override
-            public void onLoadmore(RefreshLayout refreshlayout) {
-                update();
-            }
-        });
+        //smartRefreshLayout.setOnLoadmoreListener(new OnLoadmoreListener() {
+         //   @Override
+        //    public void onLoadmore(RefreshLayout refreshlayout) {
+        //        update();
+         //   }
+        //});
 
-        smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(RefreshLayout refreshlayout) {
-                offset = 0;
-                update();
-                refreshlayout.resetNoMoreData();
-                refreshlayout.finishRefresh(true);
-            }
-        });
+       // smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+        //    @Override
+        //    public void onRefresh(RefreshLayout refreshlayout) {
+        //        offset = 0;
+       //         update();
+           //     refreshlayout.resetNoMoreData();
+        //        refreshlayout.finishRefresh(true);
+       //     }
+      //  });
     }
 
     @Override
@@ -91,18 +88,18 @@ public class TabDataFragment extends BaseFragment {
             if (!nomore) {
                 adapter.addHomeData(datas);
                 offset++;
-                smartRefreshLayout.setEnableLoadmore(true);
+               // smartRefreshLayout.setEnableLoadmore(true);
                 //smartRefreshLayout.autoLoadmore();
             } else {
                 adapter.addHomeData(null);
-                smartRefreshLayout.setEnableLoadmore(false);
+               // smartRefreshLayout.setEnableLoadmore(false);
             }
         } else {
             if (!nomore) {
                 adapter.addMoreData(datas);
                 offset++;
             }
-            smartRefreshLayout.finishLoadmore(100, true, nomore);
+            //smartRefreshLayout.finishLoadmore(100, true, nomore);
         }
 
 

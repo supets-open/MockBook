@@ -25,7 +25,6 @@ public class TabAPIFragment extends BaseFragment {
 
     private ListView mList;
     private MockTestAdapter adapter;
-    private SmartRefreshLayout smartRefreshLayout;
 
     public static TabAPIFragment newInstance(String content) {
         Bundle arguments = new Bundle();
@@ -44,9 +43,6 @@ public class TabAPIFragment extends BaseFragment {
     @Override
     public void findViews(View view) {
         mList = view.findViewById(R.id.list);
-        smartRefreshLayout = view.findViewById(R.id.refreshLayout);
-        smartRefreshLayout.setEnableLoadmore(false);
-        smartRefreshLayout.setEnableRefresh(false);
     }
 
     @Override
