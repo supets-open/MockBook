@@ -1,9 +1,7 @@
 package com.supets.pet.mocklib.core;
 
-import com.supets.lib.supetsrouter.rpc.IBaseService;
 
-
-public interface IMockService extends IBaseService {
+public interface IMockService  {
     boolean getMapper(String url);
     String  getData(String url);
 }

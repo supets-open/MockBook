@@ -1,14 +1,13 @@
-package com.supets.pet.mocklib.core.ex;
+package com.supets.pet.mocklib.core;
 
 
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.content.ContentResolverCompat;
 
-import com.supets.commons.App;
-import com.supets.pet.mocklib.core.IMockDataMapper;
+import com.supets.pet.mocklib.App;
 
-class MockDataMapper implements IMockDataMapper {
+public class MockDataMapper implements IMockDataMapper {
 
     private static final String AUTHORITY = "com.supets.pet.mockprovider";
 

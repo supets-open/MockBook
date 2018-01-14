@@ -3,7 +3,7 @@ package com.supets.pet.mocklib.mock;
 import android.content.Intent;
 import android.util.Log;
 
-import com.supets.commons.App;
+import com.supets.pet.mocklib.App;
 
 import org.json.JSONObject;
 

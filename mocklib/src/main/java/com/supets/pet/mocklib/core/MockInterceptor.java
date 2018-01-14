@@ -13,7 +13,21 @@ import okhttp3.ResponseBody;
 
 public class MockInterceptor implements Interceptor {
 
-    private IMockService mockMapper = new MockProxy().getServiceInterface();
+    private IMockService mockMapper;
+
+    public MockInterceptor() {
+        this.mockMapper = new IMockServiceImpl()
+                .addDataMapper(new MockDataMapper());
+    }
+
+    public MockInterceptor(IMockService mockMapper) {
+        this.mockMapper = mockMapper;
+        if (this.mockMapper == null) {
+            this.mockMapper = new IMockServiceImpl()
+                    .addDataMapper(new MockDataMapper());
+        }
+    }
+
 
     @Override
     public Response intercept(Chain chain) throws IOException {
@@ -30,7 +44,7 @@ public class MockInterceptor implements Interceptor {
         String url = request.url().toString();
         if (mockMapper.getMapper(url)) {
             String dto = mockMapper.getData(url);
-            Log.v("MockMapper-->>", url+"\n"+dto);
+            Log.v("MockMapper-->>", url + "\n" + dto);
             responsebuilder.body(ResponseBody.create(
                     MediaType.parse("application/json"),
                     dto.getBytes()));
