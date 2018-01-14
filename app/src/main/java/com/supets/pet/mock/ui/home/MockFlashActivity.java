@@ -27,6 +27,6 @@ public class MockFlashActivity extends AppCompatActivity {
     private void startHome() {
         Intent intent = new Intent(this, MockUiActivity.class);
         startActivity(intent);
-
+        finish();
     }
 }
