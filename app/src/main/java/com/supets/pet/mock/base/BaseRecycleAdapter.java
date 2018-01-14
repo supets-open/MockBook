@@ -23,9 +23,11 @@ public abstract  class BaseRecycleAdapter<T> extends RecyclerView.Adapter<BaseRe
     }
 
     public void addMoreData(List<T> data) {
-        if (data != null) {
+        if(data != null) {
+            int itemCount = data.size();
+            int postionStart = this.getItemCount();
             this.data.addAll(data);
-            notifyDataSetChanged();
+            this.notifyItemRangeInserted(postionStart, itemCount);
         }
     }
 

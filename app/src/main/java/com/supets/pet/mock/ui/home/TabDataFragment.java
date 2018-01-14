@@ -46,12 +46,16 @@ public class TabDataFragment extends BaseFragment {
             public void onRefresh() {
                 offset = 0;
                 update();
+                mPull.setRefreshing(false);
             }
         });
         mList.addOnScrollListener(new SupetRecyclerViewScrollListener() {
             @Override
             public void onLoadNextPage(RecyclerView view) {
-                update();
+
+                if (!mPull.isRefreshing()) {
+                    update();
+                }
             }
         });
         mPull.setOnChildScrollUpCallback(new SwipeRefreshLayout.OnChildScrollUpCallback() {
@@ -89,18 +93,14 @@ public class TabDataFragment extends BaseFragment {
             if (!nomore) {
                 adapter.addHomeData(datas);
                 offset++;
-                // smartRefreshLayout.setEnableLoadmore(true);
-                //smartRefreshLayout.autoLoadmore();
             } else {
                 adapter.addHomeData(null);
-                // smartRefreshLayout.setEnableLoadmore(false);
             }
         } else {
             if (!nomore) {
                 adapter.addMoreData(datas);
                 offset++;
             }
-            //smartRefreshLayout.finishLoadmore(100, true, nomore);
         }
 
 

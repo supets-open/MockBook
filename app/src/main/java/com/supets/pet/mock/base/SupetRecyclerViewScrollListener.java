@@ -8,7 +8,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 
 public abstract class SupetRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
 
-    private  int loadMoreNum = 4;
+    private  int loadMoreNum = 5;
 
     protected LayoutManagerType layoutManagerType;//当前RecyclerView类型
     private int[] lastPositions;//最后一个的位置
