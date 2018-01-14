@@ -1,4 +1,4 @@
-package com.supets.pet.mock.ui;
+package com.supets.pet.mock.base;
 
 import android.content.Context;
 import android.os.Bundle;
