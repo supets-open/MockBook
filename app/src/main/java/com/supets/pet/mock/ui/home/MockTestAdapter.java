@@ -27,7 +27,7 @@ public class MockTestAdapter extends BaseRecycleAdapter<LocalMockData> {
 
         ((TextView) holder.itemView.findViewById(R.id.name)).setText(data.get(position).getUrl());
 
-        final CheckBox checkBox = (CheckBox) holder.itemView.findViewById(R.id.select);
+        final CheckBox checkBox = holder.itemView.findViewById(R.id.select);
         checkBox.setChecked(data.get(position).getSelected());
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
