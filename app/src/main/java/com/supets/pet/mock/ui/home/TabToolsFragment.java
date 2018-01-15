@@ -36,7 +36,7 @@ public class TabToolsFragment extends BaseFragment {
     @Override
     public void findViews(View view) {
         mList = view.findViewById(R.id.list);
-        mList.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        mList.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         mPull = view.findViewById(R.id.swipe_refresh);
         mPull.setEnabled(false);
     }
@@ -52,6 +52,11 @@ public class TabToolsFragment extends BaseFragment {
         mList.setAdapter(adapter);
         List<String> datas = new ArrayList<>();
         datas.add("JSON助手");
+        datas.add("录屏工具");
+        datas.add("二维码识别");
+        datas.add("二维码生成");
+        datas.add("图片裁剪");
+        datas.add("拍照");
         adapter.setData(datas);
         adapter.notifyDataSetChanged();
     }
