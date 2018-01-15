@@ -46,9 +46,6 @@ public class MockMoreAdapter extends BaseRecycleAdapter<String> {
                 } else if (position == 4) {
                     Intent intent = new Intent(view.getContext(), MockCrashListActivity.class);
                     view.getContext().startActivity(intent);
-                } else if (position == 5) {
-                    Intent intent = new Intent(view.getContext(), MockToolActivity.class);
-                    view.getContext().startActivity(intent);
                 }
 
             }
