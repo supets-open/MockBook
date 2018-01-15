@@ -2,6 +2,7 @@ package com.supets.pet.mock.ui.home;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -36,7 +37,7 @@ public class TabSetFragment extends BaseFragment {
     @Override
     public void findViews(View view) {
         mList = view.findViewById(R.id.list);
-        mList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mList.setLayoutManager(new GridLayoutManager(getActivity(),2));
         mPull = view.findViewById(R.id.swipe_refresh);
         mPull.setEnabled(false);
     }
