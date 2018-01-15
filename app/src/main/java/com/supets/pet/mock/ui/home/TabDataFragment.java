@@ -24,8 +24,8 @@ public class TabDataFragment extends BaseFragment {
     private MockDataAdapter adapter;
     private SwipeRefreshLayout mPull;
 
-    private TextView mBottom;
-    private int mCurrentPosition;
+//    private TextView mBottom;
+//    private int mCurrentPosition;
 
     public static TabDataFragment newInstance(String content) {
         Bundle arguments = new Bundle();
@@ -44,7 +44,7 @@ public class TabDataFragment extends BaseFragment {
     @Override
     public void findViews(View view) {
 
-        mBottom = view.findViewById(R.id.fudong);
+        //mBottom = view.findViewById(R.id.fudong);
 
         mList = view.findViewById(R.id.list);
         mList.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -77,24 +77,24 @@ public class TabDataFragment extends BaseFragment {
             }
         });
 
-        mList.addOnScrollListener(new SuspensionBarScrollListener(mBottom) {
-
-            @Override
-            protected int getItemViewType() {
-                return 0;
-            }
-
-            @Override
-            public void updateSuspensionBar(int position) {
-                mCurrentPosition = position;
-                updateSuspensionBar2();
-            }
-        });
+//        mList.addOnScrollListener(new SuspensionBarScrollListener(mBottom) {
+//
+//            @Override
+//            protected int getItemViewType() {
+//                return 0;
+//            }
+//
+//            @Override
+//            public void updateSuspensionBar(int position) {
+//                mCurrentPosition = position;
+//                updateSuspensionBar2();
+//            }
+//        });
     }
-
-    private void updateSuspensionBar2() {
-        mBottom.setText(adapter.data.get(mCurrentPosition).getUrl());
-    }
+//
+//    private void updateSuspensionBar2() {
+//        mBottom.setText(adapter.data.get(mCurrentPosition).getUrl());
+//    }
 
 
     @Override
@@ -108,6 +108,7 @@ public class TabDataFragment extends BaseFragment {
         mList.setAdapter(adapter);
         offset = 0;
         update();
+        //updateSuspensionBar2();
     }
 
     private int offset = 0;
