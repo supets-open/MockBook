@@ -46,11 +46,7 @@
         <activity android:name="com.supets.pet.mock.ui.home.MockUiActivity" />
         <activity android:name="com.supets.pet.mock.ui.MockCrashUiActivity" />
         <activity android:name="com.supets.pet.mock.ui.MockInfoActivity" />
-        <activity android:name="com.supets.pet.mock.ui.MockDataListActivity" />
         <activity android:name="com.supets.pet.mock.ui.MockConfigActivity" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockTestActivity"
-            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name="com.supets.pet.mock.ui.MockConfigJsonActivity"
             android:windowSoftInputMode="adjustResize" />

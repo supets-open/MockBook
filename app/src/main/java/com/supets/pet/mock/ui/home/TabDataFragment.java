@@ -6,8 +6,10 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.supets.pet.mock.base.SupetRecyclerViewScrollListener;
+import com.supets.pet.mock.base.SuspensionBarScrollListener;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mock.base.BaseFragment;
@@ -22,6 +24,9 @@ public class TabDataFragment extends BaseFragment {
     private MockDataAdapter adapter;
     private SwipeRefreshLayout mPull;
 
+    private TextView mBottom;
+    private int mCurrentPosition;
+
     public static TabDataFragment newInstance(String content) {
         Bundle arguments = new Bundle();
         arguments.putString("content", content);
@@ -33,11 +38,14 @@ public class TabDataFragment extends BaseFragment {
 
     @Override
     public int getContentLayout() {
-        return R.layout.fragment_tab_content;
+        return R.layout.fragment_tab_data_list;
     }
 
     @Override
     public void findViews(View view) {
+
+        mBottom = view.findViewById(R.id.fudong);
+
         mList = view.findViewById(R.id.list);
         mList.setLayoutManager(new LinearLayoutManager(getActivity()));
         mPull = view.findViewById(R.id.swipe_refresh);
@@ -68,7 +76,26 @@ public class TabDataFragment extends BaseFragment {
                 return linearLayoutManager.findFirstCompletelyVisibleItemPosition() != 0;
             }
         });
+
+        mList.addOnScrollListener(new SuspensionBarScrollListener(mBottom) {
+
+            @Override
+            protected int getItemViewType() {
+                return 0;
+            }
+
+            @Override
+            public void updateSuspensionBar(int position) {
+                mCurrentPosition = position;
+                updateSuspensionBar2();
+            }
+        });
     }
+
+    private void updateSuspensionBar2() {
+        mBottom.setText(adapter.data.get(mCurrentPosition).getUrl());
+    }
+
 
     @Override
     public void setListeners() {
