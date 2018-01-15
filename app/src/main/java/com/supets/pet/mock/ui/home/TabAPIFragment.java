@@ -9,6 +9,7 @@ import android.view.View;
 import com.supets.pet.mock.bean.LocalMockData;
 import com.supets.pet.mock.dao.LocalMockDataDB;
 import com.supets.pet.mock.base.BaseFragment;
+import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mockui.R;
 
 import java.util.List;
@@ -51,7 +52,20 @@ public class TabAPIFragment extends BaseFragment {
     public void process() {
         adapter = new MockTestAdapter();
         mList.setAdapter(adapter);
+        resetLocalMockData();
         updateData();
+    }
+
+    private void resetLocalMockData() {
+        List<String> datas = MockDataDB.queryAllUrl();
+        if (datas != null) {
+            for (String temp : datas) {
+                List<LocalMockData> data = LocalMockDataDB.queryAllMockData(temp);
+                if (data==null||data.size()==0){
+                    LocalMockDataDB.insertMockData(new LocalMockData(null, temp, null, false));
+                }
+            }
+        }
     }
 
     private void updateData() {
