@@ -37,7 +37,7 @@ public class TabSetFragment extends BaseFragment {
     @Override
     public void findViews(View view) {
         mList = view.findViewById(R.id.list);
-        mList.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        mList.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         mPull = view.findViewById(R.id.swipe_refresh);
         mPull.setEnabled(false);
     }
@@ -57,7 +57,6 @@ public class TabSetFragment extends BaseFragment {
         datas.add("邮件管理");
         datas.add("数据模型");
         datas.add("异常管理");
-        datas.add("JSON助手");
         adapter.setData(datas);
         adapter.notifyDataSetChanged();
     }
