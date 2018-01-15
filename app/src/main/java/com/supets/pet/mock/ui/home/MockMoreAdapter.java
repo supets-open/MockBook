@@ -12,7 +12,6 @@ import com.supets.pet.mock.ui.MockConfigActivity;
 import com.supets.pet.mock.ui.MockCrashListActivity;
 import com.supets.pet.mock.ui.MockEmailListActivity;
 import com.supets.pet.mock.ui.MockModelActivity;
-import com.supets.pet.mock.ui.MockToolActivity;
 import com.supets.pet.mock.ui.MockUrlRuleActivity;
 import com.supets.pet.mockui.R;
 
@@ -22,7 +21,7 @@ public class MockMoreAdapter extends BaseRecycleAdapter<String> {
     @Override
     public BaseRecycleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new BaseRecycleViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.mock_list_home_item, parent, false));
+                .inflate(R.layout.mock_list_home_set_item, parent, false));
     }
 
     @Override

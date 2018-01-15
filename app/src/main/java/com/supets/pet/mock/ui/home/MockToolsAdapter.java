@@ -17,7 +17,7 @@ public class MockToolsAdapter extends BaseRecycleAdapter<String> {
     @Override
     public BaseRecycleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new BaseRecycleViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.mock_list_home_item, parent, false));
+                .inflate(R.layout.mock_list_home_tool_item, parent, false));
     }
 
     @Override
@@ -34,7 +34,6 @@ public class MockToolsAdapter extends BaseRecycleAdapter<String> {
             }
         });
     }
-
 
 
 }
