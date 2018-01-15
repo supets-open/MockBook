@@ -78,12 +78,22 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/sencondTest"
+            android:id="@+id/sencondTestGet"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#eeeeee"
-            android:text="接口探测"
+            android:text="Get探测"
+            android:textColor="@color/enable_gray"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/sencondTest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/staus_gray"
+            android:text="POST探测"
             android:textColor="#333333"
             android:textSize="20sp" />
 

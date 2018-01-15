@@ -73,6 +73,25 @@ public class MockInfoActivity extends AppCompatActivity {
 
             }
         });
+        findViewById(R.id.sencondTestGet).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                OkHttpUtils.get().url(mockData.getUrl())
+                        .params(Utils.formatHashMap(mockData.getRequestParam())).build().execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        mEditText.setText(e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        mEditText.setText(response);
+                    }
+                });
+
+            }
+        });
 
     }
 
