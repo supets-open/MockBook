@@ -41,6 +41,8 @@ public class MockDataAdapter extends BaseRecycleAdapter<MockData> {
         String time = dateToStrLong(data.get(position).getTime());
         ((TextView) holder.itemView.findViewById(R.id.time)).setText(time);
 
+        ((TextView) holder.itemView.findViewById(R.id.param)).setText(data.get(position).getData());
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +55,7 @@ public class MockDataAdapter extends BaseRecycleAdapter<MockData> {
     }
 
     public static String dateToStrLong(java.util.Date dateDate) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd HH:mm");
         String dateString = formatter.format(dateDate);
         return dateString;
     }
