@@ -6,6 +6,13 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
 
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <application
         android:name="com.supets.pet.MyApplication"
         android:allowBackup="true"
@@ -63,6 +70,10 @@
         <activity
             android:name="com.supets.pet.mock.ui.MockKeyActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:theme="@style/Camera_Theme"
+            android:name="com.supets.pet.zxing.TestScanActivity"
+            android:screenOrientation="portrait" />
 
         <!--测试-->
         <service

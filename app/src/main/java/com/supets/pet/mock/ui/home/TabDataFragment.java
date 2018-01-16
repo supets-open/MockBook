@@ -117,20 +117,15 @@ public class TabDataFragment extends BaseFragment {
         List<MockData> datas = MockDataDB.queryAllPage(offset);
         boolean nomore = datas == null || datas.size() < 20;
 
-        if (offset == 0) {
-            if (!nomore) {
-                adapter.addHomeData(datas);
-                offset++;
-            } else {
-                adapter.addHomeData(null);
-            }
-        } else {
-            if (!nomore) {
-                adapter.addMoreData(datas);
-                offset++;
-            }
+        if (!nomore) {
+            offset++;
         }
 
+        if (offset == 0) {
+            adapter.addHomeData(datas);
+        } else {
+            adapter.addMoreData(datas);
+        }
 
     }
 

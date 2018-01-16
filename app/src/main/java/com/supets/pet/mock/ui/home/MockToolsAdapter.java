@@ -10,6 +10,7 @@ import com.supets.pet.mock.base.BaseRecycleAdapter;
 import com.supets.pet.mock.base.BaseRecycleViewHolder;
 import com.supets.pet.mock.ui.MockToolActivity;
 import com.supets.pet.mockui.R;
+import com.supets.pet.zxing.TestScanActivity;
 
 public class MockToolsAdapter extends BaseRecycleAdapter<String> {
 
@@ -28,6 +29,10 @@ public class MockToolsAdapter extends BaseRecycleAdapter<String> {
             public void onClick(View view) {
                 if (position == 0) {
                     Intent intent = new Intent(view.getContext(), MockToolActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+                if (position == 2) {
+                    Intent intent = new Intent(view.getContext(), TestScanActivity.class);
                     view.getContext().startActivity(intent);
                 }
 
