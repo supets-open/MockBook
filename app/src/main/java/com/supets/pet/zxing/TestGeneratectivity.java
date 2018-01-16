@@ -161,24 +161,28 @@ public class TestGeneratectivity extends AppCompatActivity {
         mChineseIv.setDrawingCacheEnabled(true);
         Bitmap bitmap = mChineseIv.getDrawingCache();
         decode(bitmap, "解析中文二维码失败");
+        mChineseIv.setDrawingCacheEnabled(false);
     }
 
     public void decodeEnglish(View v) {
         mEnglishIv.setDrawingCacheEnabled(true);
         Bitmap bitmap = mEnglishIv.getDrawingCache();
         decode(bitmap, "解析英文二维码失败");
+        mEnglishIv.setDrawingCacheEnabled(false);
     }
 
     public void decodeChineseWithLogo(View v) {
         mChineseLogoIv.setDrawingCacheEnabled(true);
         Bitmap bitmap = mChineseLogoIv.getDrawingCache();
         decode(bitmap, "解析带logo的中文二维码失败");
+        mChineseLogoIv.setDrawingCacheEnabled(false);
     }
 
     public void decodeEnglishWithLogo(View v) {
         mEnglishLogoIv.setDrawingCacheEnabled(true);
         Bitmap bitmap = mEnglishLogoIv.getDrawingCache();
         decode(bitmap, "解析带logo的英文二维码失败");
+        mEnglishLogoIv.setDrawingCacheEnabled(false);
     }
 
     public void decodeIsbn(View v) {
