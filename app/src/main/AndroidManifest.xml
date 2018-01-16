@@ -71,9 +71,13 @@
             android:name="com.supets.pet.mock.ui.MockKeyActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:theme="@style/Camera_Theme"
             android:name="com.supets.pet.zxing.TestScanActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Camera_Theme" />
+        <activity
+            android:name="com.supets.pet.zxing.TestGeneratectivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Camera_Theme" />
 
         <!--测试-->
         <service
