@@ -78,6 +78,10 @@
             android:name="com.supets.pet.zxing.TestGeneratectivity"
             android:screenOrientation="portrait"
             android:theme="@style/Camera_Theme" />
+        <activity
+            android:name="com.supets.pet.mock.ui.crop.MaincROPActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Camera_Theme" />
 
         <!--测试-->
         <service

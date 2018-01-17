@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.supets.pet.mock.base.BaseRecycleAdapter;
 import com.supets.pet.mock.base.BaseRecycleViewHolder;
 import com.supets.pet.mock.ui.MockToolActivity;
+import com.supets.pet.mock.ui.crop.MaincROPActivity;
 import com.supets.pet.mockui.R;
 import com.supets.pet.zxing.TestGeneratectivity;
 import com.supets.pet.zxing.TestScanActivity;
@@ -38,6 +39,11 @@ public class MockToolsAdapter extends BaseRecycleAdapter<String> {
                 }
                 if (position == 3) {
                     Intent intent = new Intent(view.getContext(), TestGeneratectivity.class);
+                    view.getContext().startActivity(intent);
+                }
+
+                if (position == 4) {
+                    Intent intent = new Intent(view.getContext(), MaincROPActivity.class);
                     view.getContext().startActivity(intent);
                 }
 
