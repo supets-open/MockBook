@@ -69,20 +69,26 @@ public class ClipImageBorderView extends View {
         mWidth = getWidth() - 2 * mHorizontalPadding;
         // 计算距离屏幕垂直边界 的边距
         mVerticalPadding = (getHeight() - mWidth) / 2;
+        // 绘制外边框阴影
         mPaint.setColor(Color.parseColor("#aa000000"));
         mPaint.setStyle(Style.FILL);
         drawBackground(canvas);
-        // 绘制外边框
+        //绘制内边框
+        mPaint.setColor(Color.parseColor("#eeeeee"));
+        mPaint.setStrokeWidth(2);
+        mPaint.setStyle(Style.STROKE);
+        canvas.drawRect(mHorizontalPadding, mVerticalPadding, getWidth()
+                - mHorizontalPadding, getHeight() - mVerticalPadding, mPaint);
+        //绘制圆角
         mPaint.setColor(mBorderColor);
         mPaint.setStrokeWidth(mBorderWidth);
         mPaint.setStyle(Style.STROKE);
         drawCorner(canvas);
-//		canvas.drawRect(mHorizontalPadding, mVerticalPadding, getWidth()
-//				- mHorizontalPadding, getHeight() - mVerticalPadding, mPaint);
+
     }
 
 
-    public void drawBackground(Canvas canvas){
+    public void drawBackground(Canvas canvas) {
         // 绘制左边1
         canvas.drawRect(0, 0, mHorizontalPadding, getHeight(), mPaint);
         // 绘制右边2
