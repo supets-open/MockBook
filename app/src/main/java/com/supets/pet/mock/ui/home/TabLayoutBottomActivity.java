@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.supets.pet.mock.ui.pubu.TabDataFragment2;
 import com.supets.pet.mockui.R;
 
 import java.util.ArrayList;
