@@ -13,23 +13,34 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-        <com.supets.pet.mock.ui.crop.ClipImageLayout
-            android:id="@+id/clipImageLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/Crop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crop" />
 
-        <TextView
+        <Button
             android:id="@+id/rotate90"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/icon_tab" />
-    </RelativeLayout>
+            android:text="rotate90" />
+
+
+        <ImageView
+            android:id="@+id/CropImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <com.supets.pet.mock.ui.crop.ClipImageLayout
+        android:id="@+id/clipImageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
