@@ -13,35 +13,47 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/appcolor"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/Crop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Crop" />
-
-        <Button
-            android:id="@+id/rotate90"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="rotate90" />
-
-        <ImageView
-            android:id="@+id/CropImageView"
-            android:scaleType="centerInside"
-            android:layout_width="80dp"
-            android:layout_height="80dp" />
-
-    </LinearLayout>
-
     <com.supets.pet.mock.ui.crop.ClipImageLayout
         android:id="@+id/clipImageLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/appcolor"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <Button
+                android:id="@+id/Crop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crop" />
+
+            <Button
+                android:id="@+id/rotate90"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="rotate90" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/CropImageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:scaleType="centerInside" />
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

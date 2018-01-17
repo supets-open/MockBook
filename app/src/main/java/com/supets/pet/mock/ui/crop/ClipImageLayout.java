@@ -82,4 +82,9 @@ public class ClipImageLayout extends RelativeLayout {
 		getZoomImageView().setRotate(degree);
 	}
 
+
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+	}
 }
