@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.supets.pet.module.social.camera.uiwidget.ClipImageLayout
+        <com.supets.pet.mock.ui.crop.ClipImageLayout
             android:id="@+id/clipImageLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
