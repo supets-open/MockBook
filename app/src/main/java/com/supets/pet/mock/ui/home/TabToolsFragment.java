@@ -56,6 +56,7 @@ public class TabToolsFragment extends BaseFragment {
         datas.add("二维码识别");
         datas.add("二维码生成");
         datas.add("图片裁剪");
+        datas.add("图片裁剪");
         datas.add("拍照");
         adapter.setData(datas);
         adapter.notifyDataSetChanged();

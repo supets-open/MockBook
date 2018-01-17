@@ -48,7 +48,7 @@ public class MockToolsAdapter extends BaseRecycleAdapter<String> {
                     view.getContext().startActivity(intent);
                 }
 
-                if (position == 1) {
+                if (position == 5) {
                     Intent intent = new Intent(view.getContext(), MainCrop2Activity.class);
                     view.getContext().startActivity(intent);
                 }
