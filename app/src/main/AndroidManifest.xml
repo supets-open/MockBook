@@ -82,6 +82,9 @@
             android:name="com.supets.pet.mock.ui.crop.MaincROPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Camera_Theme" />
+        <activity
+            android:name="com.supets.pet.mock.ui.crop.MainCrop2Activity"
+            android:screenOrientation="portrait" />
 
         <!--测试-->
         <service
