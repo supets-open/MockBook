@@ -212,6 +212,7 @@ public class ClipZoomImageView extends ImageView implements
 
 	/**
 	 * 根据当前图片的Matrix获得图片的范围
+	 * 在View的范围
 	 * 
 	 * @return
 	 */
