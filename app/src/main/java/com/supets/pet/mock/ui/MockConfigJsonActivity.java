@@ -88,7 +88,7 @@ public class MockConfigJsonActivity extends AppCompatActivity {
         mListView.setAdapter(adapter);
 
         content = findViewById(R.id.content);
-        content.setText(FormatLogProcess.format(localMockData.getData()));
+        content.setText(localMockData.getData());
 
         TextView name = findViewById(R.id.name);
         name.setText(localMockData.getUrl());
