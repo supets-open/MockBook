@@ -60,6 +60,7 @@ public class ClipZoomImageView extends ImageView implements
 
 	private boolean isCanDrag;
 	private int lastPointerCount;
+	private float ratio= 9/16.0f;
 
 	public ClipZoomImageView(Context context) {
 		this(context, null);
@@ -348,7 +349,7 @@ public class ClipZoomImageView extends ImageView implements
 		// if (d == null)
 		// return;
 		// 垂直方向的边距
-		mVerticalPadding = (getHeight() - (getWidth() - 2 * mHorizontalPadding)) / 2;
+		mVerticalPadding = (int) ((getHeight() - (getWidth() - 2 * mHorizontalPadding)  *ratio) / 2);
 
 		int width = getWidth();
 		int height = getHeight();
@@ -404,7 +405,7 @@ public class ClipZoomImageView extends ImageView implements
 		draw(canvas);
 		return Bitmap.createBitmap(bitmap, mHorizontalPadding,
 				mVerticalPadding, getWidth() - 2 * mHorizontalPadding,
-				getWidth() - 2 * mHorizontalPadding);
+				getHeight() - 2 * mVerticalPadding);
 	}
 
 	/**
@@ -512,7 +513,8 @@ public class ClipZoomImageView extends ImageView implements
 	}
 
 	public Rect getClipRect(){
+		//这里right，bottom不是Y坐标  主要是代替宽高
 		return  new Rect(mHorizontalPadding,mVerticalPadding,getWidth() - 2 * mHorizontalPadding,
-				getWidth() - 2 * mHorizontalPadding);
+				getHeight() - 2 * mVerticalPadding);
 	}
 }
