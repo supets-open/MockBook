@@ -48,6 +48,8 @@ public class TabDataFragment extends BaseFragment {
 
         mList = view.findViewById(R.id.list);
         mList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mList.setItemAnimator(null);
+
         mPull = view.findViewById(R.id.swipe_refresh);
         mPull.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

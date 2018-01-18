@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.supets.pet.mock.base.BaseRecycleAdapter;
 import com.supets.pet.mock.base.BaseRecycleViewHolder;
 import com.supets.pet.mock.bean.MockData;
+import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mock.ui.MockInfoActivity;
 import com.supets.pet.mock.utils.FormatLogProcess;
 import com.supets.pet.mockui.R;
@@ -55,8 +56,13 @@ public class MockDataAdapter extends BaseRecycleAdapter<MockData> {
         holder.itemView.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                data.remove(position);
-                notifyItemRemoved(position);
+                 //无动画快速删除，不容易出现数组越界
+               // if (position < data.size()&&data.size()>0) {
+                    MockDataDB.deleteMockData(data.get(position));
+                    data.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position,getItemCount());
+              //  }
             }
         });
 
