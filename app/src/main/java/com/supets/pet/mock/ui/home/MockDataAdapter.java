@@ -52,6 +52,14 @@ public class MockDataAdapter extends BaseRecycleAdapter<MockData> {
             }
         });
 
+        holder.itemView.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                data.remove(position);
+                notifyItemRemoved(position);
+            }
+        });
+
     }
 
     public static String dateToStrLong(java.util.Date dateDate) {

@@ -45,5 +45,13 @@ public class MockTestAdapter extends BaseRecycleAdapter<LocalMockData> {
                 view.getContext().startActivity(intent);
             }
         });
+
+        holder.itemView.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                data.remove(position);
+                notifyItemRemoved(position);
+            }
+        });
     }
 }
