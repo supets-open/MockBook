@@ -491,7 +491,6 @@ public class ClipZoomImageView extends ImageView implements
     public void setHorizontalPadding(int mHorizontalPadding, int mVerticalPadding) {
         this.mLeftRightPadding = mHorizontalPadding;
         this.mTopBottomPadding = mVerticalPadding;
-        fresh();
     }
 
     public void setAspectRatio(int mAspectRatioX, int mAspectRatioY) {

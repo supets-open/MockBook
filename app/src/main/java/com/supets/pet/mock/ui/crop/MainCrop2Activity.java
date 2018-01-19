@@ -31,6 +31,7 @@ public class MainCrop2Activity extends AppCompatActivity {
 
         mCropImageView.setImageBitmap(
                 BitmapFactory.decodeResource(getResources(), R.drawable.taeyeon_three));
+        mCropImageView.setHorizontalPadding(30,30);
 
         final ImageView btn = findViewById(R.id.CropImageView);
         findViewById(R.id.Crop).setOnClickListener(new View.OnClickListener() {
