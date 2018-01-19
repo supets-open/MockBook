@@ -2,6 +2,7 @@ package com.supets.pet.mock.ui.crop;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
@@ -10,6 +11,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
@@ -20,6 +22,9 @@ import android.view.View.OnTouchListener;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
+import com.supets.pet.mockui.R;
+
+@SuppressLint("AppCompatCustomView")
 public class ClipZoomImageView extends ImageView implements
         OnScaleGestureListener, OnTouchListener,
         ViewTreeObserver.OnGlobalLayoutListener {
@@ -60,16 +65,16 @@ public class ClipZoomImageView extends ImageView implements
 
     private boolean isCanDrag;
     private int lastPointerCount;
-    private float ratio = 1f;
 
-    public ClipZoomImageView(Context context) {
-        this(context, null);
-    }
+    private int mAspectRatioX;
+    private int mAspectRatioY;
+    private int mTopBottomPadding;
+    private int mLeftRightPadding;
 
     public Bitmap bm;
 
-    public int OriginBimapWidth = 480;
-    public int OriginBimapHeight = 480;
+    public int OriginBimapWidth;
+    public int OriginBimapHeight;
 
     @Override
     public void setImageBitmap(Bitmap bm) {
@@ -81,12 +86,26 @@ public class ClipZoomImageView extends ImageView implements
 
     public ClipZoomImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initVoll();
+
+        final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ClipImageLayout, 0, 0);
+        mAspectRatioX = typedArray.getInteger(R.styleable.ClipImageLayout_ratioX, 1);
+        mAspectRatioY = typedArray.getInteger(R.styleable.ClipImageLayout_ratioY, 1);
+        int horizontalPadding = typedArray.getInteger(R.styleable.ClipImageLayout_horizontalPadding, 0);
+        int verticalPadding = typedArray.getInteger(R.styleable.ClipImageLayout_verticalPadding, 0);
+        typedArray.recycle();
+        mLeftRightPadding = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, horizontalPadding, getResources()
+                        .getDisplayMetrics());
+        mTopBottomPadding = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, verticalPadding, getResources()
+                        .getDisplayMetrics());
+
+        initParams();
         init(context);
     }
 
 
-    private void initVoll() {
+    private void initParams() {
         SCALE_MAX = 4.0f;
         SCALE_MID = 2.0f;
         initScale = 1.0f;
@@ -127,10 +146,6 @@ public class ClipZoomImageView extends ImageView implements
                 });
         mScaleGestureDetector = new ScaleGestureDetector(context, this);
         this.setOnTouchListener(this);
-    }
-
-    public void setAspectRatio(int mAspectRatioX, int mAspectRatioY) {
-        ratio = mAspectRatioY * 1f / mAspectRatioX;
     }
 
     /**
@@ -340,14 +355,6 @@ public class ClipZoomImageView extends ImageView implements
         getViewTreeObserver().removeGlobalOnLayoutListener(this);
     }
 
-    /**
-     * 水平方向与View的边距
-     */
-    private int mHorizontalPadding;
-    /**
-     * 垂直方向与View的边距
-     */
-    private int mVerticalPadding;
 
     @Override
     public void onGlobalLayout() {
@@ -364,7 +371,14 @@ public class ClipZoomImageView extends ImageView implements
         // if (d == null)
         // return;
         // 垂直方向的边距
-        mVerticalPadding = (int) ((getHeight() - (getWidth() - 2 * mHorizontalPadding) * ratio) / 2);
+        float ratioXY = mAspectRatioX * 1.0F / mAspectRatioY;
+        if (ratioXY < 1.0) {
+            mHorizontalPadding = (int) ((getWidth() - (getHeight() - 2 * mTopBottomPadding) / ratioXY) / 2);
+            mVerticalPadding = mTopBottomPadding;
+        } else {
+            mVerticalPadding = (int) ((getHeight() - (getWidth() - 2 * mLeftRightPadding) / ratioXY) / 2);
+            mHorizontalPadding = mLeftRightPadding;
+        }
 
         int width = getWidth();
         int height = getHeight();
@@ -471,12 +485,23 @@ public class ClipZoomImageView extends ImageView implements
         return Math.sqrt((dx * dx) + (dy * dy)) >= mTouchSlop;
     }
 
-    public void setHorizontalPadding(int mHorizontalPadding) {
-        this.mHorizontalPadding = mHorizontalPadding;
+    private int mHorizontalPadding;//水平方向与View的边距
+    private int mVerticalPadding;//垂直方向与View的边距
+
+    public void setHorizontalPadding(int mHorizontalPadding, int mVerticalPadding) {
+        this.mLeftRightPadding = mHorizontalPadding;
+        this.mTopBottomPadding = mVerticalPadding;
+        fresh();
+    }
+
+    public void setAspectRatio(int mAspectRatioX, int mAspectRatioY) {
+        this.mAspectRatioX = mAspectRatioX;
+        this.mAspectRatioY = mAspectRatioY;
+        fresh();
     }
 
     public void setRotate(int degree) {
-        initVoll();
+        initParams();
         rotateImage(degree);
         scaleCenter();
     }
@@ -517,6 +542,11 @@ public class ClipZoomImageView extends ImageView implements
         //这里right，bottom不是Y坐标  主要是代替宽高
         return new Rect(mHorizontalPadding, mVerticalPadding, getWidth() - mHorizontalPadding,
                 getHeight() - mVerticalPadding);
+    }
+
+    public void fresh() {
+        initParams();
+        scaleCenter();
     }
 
 }

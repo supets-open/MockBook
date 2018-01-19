@@ -27,7 +27,6 @@ public class MainCrop2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crop2);
         mCropImageView = findViewById(R.id.clipImageLayout);
-        mCropImageView.setHorizontalPadding(20);
 
         mCropImageView.setImageBitmap(
                 BitmapFactory.decodeResource(getResources(), R.drawable.taeyeon_three));
@@ -48,13 +47,15 @@ public class MainCrop2Activity extends AppCompatActivity {
         findViewById(R.id.flipv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCropImageView.getZoomImageView().flipVertical();
+                // mCropImageView.getZoomImageView().flipVertical();
+                mCropImageView.setAspectRatio(9, 14);
             }
         });
         findViewById(R.id.fliph).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCropImageView.getZoomImageView().flipHorizontal();
+                // mCropImageView.getZoomImageView().flipHorizontal();
+                mCropImageView.setAspectRatio(14, 9);
             }
         });
 

@@ -1,6 +1,7 @@
 package com.supets.pet.mock.ui.crop;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -10,6 +11,7 @@ import android.util.TypedValue;
 import android.view.View;
 
 import com.supets.commons.utils.UIUtils;
+import com.supets.pet.mockui.R;
 
 public class ClipImageBorderView extends View {
     /**
@@ -21,10 +23,6 @@ public class ClipImageBorderView extends View {
      */
     private int mVerticalPadding;
     /**
-     * 绘制的矩形的宽度
-     */
-    private int mWidth;
-    /**
      * 边框的颜色，默认为白色
      */
     private int mBorderColor = Color.parseColor("#FFFFFF");
@@ -32,9 +30,13 @@ public class ClipImageBorderView extends View {
      * 边框的宽度 单位dp
      */
     private int mBorderWidth = 4;
-    private float ratio = 1f;
     private Paint mPaint;
     public int mCornerLength = 70;
+
+    private int mAspectRatioX;
+    private int mAspectRatioY;
+    private int mTopBottomPadding;
+    private int mLeftRightPadding;
 
     public ClipImageBorderView(Context context) {
         this(context, null);
@@ -47,6 +49,19 @@ public class ClipImageBorderView extends View {
 
     public ClipImageBorderView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+
+        final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ClipImageLayout, 0, 0);
+        mAspectRatioX = typedArray.getInteger(R.styleable.ClipImageLayout_ratioX, 1);
+        mAspectRatioY = typedArray.getInteger(R.styleable.ClipImageLayout_ratioY, 1);
+        int horizontalPadding = typedArray.getInteger(R.styleable.ClipImageLayout_horizontalPadding, 0);
+        int verticalPadding = typedArray.getInteger(R.styleable.ClipImageLayout_verticalPadding, 0);
+        typedArray.recycle();
+        mLeftRightPadding = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, horizontalPadding, getResources()
+                        .getDisplayMetrics());
+        mTopBottomPadding = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, verticalPadding, getResources()
+                        .getDisplayMetrics());
         init();
     }
 
@@ -62,10 +77,18 @@ public class ClipImageBorderView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+
         // 计算矩形区域的宽度
-        mWidth = getWidth() - 2 * mHorizontalPadding;
         // 计算距离屏幕垂直边界 的边距
-        mVerticalPadding = (int) ((getHeight() - mWidth * ratio) / 2);
+        float ratioXY = mAspectRatioX * 1F / mAspectRatioY;
+        if (ratioXY < 1.0) {
+            mHorizontalPadding = (int) ((getWidth() - (getHeight() - 2 * mTopBottomPadding) / ratioXY) / 2);
+            mVerticalPadding = mTopBottomPadding;
+        } else {
+            mVerticalPadding = (int) ((getHeight() - (getWidth() - 2 * mLeftRightPadding) / ratioXY) / 2);
+            mHorizontalPadding = mLeftRightPadding;
+        }
+
         // 绘制外边框阴影
         mPaint.setColor(Color.parseColor("#aa000000"));
         mPaint.setStyle(Style.FILL);
@@ -139,11 +162,20 @@ public class ClipImageBorderView extends View {
                 getHeight() - mVerticalPadding - mCornerLength, mPaint);
     }
 
-    public void setHorizontalPadding(int mHorizontalPadding) {
-        this.mHorizontalPadding = mHorizontalPadding;
+    public void setHorizontalPadding(int mHorizontalPadding, int mVerticalPadding) {
+        this.mLeftRightPadding = mHorizontalPadding;
+        this.mTopBottomPadding = mVerticalPadding;
+        fresh();
     }
 
     public void setAspectRatio(int mAspectRatioX, int mAspectRatioY) {
-        ratio = mAspectRatioY * 1f / mAspectRatioX;
+        this.mAspectRatioX = mAspectRatioX;
+        this.mAspectRatioY = mAspectRatioY;
+        fresh();
+    }
+
+    public void fresh() {
+        requestLayout();
+        invalidate();
     }
 }
