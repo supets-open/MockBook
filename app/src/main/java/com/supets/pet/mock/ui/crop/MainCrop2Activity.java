@@ -43,7 +43,7 @@ public class MainCrop2Activity extends AppCompatActivity {
         findViewById(R.id.rotate90).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCropImageView.rotateImage(-90);
+                mCropImageView.getZoomImageView().rotateImage2(45);
             }
         });
 
@@ -56,7 +56,7 @@ public class MainCrop2Activity extends AppCompatActivity {
             mCropImageView.getZoomImageView().buildDrawingCache();
             Bitmap bit = mCropImageView.getZoomImageView().getDrawingCache();
             Rect rect = mCropImageView.getZoomImageView().getClipRect();
-            Bitmap bitmap2 = Bitmap.createBitmap(bit, rect.left, rect.top, rect.right, rect.bottom);
+            Bitmap bitmap2 = Bitmap.createBitmap(bit, rect.left, rect.top, rect.width(), rect.height());
             mCropImageView.getZoomImageView().setDrawingCacheEnabled(false);
             if (bit != null) {
                 bit.recycle();
