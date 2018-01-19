@@ -74,18 +74,30 @@ public class ClipZoomImageView extends ImageView implements
     @Override
     public void setImageBitmap(Bitmap bm) {
         this.bm = bm;
-        // TODO Auto-generated method stub
         super.setImageBitmap(bm);
         this.OriginBimapHeight = bm.getHeight();
         this.OriginBimapWidth = bm.getWidth();
-        Log.v(TAG, OriginBimapWidth + "==" + OriginBimapHeight);
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     public ClipZoomImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
+        initVoll();
         init(context);
+    }
+
+
+    private void initVoll() {
+        SCALE_MAX = 4.0f;
+        SCALE_MID = 2.0f;
+        initScale = 1.0f;
+        matrixValues = new float[9];
+        mScaleMatrix = new Matrix();
+        isAutoScale = false;
+        mTouchSlop = 0;
+        mLastX = 0;
+        mLastY = 0;
+        isCanDrag = false;
+        lastPointerCount = 0;
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -236,7 +248,6 @@ public class ClipZoomImageView extends ImageView implements
     public void onScaleEnd(ScaleGestureDetector detector) {
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
@@ -319,7 +330,6 @@ public class ClipZoomImageView extends ImageView implements
         getViewTreeObserver().addOnGlobalLayoutListener(this);
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
@@ -338,12 +348,14 @@ public class ClipZoomImageView extends ImageView implements
     @Override
     public void onGlobalLayout() {
         if (once) {
-            firstLoad();
+            scaleCenter();
         }
-
     }
 
-    private void firstLoad() {
+    private void scaleCenter() {
+
+        //计算缩放比
+
         // Drawable d = getDrawable();
         // if (d == null)
         // return;
@@ -355,6 +367,7 @@ public class ClipZoomImageView extends ImageView implements
         // 拿到图片的宽和高
         // int dw = d.getIntrinsicWidth();
         // int dh = d.getIntrinsicHeight();
+
         int dw = OriginBimapWidth;
         int dh = OriginBimapHeight;
 
@@ -460,24 +473,26 @@ public class ClipZoomImageView extends ImageView implements
 
     public void setRotate(int degree) {
         initVoll();
-        init(getContext());
         rotateImage(degree);
-        firstLoad();
+        scaleCenter();
     }
 
-    private void initVoll() {
-        SCALE_MAX = 4.0f;
-        SCALE_MID = 2.0f;
-        initScale = 1.0f;
-        matrixValues = new float[9];
-        mScaleMatrix = new Matrix();
-        isAutoScale = false;
-        mTouchSlop = 0;
-        mLastX = 0;
-        mLastY = 0;
-        isCanDrag = false;
-        lastPointerCount = 0;
+    public void flipVertical() {
+        Matrix matrix = new Matrix();
+        matrix.postScale(1, -1);
+        bm = Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(),
+                matrix, true);
+        setImageBitmap(bm);
     }
+
+    public void flipHorizontal() {
+        Matrix matrix = new Matrix();
+        matrix.postScale(-1, 1);
+        bm = Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(),
+                matrix, true);
+        setImageBitmap(bm);
+    }
+
 
     int mDegreesRotated = 0;
 

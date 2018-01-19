@@ -37,19 +37,32 @@
                 android:id="@+id/Crop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Crop" />
+                android:text="裁剪" />
 
             <Button
                 android:id="@+id/rotate90"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="rotate90" />
+                android:text="旋转90" />
+
+            <Button
+                android:id="@+id/fliph"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="水平翻转" />
+
+            <Button
+                android:id="@+id/flipv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="垂直翻转" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/CropImageView"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_marginRight="20dp"
             android:scaleType="centerInside" />
 
 
