@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 
 import com.supets.commons.utils.file.ImageUtils;
 import com.supets.pet.mock.utils.FileUtils;
@@ -47,18 +48,50 @@ public class MainCrop2Activity extends AppCompatActivity {
         findViewById(R.id.flipv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // mCropImageView.getZoomImageView().flipVertical();
-                mCropImageView.setAspectRatio(9, 14);
+                mCropImageView.getZoomImageView().flipVertical();
             }
         });
         findViewById(R.id.fliph).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // mCropImageView.getZoomImageView().flipHorizontal();
-                mCropImageView.setAspectRatio(14, 9);
+                mCropImageView.getZoomImageView().flipHorizontal();
             }
         });
 
+        final SeekBar seekBarx = findViewById(R.id.aspectRatioX);
+        final SeekBar seekBary = findViewById(R.id.aspectRatioY);
+        seekBarx.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                mCropImageView.setAspectRatio(progress, seekBary.getProgress());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        seekBary.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                mCropImageView.setAspectRatio(seekBarx.getProgress(), progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 
 

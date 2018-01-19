@@ -13,19 +13,17 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <com.supets.pet.mock.ui.crop.ClipImageLayout
+    <com.supets.pet.mock.ui.crop.ClipImageLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/clipImageLayout"
         android:layout_width="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:horizontalPadding="20"
-        app:verticalPadding="20"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        app:horizontalPadding="20"
+        app:verticalPadding="20" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/appcolor"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -35,39 +33,61 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <Button
-                android:id="@+id/Crop"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="裁剪" />
+                android:orientation="horizontal"
+                android:padding="10dp">
 
-            <Button
-                android:id="@+id/rotate90"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="旋转90" />
+                <Button
+                    android:id="@+id/Crop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="裁剪" />
 
-            <Button
-                android:id="@+id/fliph"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="水平翻转" />
+                <Button
+                    android:id="@+id/rotate90"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="旋转90" />
 
-            <Button
-                android:id="@+id/flipv"
+                <Button
+                    android:id="@+id/fliph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="水平翻转" />
+
+                <Button
+                    android:id="@+id/flipv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="垂直翻转" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/aspectRatioX"
+                android:max="100"
+                android:min="1"
+                android:progress="20"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="垂直翻转" />
+                android:layout_height="wrap_content" />
+
+            <SeekBar
+                android:id="@+id/aspectRatioY"
+                android:max="100"
+                android:min="1"
+                android:progress="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/CropImageView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="20dp"
+                android:scaleType="centerInside" />
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/CropImageView"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="20dp"
-            android:scaleType="centerInside" />
-
 
     </LinearLayout>
 
