@@ -43,7 +43,7 @@ public class MainCrop2Activity extends AppCompatActivity {
         findViewById(R.id.rotate90).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCropImageView.getZoomImageView().rotateImage2(45);
+                mCropImageView.rotateImage(45);
             }
         });
 
