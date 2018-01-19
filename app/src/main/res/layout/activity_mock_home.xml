@@ -9,16 +9,6 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <com.supets.pet.theme.statsbar.StatusBarView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/appcolor" />
-
-        <com.supets.commons.widget.CommonHeader
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
         <android.support.v4.view.ViewPager
             android:id="@+id/vp_content"
             android:layout_width="match_parent"

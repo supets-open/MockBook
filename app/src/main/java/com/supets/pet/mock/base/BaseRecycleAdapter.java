@@ -35,6 +35,29 @@ public abstract class BaseRecycleAdapter<T> extends RecyclerView.Adapter<BaseRec
         }
     }
 
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemCount() {
+        return data.size();
+    }
+
+    public void insert(int position, T temp) {
+        this.data.add(position, temp);
+        this.notifyItemInserted(position);
+        this.notifyItemRangeChanged(position, getItemCount()-position);
+    }
+
+    public void insert(int position, List<T> temp) {
+        this.data.addAll(position, temp);
+        this.notifyItemInserted(position);
+        this.notifyItemRangeChanged(position, getItemCount() - position);
+    }
+
     public void remove(int position) {
         this.data.remove(position);
         this.notifyItemRemoved(position);
@@ -72,26 +95,5 @@ public abstract class BaseRecycleAdapter<T> extends RecyclerView.Adapter<BaseRec
         }
     }
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public int getItemCount() {
-        return data.size();
-    }
-
-    public void insert(int position, T temp) {
-        this.data.add(position, temp);
-        this.notifyItemInserted(position);
-        this.notifyItemRangeChanged(position, getItemCount() - position);
-    }
-
-    public void insert(int position, List<T> temp) {
-        this.data.addAll(position, temp);
-        this.notifyItemInserted(position);
-        this.notifyItemRangeChanged(position, getItemCount() - position);
-    }
 
 }
