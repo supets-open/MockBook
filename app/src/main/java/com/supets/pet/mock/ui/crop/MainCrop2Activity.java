@@ -29,7 +29,6 @@ public class MainCrop2Activity extends AppCompatActivity {
         mCropImageView = findViewById(R.id.clipImageLayout);
         mCropImageView.setHorizontalPadding(20);
 
-
         mCropImageView.setImageBitmap(
                 BitmapFactory.decodeResource(getResources(), R.drawable.taeyeon_three));
 
@@ -43,7 +42,7 @@ public class MainCrop2Activity extends AppCompatActivity {
         findViewById(R.id.rotate90).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCropImageView.rotateImage(-90);
+                mCropImageView.getZoomImageView().setRotate(-90);
             }
         });
         findViewById(R.id.flipv).setOnClickListener(new View.OnClickListener() {
