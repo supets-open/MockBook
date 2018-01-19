@@ -61,7 +61,7 @@ public class MockDataAdapter extends BaseRecycleAdapter<MockData> {
                     MockDataDB.deleteMockData(data.get(position));
                     data.remove(position);
                     notifyItemRemoved(position);
-                    notifyItemRangeChanged(position,getItemCount());
+                    notifyItemRangeChanged(0,getItemCount()-position);
               //  }
             }
         });

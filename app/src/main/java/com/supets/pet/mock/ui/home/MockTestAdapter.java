@@ -59,7 +59,7 @@ public class MockTestAdapter extends BaseRecycleAdapter<LocalMockData> {
                         LocalMockDataDB.deleteMockData(data.get(position));
                         data.remove(position);
                         notifyItemRemoved(position);
-                        notifyItemRangeChanged(position, getItemCount());
+                        notifyItemRangeChanged(0, getItemCount()-position);
                     } else {
                         Toast.makeText(holder.itemView.getContext(), "删除异常了", Toast.LENGTH_SHORT).show();
                     }

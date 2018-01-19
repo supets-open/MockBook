@@ -2,18 +2,21 @@ package com.supets.pet.mock.ui.pubu;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
+import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.base.BaseFragment;
 import com.supets.pet.mock.base.SupetRecyclerViewScrollListener;
 import com.supets.pet.mock.bean.MockData;
 import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mockui.R;
 
+import java.sql.Date;
 import java.util.List;
 
 
@@ -22,6 +25,7 @@ public class TabDataFragment2 extends BaseFragment {
     private RecyclerView mList;
     private MockPubuAdapter adapter;
     private SwipeRefreshLayout mPull;
+    private CommonHeader header;
 
 
     public static TabDataFragment2 newInstance(String content) {
@@ -73,6 +77,22 @@ public class TabDataFragment2 extends BaseFragment {
 //                return linearLayoutManager.findFirstCompletelyVisibleItemPosition() != 0;
 //            }
 //        });
+        header = view.findViewById(R.id.header);
+        initView();
+    }
+
+    private void initView() {
+        header.getTitleTextView().setText(R.string.app_name);
+        header.getTitleTextView().setTextColor(ContextCompat.getColor(getActivity(), R.color.white));
+        header.getWholeView().setBackgroundResource(R.color.appcolor);
+        header.getLeftButton().setVisibility(View.GONE);
+        header.getRightButton().setText("插入数据");
+        header.getRightButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.insert(3, new MockData(new Long(122), "CHARU", null, null, new java.util.Date()));
+            }
+        });
     }
 
     @Override

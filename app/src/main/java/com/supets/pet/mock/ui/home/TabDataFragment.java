@@ -2,12 +2,14 @@ package com.supets.pet.mock.ui.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.base.SupetRecyclerViewScrollListener;
 import com.supets.pet.mock.base.SuspensionBarScrollListener;
 import com.supets.pet.mock.bean.MockData;
@@ -23,6 +25,7 @@ public class TabDataFragment extends BaseFragment {
     private RecyclerView mList;
     private MockDataAdapter adapter;
     private SwipeRefreshLayout mPull;
+    private CommonHeader header;
 
 //    private TextView mBottom;
 //    private int mCurrentPosition;
@@ -38,7 +41,7 @@ public class TabDataFragment extends BaseFragment {
 
     @Override
     public int getContentLayout() {
-        return R.layout.fragment_tab_data_list;
+        return R.layout.fragment_tab_content;
     }
 
     @Override
@@ -92,6 +95,15 @@ public class TabDataFragment extends BaseFragment {
 //                updateSuspensionBar2();
 //            }
 //        });
+        header = view.findViewById(R.id.header);
+        initView();
+    }
+
+    private void initView() {
+        header.getTitleTextView().setText(R.string.app_name);
+        header.getTitleTextView().setTextColor(ContextCompat.getColor(getActivity(), R.color.white));
+        header.getWholeView().setBackgroundResource(R.color.appcolor);
+        header.getLeftButton().setVisibility(View.GONE);
     }
 //
 //    private void updateSuspensionBar2() {
