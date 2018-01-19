@@ -60,7 +60,7 @@ public class ClipZoomImageView extends ImageView implements
 
     private boolean isCanDrag;
     private int lastPointerCount;
-    private float ratio = 9 / 16.0f;
+    private float ratio = 1f;
 
     public ClipZoomImageView(Context context) {
         this(context, null);
@@ -127,6 +127,10 @@ public class ClipZoomImageView extends ImageView implements
                 });
         mScaleGestureDetector = new ScaleGestureDetector(context, this);
         this.setOnTouchListener(this);
+    }
+
+    public void setAspectRatio(int mAspectRatioX, int mAspectRatioY) {
+        ratio = mAspectRatioY * 1f / mAspectRatioX;
     }
 
     /**

@@ -1,9 +1,13 @@
 package com.supets.pet.mock.ui.crop;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.widget.RelativeLayout;
+
+import com.supets.pet.mockui.R;
 
 public class ClipImageLayout extends RelativeLayout {
 
@@ -22,19 +26,21 @@ public class ClipImageLayout extends RelativeLayout {
         this.addView(mZoomImageView, lp);
         this.addView(mClipImageView, lp);
 
-        // 计算padding的px
-//		mHorizontalPadding = (int) TypedValue.applyDimension(
-//				TypedValue.COMPLEX_UNIT_DIP, mHorizontalPadding, getResources()
-//						.getDisplayMetrics());
+
+        final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ClipImageLayout, 0, 0);
+        int mAspectRatioX = typedArray.getInteger(R.styleable.ClipImageLayout_ratioX, 1);
+        int mAspectRatioY = typedArray.getInteger(R.styleable.ClipImageLayout_ratioY, 1);
+        int horizontalPadding = typedArray.getInteger(R.styleable.ClipImageLayout_horizontalPadding, 0);
+        typedArray.recycle();
+        int mHorizontalPadding = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, horizontalPadding, getResources()
+                        .getDisplayMetrics());
+        mZoomImageView.setAspectRatio(mAspectRatioX, mAspectRatioY);
         mZoomImageView.setHorizontalPadding(mHorizontalPadding);
+        mClipImageView.setAspectRatio(mAspectRatioX, mAspectRatioY);
         mClipImageView.setHorizontalPadding(mHorizontalPadding);
     }
 
-    /**
-     * 对外公布设置边距的方法,单位为dp
-     *
-     * @param mHorizontalPadding
-     */
     public void setHorizontalPadding(int mHorizontalPadding) {
         this.mHorizontalPadding = mHorizontalPadding;
         mZoomImageView.setHorizontalPadding(mHorizontalPadding);

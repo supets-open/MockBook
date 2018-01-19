@@ -32,8 +32,9 @@ public class ClipImageBorderView extends View {
      * 边框的宽度 单位dp
      */
     private int mBorderWidth = 4;
-    private float ratio= 9/16.0f;
+    private float ratio = 1f;
     private Paint mPaint;
+    public int mCornerLength = 70;
 
     public ClipImageBorderView(Context context) {
         this(context, null);
@@ -41,17 +42,13 @@ public class ClipImageBorderView extends View {
 
     public ClipImageBorderView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-
     }
 
-    public int mCornerLength = 70;
 
     public ClipImageBorderView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-
         init();
     }
-
 
     private void init() {
         mBorderWidth = (int) TypedValue.applyDimension(
@@ -68,7 +65,7 @@ public class ClipImageBorderView extends View {
         // 计算矩形区域的宽度
         mWidth = getWidth() - 2 * mHorizontalPadding;
         // 计算距离屏幕垂直边界 的边距
-        mVerticalPadding = (int) ((getHeight() - mWidth*ratio) / 2);
+        mVerticalPadding = (int) ((getHeight() - mWidth * ratio) / 2);
         // 绘制外边框阴影
         mPaint.setColor(Color.parseColor("#aa000000"));
         mPaint.setStyle(Style.FILL);
@@ -146,4 +143,7 @@ public class ClipImageBorderView extends View {
         this.mHorizontalPadding = mHorizontalPadding;
     }
 
+    public void setAspectRatio(int mAspectRatioX, int mAspectRatioY) {
+        ratio = mAspectRatioY * 1f / mAspectRatioX;
+    }
 }
