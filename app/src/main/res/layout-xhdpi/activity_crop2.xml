@@ -11,33 +11,33 @@
         android:layout_gravity="center"
         android:text="@string/app_name"
         android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <com.supets.pet.mock.ui.crop.ClipImageLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/clipImageLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:horizontalPadding="20"
-        app:verticalPadding="20" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ffffff"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/CropImageView"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="20dp"
+                android:scaleType="centerInside" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/Crop"
@@ -64,32 +64,56 @@
                     android:text="垂直翻转" />
             </LinearLayout>
 
-            <SeekBar
-                android:id="@+id/aspectRatioX"
-                android:max="100"
-                android:min="1"
-                android:progress="20"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <SeekBar
-                android:id="@+id/aspectRatioY"
-                android:max="100"
-                android:min="1"
-                android:progress="10"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="裁剪X：" />
+
+                <SeekBar
+                    android:id="@+id/aspectRatioX"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:min="1"
+                    android:progress="20" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/CropImageView"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="20dp"
-                android:scaleType="centerInside" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="裁剪Y：" />
+
+                <SeekBar
+                    android:id="@+id/aspectRatioY"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:min="1"
+                    android:progress="10" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
+
+    <com.supets.pet.mock.ui.crop.ClipImageLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/clipImageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:horizontalPadding="20"
+        app:verticalPadding="20" />
 
 
 </LinearLayout>

@@ -175,7 +175,6 @@ public class ClipImageBorderView extends View {
     }
 
     public void fresh() {
-        requestLayout();
         invalidate();
     }
 }
