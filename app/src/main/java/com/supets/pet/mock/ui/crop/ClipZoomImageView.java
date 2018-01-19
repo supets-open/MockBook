@@ -373,7 +373,7 @@ public class ClipZoomImageView extends ImageView implements
         // 垂直方向的边距
         float ratioXY = mAspectRatioX * 1.0F / mAspectRatioY;
         if (ratioXY < 1.0) {
-            mHorizontalPadding = (int) ((getWidth() - (getHeight() - 2 * mTopBottomPadding) / ratioXY) / 2);
+            mHorizontalPadding = (int) ((getWidth() - (getHeight() - 2 * mTopBottomPadding) * ratioXY) / 2);
             mVerticalPadding = mTopBottomPadding;
         } else {
             mVerticalPadding = (int) ((getHeight() - (getWidth() - 2 * mLeftRightPadding) / ratioXY) / 2);

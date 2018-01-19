@@ -82,7 +82,7 @@ public class ClipImageBorderView extends View {
         // 计算距离屏幕垂直边界 的边距
         float ratioXY = mAspectRatioX * 1F / mAspectRatioY;
         if (ratioXY < 1.0) {
-            mHorizontalPadding = (int) ((getWidth() - (getHeight() - 2 * mTopBottomPadding) / ratioXY) / 2);
+            mHorizontalPadding = (int) ((getWidth() - (getHeight() - 2 * mTopBottomPadding) * ratioXY) / 2);
             mVerticalPadding = mTopBottomPadding;
         } else {
             mVerticalPadding = (int) ((getHeight() - (getWidth() - 2 * mLeftRightPadding) / ratioXY) / 2);
