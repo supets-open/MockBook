@@ -5,6 +5,9 @@
         <attr name="ratioY" format="integer"/>
         <attr name="horizontalPadding" format="integer"/>
         <attr name="verticalPadding" format="integer"/>
+        <attr name="borderWidth2" format="integer"/>
+        <attr name="borderColor" format="color"/>
+        <attr name="cornerLength" format="integer"/>
     </declare-styleable>
 
 </resources>

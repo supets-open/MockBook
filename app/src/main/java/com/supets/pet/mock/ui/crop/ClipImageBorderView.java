@@ -14,24 +14,15 @@ import com.supets.commons.utils.UIUtils;
 import com.supets.pet.mockui.R;
 
 public class ClipImageBorderView extends View {
-    /**
-     * 水平方向与View的边距
-     */
+
     private int mHorizontalPadding;
-    /**
-     * 垂直方向与View的边距
-     */
     private int mVerticalPadding;
-    /**
-     * 边框的颜色，默认为白色
-     */
-    private int mBorderColor = Color.parseColor("#FFFFFF");
-    /**
-     * 边框的宽度 单位dp
-     */
-    private int mBorderWidth = 4;
+
+    private int mBorderColor;
+    private int mBorderWidth;
+    public int mCornerLength;
+
     private Paint mPaint;
-    public int mCornerLength = 70;
 
     private int mAspectRatioX;
     private int mAspectRatioY;
@@ -55,6 +46,9 @@ public class ClipImageBorderView extends View {
         mAspectRatioY = typedArray.getInteger(R.styleable.ClipImageLayout_ratioY, 1);
         int horizontalPadding = typedArray.getInteger(R.styleable.ClipImageLayout_horizontalPadding, 0);
         int verticalPadding = typedArray.getInteger(R.styleable.ClipImageLayout_verticalPadding, 0);
+        int borderWidth = typedArray.getInteger(R.styleable.ClipImageLayout_borderWidth2, 4);
+        int cornerLength = typedArray.getInteger(R.styleable.ClipImageLayout_cornerLength, 10);
+        mBorderColor = typedArray.getColor(R.styleable.ClipImageLayout_borderColor, Color.WHITE);
         typedArray.recycle();
         mLeftRightPadding = (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, horizontalPadding, getResources()
@@ -62,17 +56,18 @@ public class ClipImageBorderView extends View {
         mTopBottomPadding = (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, verticalPadding, getResources()
                         .getDisplayMetrics());
-        init();
-    }
 
-    private void init() {
         mBorderWidth = (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, mBorderWidth, getResources()
+                TypedValue.COMPLEX_UNIT_DIP, borderWidth, getResources()
+                        .getDisplayMetrics());
+
+        mCornerLength = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, cornerLength, getResources()
                         .getDisplayMetrics());
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mCornerLength = UIUtils.getScreenWidth() / 10;
     }
+
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -94,11 +89,11 @@ public class ClipImageBorderView extends View {
         mPaint.setStyle(Style.FILL);
         drawBackground(canvas);
         //绘制内边框
-        mPaint.setColor(Color.parseColor("#eeeeee"));
-        mPaint.setStrokeWidth(2);
-        mPaint.setStyle(Style.STROKE);
-        canvas.drawRect(mHorizontalPadding, mVerticalPadding, getWidth()
-                - mHorizontalPadding, getHeight() - mVerticalPadding, mPaint);
+        // mPaint.setColor(Color.parseColor("#eeeeee"));
+        // mPaint.setStrokeWidth(2);
+        // mPaint.setStyle(Style.STROKE);
+        // canvas.drawRect(mHorizontalPadding, mVerticalPadding, getWidth()
+        //         - mHorizontalPadding, getHeight() - mVerticalPadding, mPaint);
         //绘制圆角
         mPaint.setColor(mBorderColor);
         mPaint.setStrokeWidth(mBorderWidth);
