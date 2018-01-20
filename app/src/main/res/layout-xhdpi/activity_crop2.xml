@@ -1,119 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="自定义裁剪"
-        android:textSize="24sp"
-        android:textStyle="bold"
-       />
+    <com.supets.pet.mock.ui.crop.ClipImageLayout
+        android:id="@+id/clipImageLayout"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        app:horizontalPadding="40"
+        app:verticalPadding="40" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:orientation="horizontal">
+        android:layout_gravity="bottom"
+        android:background="#AAFFFFFF"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/CropImageView"
+
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
 
-            <ImageView
-                android:id="@+id/CropImageView"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/Crop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="裁剪" />
+
+            <Button
+                android:id="@+id/rotate90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="旋转90" />
+
+            <Button
+                android:id="@+id/fliph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="水平翻转" />
+
+            <Button
+                android:id="@+id/flipv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="垂直翻转" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="裁剪X：" />
+
+            <SeekBar
+                android:id="@+id/aspectRatioX"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="20dp"
-                android:scaleType="centerInside" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/Crop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="裁剪" />
-
-                <Button
-                    android:id="@+id/rotate90"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="旋转90" />
-
-                <Button
-                    android:id="@+id/fliph"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="水平翻转" />
-
-                <Button
-                    android:id="@+id/flipv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="垂直翻转" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="裁剪X：" />
-
-                <SeekBar
-                    android:id="@+id/aspectRatioX"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="100"
-                    android:min="1"
-                    android:progress="20" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="裁剪Y：" />
-
-                <SeekBar
-                    android:id="@+id/aspectRatioY"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="100"
-                    android:min="1"
-                    android:progress="10" />
-            </LinearLayout>
+                android:max="100"
+                android:min="1"
+                android:progress="20" />
 
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <com.supets.pet.mock.ui.crop.ClipImageLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/clipImageLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:horizontalPadding="20"
-        app:verticalPadding="20" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="裁剪Y：" />
+
+            <SeekBar
+                android:id="@+id/aspectRatioY"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:max="100"
+                android:min="1"
+                android:progress="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="左右padding：" />
+
+            <SeekBar
+                android:id="@+id/lfpadding"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:max="100"
+                android:min="1"
+                android:progress="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上下padding：" />
+
+            <SeekBar
+                android:id="@+id/tbpadding"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:max="100"
+                android:min="1"
+                android:progress="10" />
+        </LinearLayout>
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -31,7 +31,6 @@ public class MainCrop2Activity extends AppCompatActivity {
 
         mCropImageView.setImageBitmap(
                 BitmapFactory.decodeResource(getResources(), R.drawable.taeyeon_three));
-        mCropImageView.setHorizontalPadding(30,30);
 
         final ImageView btn = findViewById(R.id.CropImageView);
         findViewById(R.id.Crop).setOnClickListener(new View.OnClickListener() {
@@ -93,6 +92,47 @@ public class MainCrop2Activity extends AppCompatActivity {
 
             }
         });
+
+
+        final SeekBar tbpadding = findViewById(R.id.tbpadding);
+        final SeekBar lfpadding = findViewById(R.id.lfpadding);
+        lfpadding.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                mCropImageView.setHorizontalPadding(progress, tbpadding.getProgress());
+                mCropImageView.getZoomImageView().fresh();
+                mCropImageView.getClipImageView().fresh();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        tbpadding.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                mCropImageView.setHorizontalPadding(lfpadding.getProgress(), progress);
+                mCropImageView.getZoomImageView().fresh();
+                mCropImageView.getClipImageView().fresh();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
     }
 
 

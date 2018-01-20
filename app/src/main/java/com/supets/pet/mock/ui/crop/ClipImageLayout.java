@@ -10,6 +10,10 @@ public class ClipImageLayout extends RelativeLayout {
     private ClipZoomImageView mZoomImageView;
     private ClipImageBorderView mClipImageView;
 
+    public ClipImageBorderView getClipImageView() {
+        return mClipImageView;
+    }
+
     public ClipImageLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         mZoomImageView = new ClipZoomImageView(context, attrs);
