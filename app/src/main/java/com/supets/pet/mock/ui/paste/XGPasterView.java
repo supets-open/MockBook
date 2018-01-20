@@ -241,13 +241,17 @@ public class XGPasterView extends View implements OnScaleGestureListener {
 	}
 
 	public Matrix getPasterMatrix(Bitmap src) {
+
+		Matrix tempmatrix=new Matrix(matrix);
+
+
 		float scaleFactor = 1.0f * src.getWidth() / mWidth;
-		matrix.postScale(scaleFactor, scaleFactor, mWidth / 2, mHeight / 2);
+		tempmatrix.postScale(scaleFactor, scaleFactor, mWidth / 2, mHeight / 2);
 
 		float dx = (src.getWidth() - mWidth) * 1.0f / 2;
 		float dy = (src.getHeight() - mHeight) * 1.0f / 2;
-		matrix.postTranslate(dx, dy);
-		return matrix;
+		tempmatrix.postTranslate(dx, dy);
+		return tempmatrix;
 	}
 
 	public void setSize(int width, int height) {

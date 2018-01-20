@@ -136,5 +136,4 @@ public class MainPasteActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 }
