@@ -85,6 +85,9 @@
         <activity
             android:name="com.supets.pet.mock.ui.crop.MainCrop2Activity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.supets.pet.mock.ui.paste.MainPasteActivity"
+            android:screenOrientation="portrait" />
 
         <!--测试-->
         <service

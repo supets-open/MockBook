@@ -70,6 +70,7 @@ public class TabToolsFragment extends BaseFragment {
         datas.add("图片裁剪");
         datas.add("图片裁剪");
         datas.add("拍照");
+        datas.add("图片添加贴纸");
         adapter.setData(datas);
         adapter.notifyDataSetChanged();
     }

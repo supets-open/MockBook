@@ -11,6 +11,7 @@ import com.supets.pet.mock.base.BaseRecycleViewHolder;
 import com.supets.pet.mock.ui.MockToolActivity;
 import com.supets.pet.mock.ui.crop.MainCrop2Activity;
 import com.supets.pet.mock.ui.crop.MaincROPActivity;
+import com.supets.pet.mock.ui.paste.MainPasteActivity;
 import com.supets.pet.mockui.R;
 import com.supets.pet.zxing.TestGeneratectivity;
 import com.supets.pet.zxing.TestScanActivity;
@@ -50,6 +51,10 @@ public class MockToolsAdapter extends BaseRecycleAdapter<String> {
 
                 if (position == 5) {
                     Intent intent = new Intent(view.getContext(), MainCrop2Activity.class);
+                    view.getContext().startActivity(intent);
+                }
+                if (position == 7) {
+                    Intent intent = new Intent(view.getContext(), MainPasteActivity.class);
                     view.getContext().startActivity(intent);
                 }
 
