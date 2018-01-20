@@ -2,9 +2,14 @@ package com.supets.pet.mock.ui.paste;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.supets.commons.utils.UIUtils;
 import com.supets.pet.mockui.R;
@@ -13,14 +18,23 @@ public class MainPasteActivity extends AppCompatActivity {
 
 
     private ViewGroup mPadterLayer;
+    private ImageView result;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paste);
         mPadterLayer = findViewById(R.id.pasteLayout);
-        addPasterView(BitmapFactory.decodeResource(getResources(),R.drawable.taeyeon_one));
-        addPasterView(BitmapFactory.decodeResource(getResources(),R.drawable.icon_big));
+        addPasterView(BitmapFactory.decodeResource(getResources(), R.drawable.taeyeon_one));
+        addPasterView(BitmapFactory.decodeResource(getResources(), R.drawable.icon_big));
+
+        result = findViewById(R.id.result);
+        result.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mergePaste();
+            }
+        });
     }
 
     public void addPasterView(Bitmap bitmap) {
@@ -31,7 +45,7 @@ public class MainPasteActivity extends AppCompatActivity {
 
             @Override
             public void onRemove() {
-               // MYPaste paste1 = (MYPaste) xgPasterView.getTag();
+                // MYPaste paste1 = (MYPaste) xgPasterView.getTag();
                 mPadterLayer.removeView(xgPasterView);
 //                if (!isExistMYPaste(paste1)) {
 //                    paste1.isSelected = false;
@@ -95,6 +109,32 @@ public class MainPasteActivity extends AppCompatActivity {
             }
         });
         mPadterLayer.addView(xgPasterView);
+    }
+
+
+    public void mergePaste() {
+
+        try {
+
+            Bitmap src = BitmapFactory.decodeResource(getResources(), R.drawable.taeyeon_one);
+
+            Bitmap bitmap = Bitmap.createBitmap(src.getWidth(), src.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            Paint paint = new Paint();
+
+            canvas.drawBitmap(src, 0, 0, paint);
+            for (int i = 0; i < mPadterLayer.getChildCount(); i++) {
+                XGPasterView xgPasterView = (XGPasterView) mPadterLayer.getChildAt(i);
+                Bitmap pasterBitmap = xgPasterView.getPasterBitmap();
+                Matrix matrix = xgPasterView.getPasterMatrix(src);
+                canvas.drawBitmap(pasterBitmap, matrix, paint);
+            }
+
+            result.setImageBitmap(bitmap);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
