@@ -701,9 +701,9 @@ public class XGPasterView extends View implements OnScaleGestureListener {
 //		MYGifPoint  point=new MYGifPoint();
 //		point.paste_id=paste.id;
 //		point.paste_image_url=paste.image;
-//		point.x_axis=(dstPs[0] / UIUtils.getScreenWidth());
-//		point.y_axis=(dstPs[1] / UIUtils.getScreenWidth());
-//		point.z_axis=(dstPs[2]-dstPs[0]) / UIUtils.getScreenWidth();
+//		point.x_axis=(dstPs[0] / UIUtils.getScreenWidth()); // X坐标
+//		point.y_axis=(dstPs[1] / UIUtils.getScreenWidth());// y坐标
+//		point.z_axis=(dstPs[2]-dstPs[0]) / UIUtils.getScreenWidth();// z坐标-图片宽度
 //
 //		Log.v("tag:",point.x_axis+"");
 //		Log.v("tag:",point.y_axis+"");

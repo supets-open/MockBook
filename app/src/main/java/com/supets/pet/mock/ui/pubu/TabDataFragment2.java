@@ -17,6 +17,7 @@ import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mockui.R;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -88,9 +89,19 @@ public class TabDataFragment2 extends BaseFragment {
         header.getLeftButton().setVisibility(View.GONE);
         header.getRightButton().setText("插入数据");
         header.getRightButton().setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
-                adapter.insert(3, new MockData(new Long(122), "CHARU", null, null, new java.util.Date()));
+
+
+                 ArrayList<MockData> temp = new ArrayList<MockData>() {};
+                temp.add(new MockData(new Long(122), "CHARU", null, null, new java.util.Date()));
+                temp.add(new MockData(new Long(122), "CHARU", null, null, new java.util.Date()));
+                temp.add(new MockData(new Long(122), "CHARU", null, null, new java.util.Date()));
+                temp.add(new MockData(new Long(122), "CHARU", null, null, new java.util.Date()));
+                temp.add(new MockData(new Long(122), "CHARU", null, null, new java.util.Date()));
+                adapter.insert(3, temp);
             }
         });
     }

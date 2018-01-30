@@ -73,7 +73,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:lineSpacingExtra="4dp"
-            android:maxLines="2"
             android:text="自营|柔薄婴儿纸尿裤L34片*2包（9-14kg）"
             android:textColor="#111111"
             android:textSize="14sp" />

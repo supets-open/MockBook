@@ -29,7 +29,7 @@ public class MockPubuAdapter extends BaseRecycleAdapter<MockData> {
         (holder.itemView.findViewById(R.id.product_county_flag)).setVisibility(position % 2 == 0 ? View.VISIBLE : View.GONE);
         ImageView hed = holder.itemView.findViewById(R.id.product_image_view);
         TextView name = holder.itemView.findViewById(R.id.product_name_view);
-        name.setText(data.get(position).getUrl());
+        name.setText(data.get(position).getUrl()+"==="+position);
         Glide.with(holder.itemView.getContext())
                 .load(getContentResId(position))
                 .into(hed);
