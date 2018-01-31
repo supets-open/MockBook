@@ -63,7 +63,7 @@ public class TabToolsFragment extends BaseFragment {
         adapter = new MockToolsAdapter();
         mList.setAdapter(adapter);
         List<String> datas = new ArrayList<>();
-        datas.add("JSON助手");
+        datas.add("测试代码");
         datas.add("录屏工具");
         datas.add("二维码识别");
         datas.add("二维码生成");
