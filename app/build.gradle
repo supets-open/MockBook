@@ -79,7 +79,6 @@ android {
 }
 
 
-
 def getVersionCode() {
     def versionFile = file('version.properties')
 
@@ -107,8 +106,6 @@ def getVersionName() {
         throw new GradleException("Could not find version.properties!")
     }
 }
-
-
 
 //数据库版本以及Dao的相关设置
 greendao {
@@ -168,9 +165,9 @@ dependencies {
     compile 'com.supets.lib:maillib:2.2.0'
     compile 'com.supets.lib:jsoneditlib:1.4.0'
 
-    //compile 'com.facebook.stetho:stetho:1.4.1'
-    //compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
-    //compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    //  compile 'com.facebook.stetho:stetho:1.4.1'
+    //  compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
+    //  compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
     compile 'com.zhy:okhttputils:2.6.2'
 
@@ -183,19 +180,23 @@ dependencies {
     compile 'cn.bingoogolapple:bga-qrcodecore:1.1.9@aar'
     compile 'cn.bingoogolapple:bga-zxing:1.1.9@aar'
 
-    //compile 'cn.bingoogolapple:bga-qrcodecore:1.1.3@aar'
-    //compile 'cn.bingoogolapple:bga-zbar:1.1.3@aar'
+    //  compile 'cn.bingoogolapple:bga-qrcodecore:1.1.3@aar'
+    //  compile 'cn.bingoogolapple:bga-zbar:1.1.3@aar'
 
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'net.zetetic:android-database-sqlcipher:3.5.4' //数据库加密时添加
     compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0'
-    //使用数据库升级辅助GreenDaoUpgradleHepler时添加
+    //  使用数据库升级辅助GreenDaoUpgradleHepler时添加
     apt project(':libCompileApi')
 
-//    compile project(path: ':rv-gallery')
-//    compile project(path: ':recyclerlib')
-    //compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
-   // compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-7'
+    //  compile project(path: ':rv-gallery')
+    //  compile project(path: ':recyclerlib')
+    //  compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+    //  compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-7'
 
+    //  For Lifecycles, LiveData, and ViewModel
+    compile "android.arch.lifecycle:runtime:1.1.0"
+    compile "android.arch.lifecycle:extensions:1.1.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
 
 }

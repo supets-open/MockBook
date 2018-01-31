@@ -6,12 +6,10 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
 
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
 
     <application
         android:name="com.supets.pet.MyApplication"
@@ -22,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/CustomAppTheme">
 
-        <activity android:name="com.supets.pet.mock.ui.home.MockUiActivity" >
+        <activity android:name="com.supets.pet.module.home.MockUiActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,39 +28,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.supets.pet.zxing.TestScanActivity"
+            android:name="com.supets.pet.module.zxing.TestScanActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Camera_Theme" />
         <activity
-            android:name="com.supets.pet.zxing.TestGeneratectivity"
+            android:name="com.supets.pet.module.zxing.TestGeneratectivity"
             android:screenOrientation="portrait"
             android:theme="@style/Camera_Theme" />
         <activity
-            android:name="com.supets.pet.mock.ui.crop.MaincROPActivity"
+            android:name="com.supets.pet.module.crop.MaincROPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Camera_Theme" />
         <activity
-            android:name="com.supets.pet.mock.ui.crop.MainCrop2Activity"
+            android:name="com.supets.pet.module.crop.MainCrop2Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.supets.pet.mock.ui.paste.MainPasteActivity"
+            android:name="com.supets.pet.module.paste.MainPasteActivity"
             android:screenOrientation="portrait" />
-
-        <!--测试-->
-        <service
-            android:name="com.supets.pet.uctoast.ListenClipboardService"
-            android:enabled="true"
-            android:exported="true"
-            android:process=":process" />
-
-        <receiver
-            android:name="com.supets.pet.uctoast.BootCompletedReceiver"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
 
     </application>
 
