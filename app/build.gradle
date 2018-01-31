@@ -19,7 +19,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
 
-        applicationId "com.supets.pet.mockui"
+        applicationId "com.supets.pet.recyclerlib"
 
         versionCode currentVersionCode
         versionName currentVersionName

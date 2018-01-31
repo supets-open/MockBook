@@ -21,55 +21,14 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/CustomAppTheme">
-        <!--Android7.0新增的广播权限验证-->
-        <receiver
-            android:name="com.supets.pet.service.CrashService"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="mock.crash.service" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name="com.supets.pet.service.MockDataReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="mock.crash.network" />
-            </intent-filter>
-        </receiver>
 
-        <provider
-            android:name="com.supets.pet.service.MockDataProvider"
-            android:authorities="com.supets.pet.mockprovider"
-            android:exported="true" />
-
-        <activity android:name="com.supets.pet.mock.ui.home.MockFlashActivity">
+        <activity android:name="com.supets.pet.mock.ui.home.MockUiActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.supets.pet.mock.ui.home.MockUiActivity" />
-        <activity android:name="com.supets.pet.mock.ui.MockCrashUiActivity" />
-        <activity android:name="com.supets.pet.mock.ui.MockInfoActivity" />
-        <activity android:name="com.supets.pet.mock.ui.MockConfigActivity" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockConfigJsonActivity"
-            android:windowSoftInputMode="adjustResize" />
-        <activity android:name="com.supets.pet.mock.ui.MockModelActivity" />
-        <activity android:name="com.supets.pet.mock.ui.MockModelEditActivity" />
-        <activity android:name="com.supets.pet.mock.ui.MockToolActivity" />
-        <activity android:name="com.supets.pet.mock.ui.MockEmailListActivity" />
-        <activity android:name="com.supets.pet.mock.ui.MockCrashListActivity" />
-        <activity android:name="com.supets.pet.mock.ui.MockEmailEditActivity" />
-        <activity
-            android:name="com.supets.pet.mock.ui.MockUrlRuleActivity"
-            android:windowSoftInputMode="stateHidden" />
-
-        <activity
-            android:name="com.supets.pet.mock.ui.MockKeyActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name="com.supets.pet.zxing.TestScanActivity"
             android:screenOrientation="portrait"

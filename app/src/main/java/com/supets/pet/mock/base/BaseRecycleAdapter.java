@@ -2,9 +2,6 @@ package com.supets.pet.mock.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Toast;
-
-import com.supets.pet.mock.dao.LocalMockDataDB;
 
 import java.util.ArrayList;
 import java.util.List;

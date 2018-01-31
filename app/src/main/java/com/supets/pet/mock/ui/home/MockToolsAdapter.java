@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.supets.pet.mock.base.BaseRecycleAdapter;
 import com.supets.pet.mock.base.BaseRecycleViewHolder;
-import com.supets.pet.mock.ui.MockToolActivity;
 import com.supets.pet.mock.ui.crop.MainCrop2Activity;
 import com.supets.pet.mock.ui.crop.MaincROPActivity;
 import com.supets.pet.mock.ui.paste.MainPasteActivity;
@@ -31,10 +30,7 @@ public class MockToolsAdapter extends BaseRecycleAdapter<String> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (position == 0) {
-                    Intent intent = new Intent(view.getContext(), MockToolActivity.class);
-                    view.getContext().startActivity(intent);
-                }
+
                 if (position == 2) {
                     Intent intent = new Intent(view.getContext(), TestScanActivity.class);
                     view.getContext().startActivity(intent);

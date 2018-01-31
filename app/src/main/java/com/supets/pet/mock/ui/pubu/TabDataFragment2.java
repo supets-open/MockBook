@@ -1,10 +1,8 @@
 package com.supets.pet.mock.ui.pubu;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
@@ -13,10 +11,8 @@ import com.supets.commons.widget.CommonHeader;
 import com.supets.pet.mock.base.BaseFragment;
 import com.supets.pet.mock.base.SupetRecyclerViewScrollListener;
 import com.supets.pet.mock.bean.MockData;
-import com.supets.pet.mock.dao.MockDataDB;
 import com.supets.pet.mockui.R;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -122,7 +118,18 @@ public class TabDataFragment2 extends BaseFragment {
     private int offset = 0;
 
     private void update() {
-        List<MockData> datas = MockDataDB.queryAllPage(offset);
+       // List<MockData> datas = MockDataDB.queryAllPage(offset);
+        List<MockData> datas =new ArrayList<>();
+
+        datas.add(new MockData());
+        datas.add(new MockData());
+        datas.add(new MockData());
+        datas.add(new MockData());
+        datas.add(new MockData());
+        datas.add(new MockData());
+        datas.add(new MockData());
+        datas.add(new MockData());
+
         boolean nomore = datas == null || datas.size() < 20;
 
         if (!nomore) {
