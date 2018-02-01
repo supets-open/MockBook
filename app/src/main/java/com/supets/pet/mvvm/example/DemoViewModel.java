@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 数据解耦
+ * UI和数据的桥梁
  */
 public class DemoViewModel extends ViewModel {
 

@@ -7,6 +7,10 @@ import com.supets.pet.mvvm.Component;
 import com.supets.pet.mvvm.ViewModelLayout;
 import com.supets.pet.mvvm.ViewProxy;
 
+/**
+ * 组件定义
+ */
+
 @ViewModelLayout(R.layout.activity_live_test)
 public class DemoView extends ViewProxy {
 

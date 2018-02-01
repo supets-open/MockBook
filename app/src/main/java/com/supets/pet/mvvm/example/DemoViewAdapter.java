@@ -6,6 +6,9 @@ import android.view.View;
 import com.supets.pet.mockui.R;
 import com.supets.pet.mvvm.ViewAdapter;
 
+/**
+ * UI处理
+ */
 public class DemoViewAdapter extends ViewAdapter<DemoView> implements View.OnClickListener {
 
     public DemoViewAdapter(DemoView view) {

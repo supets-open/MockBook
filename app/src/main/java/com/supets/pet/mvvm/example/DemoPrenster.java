@@ -2,6 +2,7 @@ package com.supets.pet.mvvm.example;
 
 import android.arch.core.util.Function;
 import android.arch.lifecycle.LifecycleObserver;
+import android.arch.lifecycle.LifecycleRegistry;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.Transformations;
 import android.support.annotation.Nullable;
@@ -14,7 +15,7 @@ import java.util.List;
 
 
 /**
- * 模块解耦:事件管理者
+ * 模块解耦和事件管理者
  *
  * @user lihongjiang
  * @description
