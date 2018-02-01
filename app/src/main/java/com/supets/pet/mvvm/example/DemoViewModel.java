@@ -1,7 +1,10 @@
 package com.supets.pet.mvvm.example;
 
+import android.arch.core.util.Function;
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MediatorLiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Transformations;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
@@ -13,7 +16,17 @@ import java.util.List;
  */
 public class DemoViewModel extends ViewModel {
 
-    private MutableLiveData<List<String>> users;
+    public MutableLiveData<List<String>> users = new MutableLiveData<>();
+
+    public final LiveData<String> names = Transformations.switchMap(users, new Function<List<String>, LiveData<String>>() {
+        @Override
+        public LiveData<String> apply(List<String> input) {
+            MediatorLiveData<String> data = new MediatorLiveData<>();
+            data.postValue(input.toString());
+            return data;
+        }
+    });
+
 
     public LiveData<List<String>> getUsers() {
         if (users == null) {
@@ -23,30 +36,17 @@ public class DemoViewModel extends ViewModel {
         return users;
     }
 
+    public MutableLiveData<List<String>> data2 = new MutableLiveData<>();
+    public MutableLiveData<List<String>> data3 = new MutableLiveData<>();
+
+
     private void loadUsers() {
-        ArrayList<String> list = new ArrayList<>();
-        list.add("初始化");
-        list.add("初始化");
-        list.add("初始化");
-        list.add("初始化");
+    }
+
+    public void updateData(ArrayList<String> list) {
         users.postValue(list);
+        data2.setValue(list);
+        data3.setValue(list);
     }
-
-    public void requestName() {
-        ArrayList<String> list = new ArrayList<>();
-        list.add("老化角质");
-        list.add("老化角质");
-        list.add("老化角质");
-        list.add("老化角质");
-        users.postValue(list);
-        Log.v("DemoViewAdapter", "requestName");
-    }
-
-
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-    }
-
 
 }

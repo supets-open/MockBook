@@ -22,7 +22,6 @@ public class DemoViewAdapter extends ViewAdapter<DemoView> implements View.OnCli
 
     public void updateName(String name) {
         mView.text(DemoViewId.liveid, name);
-        Log.v("DemoViewAdapter", "name"+name);
     }
 
     @Override
