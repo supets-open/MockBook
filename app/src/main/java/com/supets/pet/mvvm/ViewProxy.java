@@ -1,10 +1,12 @@
-package com.supets.pet.mvvm.example;
+package com.supets.pet.mvvm;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.AnyRes;
 import android.support.annotation.ColorRes;
 import android.support.annotation.IdRes;
+import android.support.annotation.Keep;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.res.ResourcesCompat;
 import android.util.SparseArray;
@@ -18,24 +20,32 @@ import android.widget.TextView;
 /**
  * 视图模块
  */
-public class ViewModelProxy {
+@Keep
+public class ViewProxy {
 
     private Context mContext;
     private View mRootView;
     private SparseArray<View> views = new SparseArray<>();
 
-    public ViewModelProxy of(ViewGroup mContext, int xml) {
+    public ViewProxy(ViewGroup mContext) {
         this.mContext = mContext.getContext();
+        int xml = ViewModelDI.injectViewGroupUI(this);
         this.mRootView = LayoutInflater.from(mContext.getContext()).inflate(xml, mContext, false);
-        this.mRootView.setTag(this);
-        return this;
+        ViewModelDI.injectComponent(this, this);
     }
 
-    public ViewModelProxy of(Context mContext, int xml) {
+    public ViewProxy(Activity mContext) {
+        ViewModelDI.injectActivityUI(mContext);
+        this.mContext = mContext;
+        this.mRootView = mContext.getWindow().getDecorView();
+        ViewModelDI.injectComponent(this, this);
+    }
+
+    public ViewProxy(Context mContext) {
+        int xml = ViewModelDI.injectViewGroupUI(this);
         this.mContext = mContext;
         this.mRootView = LayoutInflater.from(mContext).inflate(xml, null);
-        this.mRootView.setTag(this);
-        return this;
+        ViewModelDI.injectComponent(this, this);
     }
 
     @SuppressWarnings("unchecked")
@@ -49,57 +59,57 @@ public class ViewModelProxy {
         return (T) view;
     }
 
-    public ViewModelProxy clickEvent(@IdRes int res, View.OnClickListener onClickListener) {
+    public ViewProxy clickEvent(@IdRes int res, View.OnClickListener onClickListener) {
         view(res).setOnClickListener(onClickListener);
         return this;
     }
 
-    public ViewModelProxy gone(@IdRes int id) {
+    public ViewProxy gone(@IdRes int id) {
         view(id).setVisibility(View.GONE);
         return this;
     }
 
-    public ViewModelProxy invisible(@IdRes int id) {
+    public ViewProxy invisible(@IdRes int id) {
         view(id).setVisibility(View.INVISIBLE);
         return this;
     }
 
-    public ViewModelProxy visible(@IdRes int id) {
+    public ViewProxy visible(@IdRes int id) {
         view(id).setVisibility(View.VISIBLE);
         return this;
     }
 
-    public ViewModelProxy text(@IdRes int id, CharSequence text) {
+    public ViewProxy text(@IdRes int id, CharSequence text) {
         ((TextView) view(id)).setText(text);
         return this;
     }
 
-    public ViewModelProxy background(@IdRes int id, @AnyRes int drawable) {
+    public ViewProxy background(@IdRes int id, @AnyRes int drawable) {
         view(id).setBackgroundResource(drawable);
         return this;
     }
 
-    public ViewModelProxy color(@IdRes int id, @ColorRes int color) {
+    public ViewProxy color(@IdRes int id, @ColorRes int color) {
         ((TextView) view(id)).setTextColor(ResourcesCompat.getColor(getContext().getResources(), color, null));
         return this;
     }
 
-    public ViewModelProxy drawableLeft(@IdRes int id, @ColorRes int color) {
+    public ViewProxy drawableLeft(@IdRes int id, @ColorRes int color) {
         ((TextView) view(id)).setCompoundDrawables(ResourcesCompat.getDrawable(getContext().getResources(), color, null), null, null, null);
         return this;
     }
 
-    public ViewModelProxy enable(@IdRes int id, boolean enable) {
+    public ViewProxy enable(@IdRes int id, boolean enable) {
         view(id).setEnabled(enable);
         return this;
     }
 
-    public ViewModelProxy select(@IdRes int id, boolean select) {
+    public ViewProxy select(@IdRes int id, boolean select) {
         view(id).setSelected(select);
         return this;
     }
 
-    public ViewModelProxy progress(@IdRes int id, int progress, boolean anim) {
+    public ViewProxy progress(@IdRes int id, int progress, boolean anim) {
         if (Build.VERSION.SDK_INT >= 24) {
             ((ProgressBar) view(id)).setProgress(progress, anim);
         } else {

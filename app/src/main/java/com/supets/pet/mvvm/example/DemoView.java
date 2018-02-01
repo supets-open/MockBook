@@ -1,15 +1,27 @@
 package com.supets.pet.mvvm.example;
 
+import android.app.Activity;
+
 import com.supets.pet.mockui.R;
-import com.supets.pet.mvvm.ViewModel;
+import com.supets.pet.mvvm.Component;
+import com.supets.pet.mvvm.ViewModelLayout;
+import com.supets.pet.mvvm.ViewProxy;
 
-public class DemoView extends ViewModel {
+@ViewModelLayout(R.layout.activity_live_test)
+public class DemoView extends ViewProxy {
 
-    public DemoViewAdapter adapter = new DemoViewAdapter(this);
-    public DemoLogicPrenster prenster = new DemoLogicPrenster(this);
+    public DemoView(Activity mContext) {
+        super(mContext);
+    }
 
-    public interface DemoViewId{
-        int  liveid= R.id.live;
+    @Component()
+    public DemoViewAdapter mAdapter;
+
+    @Component()
+    public DemoPrenster mPrenster;
+
+    public interface DemoViewId {
+        int liveid = R.id.live;
     }
 
 }

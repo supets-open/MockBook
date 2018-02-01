@@ -1,10 +1,26 @@
 package com.supets.pet.mvvm.example;
 
-import com.supets.pet.mvvm.ViewModelAdapter;
+import android.view.View;
 
-public class DemoViewAdapter extends ViewModelAdapter<DemoView> {
+import com.supets.pet.mvvm.ViewAdapter;
 
-    public DemoViewAdapter(DemoView viewModel) {
-        super(viewModel);
+public class DemoViewAdapter extends ViewAdapter<DemoView> implements View.OnClickListener {
+
+    public DemoViewAdapter(DemoView view) {
+        super(view);
+        view.clickEvent(DemoView.DemoViewId.liveid, this);
+    }
+
+    public void updateName(String name) {
+        mView.text(DemoView.DemoViewId.liveid, name);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v.getId() == DemoView.DemoViewId.liveid) {
+            mView.mPrenster.requestUserName();
+        }
+
     }
 }

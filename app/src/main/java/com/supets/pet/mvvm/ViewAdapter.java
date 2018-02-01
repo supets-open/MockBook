@@ -1,5 +1,6 @@
 package com.supets.pet.mvvm;
 
+import android.support.annotation.Keep;
 import android.support.annotation.StringRes;
 
 /**
@@ -10,20 +11,20 @@ import android.support.annotation.StringRes;
  * @date 2017/5/19
  * @updatetime 2017/5/19
  */
+@Keep
+public class ViewAdapter<T extends ViewProxy> {
 
-public class ViewModelAdapter<T extends ViewModel> {
+    protected T mView;
 
-    public T viewModel;
-
-    public ViewModelAdapter(T viewModel) {
-        this.viewModel = viewModel;
+    public ViewAdapter(T view) {
+        this.mView = view;
     }
 
     public String string(@StringRes int id) {
-        return viewModel.getContext().getString(id);
+        return mView.getContext().getString(id);
     }
 
     public String string(@StringRes int id, Object... args) {
-        return viewModel.getContext().getString(id, args);
+        return mView.getContext().getString(id, args);
     }
 }

@@ -5,7 +5,6 @@ import com.supets.pet.mvvm.example.TestLifeCycle;
 
 public class TestLiveCycleActivity extends TestLifeCycle {
 
-
 //    @Override
 //    protected void onCreate(@Nullable Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);

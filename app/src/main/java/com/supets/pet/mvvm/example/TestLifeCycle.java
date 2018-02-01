@@ -1,20 +1,27 @@
 package com.supets.pet.mvvm.example;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
-import com.supets.pet.mockui.R;
-
 public class TestLifeCycle extends FragmentActivity {
 
-    private DemoView view;
+    private DemoView mRootView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        view = (DemoView) new DemoView().of(this, R.layout.activity_live_test);
-        setContentView(view.rootView());
-        getLifecycle().addObserver(view.prenster);
+        mRootView = new DemoView(this);
+        getLifecycle().addObserver(mRootView.mPrenster);
     }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mRootView.mPrenster.onActivityResult(requestCode, resultCode, data);
+    }
+
+
 }

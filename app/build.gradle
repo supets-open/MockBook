@@ -194,7 +194,6 @@ dependencies {
     //  compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
     //  compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-7'
 
-    //  For Lifecycles, LiveData, and ViewModel
     compile "android.arch.lifecycle:runtime:1.1.0"
     compile "android.arch.lifecycle:extensions:1.1.0"
     annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
