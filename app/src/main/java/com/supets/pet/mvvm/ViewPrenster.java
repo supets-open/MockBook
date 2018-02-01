@@ -16,48 +16,46 @@ import android.util.Log;
  * @updatetime 2017/5/19
  */
 @Keep
-public class ViewPrenster<T extends ViewProxy,K extends ViewModel> {
+public abstract class ViewPrenster<T extends ViewProxy> {
 
     protected T mView;
-    public K mViewModel;
 
-    public ViewPrenster(T view,K viewmodel) {
-        this.mView = view;
-        this.mViewModel = viewmodel;
-    }
+    protected abstract void init();
 
     public ViewPrenster(T view) {
         this.mView = view;
+        ViewModelDI.injectComponentNo(this);
+        init();
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
-        Log.v("ViewPrenster","onResume");
+        Log.v("ViewPrenster", "onResume");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
-        Log.v("ViewPrenster","onPause");
+        Log.v("ViewPrenster", "onPause");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void onStart() {
-        Log.v("ViewPrenster","onStart");
+        Log.v("ViewPrenster", "onStart");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void onStop() {
-        Log.v("ViewPrenster","onStop");
+        Log.v("ViewPrenster", "onStop");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestory() {
-        Log.v("ViewPrenster","onDestory");
+        Log.v("ViewPrenster", "onDestory");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void onCreate() {
-        Log.v("ViewPrenster","onCreate");
+        Log.v("ViewPrenster", "onCreate");
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

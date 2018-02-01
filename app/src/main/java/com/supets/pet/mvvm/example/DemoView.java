@@ -20,8 +20,4 @@ public class DemoView extends ViewProxy {
     @Component()
     public DemoPrenster mPrenster;
 
-    public interface DemoViewId {
-        int liveid = R.id.live;
-    }
-
 }

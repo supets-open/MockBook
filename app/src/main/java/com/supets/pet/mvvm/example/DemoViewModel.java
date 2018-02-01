@@ -3,6 +3,7 @@ package com.supets.pet.mvvm.example;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,7 @@ public class DemoViewModel extends ViewModel {
         list.add("老化角质");
         list.add("老化角质");
         users.postValue(list);
+        Log.v("DemoViewAdapter", "requestName");
     }
 
 

@@ -7,6 +7,7 @@ import android.arch.lifecycle.Transformations;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.supets.pet.mvvm.ComponentNo;
 import com.supets.pet.mvvm.ViewPrenster;
 
 import java.util.List;
@@ -21,10 +22,17 @@ import java.util.List;
  * @updatetime 2017/5/19
  */
 
-public class DemoPrenster extends ViewPrenster<DemoView,DemoViewModel> implements LifecycleObserver {
+public class DemoPrenster extends ViewPrenster<DemoView> implements LifecycleObserver {
+
+    @ComponentNo
+    public DemoViewModel mViewModel;
 
     public DemoPrenster(DemoView view) {
-        super(view,new DemoViewModel());
+        super(view);
+    }
+
+    @Override
+    protected void init() {
         Transformations.map(mViewModel.getUsers(), new Function<List<String>, String>() {
             @Override
             public String apply(List<String> input) {
@@ -38,11 +46,17 @@ public class DemoPrenster extends ViewPrenster<DemoView,DemoViewModel> implement
         });
     }
 
+
     public void onCreate() {
         super.onCreate();
         Log.v("DemoPrenster", "onCreate");
     }
 
+    @Override
+    public void onDestory() {
+        super.onDestory();
+        mViewModel.requestName();
+    }
 
     public void requestUserName() {
         mViewModel.requestName();

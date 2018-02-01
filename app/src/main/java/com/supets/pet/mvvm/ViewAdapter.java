@@ -12,13 +12,16 @@ import android.support.annotation.StringRes;
  * @updatetime 2017/5/19
  */
 @Keep
-public class ViewAdapter<T extends ViewProxy> {
+public abstract class ViewAdapter<T extends ViewProxy> {
 
     protected T mView;
 
     public ViewAdapter(T view) {
         this.mView = view;
+        init();
     }
+
+    public abstract void init();
 
     public String string(@StringRes int id) {
         return mView.getContext().getString(id);
