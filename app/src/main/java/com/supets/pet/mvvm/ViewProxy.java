@@ -35,7 +35,8 @@ public class ViewProxy {
     }
 
     public ViewProxy(Activity mContext) {
-        ViewModelDI.injectActivityUI(mContext);
+        int xml = ViewModelDI.injectViewGroupUI(this);
+        mContext.setContentView(xml);
         this.mContext = mContext;
         this.mRootView = mContext.getWindow().getDecorView();
         ViewModelDI.injectComponent(this, this);
