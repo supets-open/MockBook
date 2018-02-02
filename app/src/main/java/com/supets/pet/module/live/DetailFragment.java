@@ -23,7 +23,6 @@ public class DetailFragment extends BaseFragment {
         model.getSelected().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                Log.v("test", "选择");
                 textView.setText(s);
             }
         });

@@ -38,9 +38,13 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
 
+        if (v.getId() == R.id.btn0) {
+            LiveBus.getInstance().observeForever(this);
+            startActivity(new Intent(this, TestLiveCycleActivity.class));
+        }
+
         if (v.getId() == R.id.btn1) {
             LiveBus.getInstance().observe(this, this);
-            //LiveBus.getInstance().setValue("registerlogin");
             startActivity(new Intent(this, TestLiveCycleActivity.class));
         }
         if (v.getId() == R.id.btn2) {
