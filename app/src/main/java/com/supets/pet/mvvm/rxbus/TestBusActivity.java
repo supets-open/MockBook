@@ -21,6 +21,7 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_bus_test);
         findViewById(R.id.btn1).setOnClickListener(this);
+        findViewById(R.id.btn0).setOnClickListener(this);
         findViewById(R.id.btn2).setOnClickListener(this);
         findViewById(R.id.btn3).setOnClickListener(this);
 

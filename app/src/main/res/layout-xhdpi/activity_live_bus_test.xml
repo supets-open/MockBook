@@ -6,33 +6,45 @@
 
 
     <Button
+        android:id="@+id/btn0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="单击登录注册事件（跟生命周期无关，后台页面也会执行），新页面回调"
+        android:textSize="16sp" />
+
+    <Button
         android:id="@+id/btn1"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="单击登录注册事件，新页面回调"
+        android:padding="20dp"
+        android:text="单击登录注册事件（跟生命周期执行，就是新页面发送了，只有旧的页面生命周期可见,千万别再生命周期初始化观察者，会默认执行，因为static引起），新页面回调"
         android:textSize="16sp" />
 
     <Button
         android:id="@+id/btn2"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:padding="20dp"
         android:text="回调注册成功事件"
         android:textSize="16sp" />
 
     <Button
         android:id="@+id/btn3"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:padding="20dp"
         android:text="页面内共享数据A"
         android:textSize="16sp" />
-    
+
     <fragment
         android:id="@+id/moduleid"
-        android:layout_width="match_parent"
         android:name="com.supets.pet.module.live.DetailFragment"
-        android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
