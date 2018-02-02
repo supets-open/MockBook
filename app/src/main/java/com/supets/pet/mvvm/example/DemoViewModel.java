@@ -49,4 +49,9 @@ public class DemoViewModel extends ViewModel {
         data3.setValue(list);
     }
 
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+
+    }
 }

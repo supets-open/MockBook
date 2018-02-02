@@ -18,6 +18,7 @@ public class DemoViewAdapter extends ViewAdapter<DemoView> implements View.OnCli
     @Override
     public void init() {
         mView.view(DemoViewId.liveid).setOnClickListener(this);
+        mView.view(DemoViewId.livemodel).setOnClickListener(this);
     }
 
     public void updateName(String name) {
@@ -28,11 +29,14 @@ public class DemoViewAdapter extends ViewAdapter<DemoView> implements View.OnCli
     public void onClick(View v) {
         if (v.getId() == DemoViewId.liveid) {
             mView.mPrenster.requestUserName();
+        } if (v.getId() == DemoViewId.livemodel) {
+            mView.mPrenster.startGo();
         }
     }
 
     public interface DemoViewId {
         int liveid = R.id.live;
+        int livemodel = R.id.livemodel;
     }
 
 

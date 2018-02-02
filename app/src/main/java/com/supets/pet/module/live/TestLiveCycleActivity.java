@@ -1,11 +1,42 @@
 package com.supets.pet.module.live;
 
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.util.Log;
+
 import com.supets.pet.mvvm.example.TestLifeCycle;
+import com.supets.pet.mvvm.share.SharedViewModel;
+import com.supets.pet.mvvm.share.WifiLiveData;
 
 public class TestLiveCycleActivity extends TestLifeCycle {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        WifiLiveData.getInstance(this).observe(this, new Observer<Integer>() {
+//            @Override
+//            public void onChanged(@Nullable Integer integer) {
+//
+//                Log.v("wifi",integer.intValue()+"");
+//
+//            }
+//        });
+//
+//        SharedViewModel model = ViewModelProviders.of(this).get(SharedViewModel.class);
+//        model.getSelected().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                Log.v("test", "选择2");
+//
+//            }
+//        });
 
-//    @Override
+    }
+
+
+    //    @Override
 //    protected void onCreate(@Nullable Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_live_test);

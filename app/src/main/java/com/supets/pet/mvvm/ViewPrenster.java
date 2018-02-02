@@ -1,6 +1,7 @@
 package com.supets.pet.mvvm;
 
 import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.arch.lifecycle.ViewModel;
 import android.content.Intent;
@@ -16,7 +17,7 @@ import android.util.Log;
  * @updatetime 2017/5/19
  */
 @Keep
-public abstract class ViewPrenster<T extends ViewProxy> {
+public abstract class ViewPrenster<T extends ViewProxy> implements LifecycleObserver {
 
     protected T mView;
 

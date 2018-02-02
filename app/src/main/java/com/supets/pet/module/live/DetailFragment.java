@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.supets.pet.mockui.R;
+import com.supets.pet.mvvm.share.SharedViewModel;
 
 public class DetailFragment extends Fragment {
 
