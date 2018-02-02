@@ -8,11 +8,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 
-public class EventOberseve implements Observer<Object>, LifecycleObserver {
+public class EventAsyncOberseve implements Observer<Object>, LifecycleObserver {
 
     private AppCompatActivity mContext;
 
-    public EventOberseve(AppCompatActivity context) {
+    public EventAsyncOberseve(AppCompatActivity context) {
         this.mContext = context;
     }
 
@@ -26,14 +26,17 @@ public class EventOberseve implements Observer<Object>, LifecycleObserver {
             if (s instanceof EventType) {
                 doEvent((EventType) s);
             }
-            LiveBus.getInstance().removeObserver(this);
-            LiveBus.getInstance().removeObservers(mContext);
+
         }
     }
 
     public void doEvent(EventType eventType) {
         if (mListener != null) {
-            mListener.callBack(eventType);
+          boolean  isSuccess= mListener.callBack(eventType);
+          if (isSuccess){
+              LiveBus.getInstance().removeObserver(this);
+              LiveBus.getInstance().removeObservers(mContext);
+          }
         }
     }
 
@@ -60,5 +63,9 @@ public class EventOberseve implements Observer<Object>, LifecycleObserver {
         this.mListener = listener;
         isstart = true;
         LiveBus.getInstance().observeForever( this);
+    }
+
+    public void resetFlag() {
+        isstart=false;
     }
 }
