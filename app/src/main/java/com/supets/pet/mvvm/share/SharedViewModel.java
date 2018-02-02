@@ -23,6 +23,6 @@ public class SharedViewModel extends ViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
-        Log.v("SharedViewModel", "不同页面会销毁");
+        //Log.v("SharedViewModel", "不同页面会销毁");
     }
 }

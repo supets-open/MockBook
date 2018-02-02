@@ -8,13 +8,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.supets.pet.mockui.R;
 import com.supets.pet.module.live.TestLiveCycleActivity;
 import com.supets.pet.mvvm.share.SharedViewModel;
 
-public class TestBusActivity extends AppCompatActivity implements View.OnClickListener, Observer<Object> {
+public class TestBusActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private LoginOberseve loginOberseve;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,22 +35,41 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
+
+        loginOberseve = new LoginOberseve(this);
+        getLifecycle().addObserver(loginOberseve);
+
     }
 
     @Override
     public void onClick(View v) {
 
         if (v.getId() == R.id.btn0) {
-            LiveBus.getInstance().observeForever(this);
+            loginOberseve.startAsyncForever(new EventCallBackListener() {
+                @Override
+                public void callBack(EventType event) {
+                    Toast.makeText(getApplicationContext(), event.eventName, Toast.LENGTH_SHORT).show();
+                }
+            });
             startActivity(new Intent(this, TestLiveCycleActivity.class));
         }
 
         if (v.getId() == R.id.btn1) {
-            LiveBus.getInstance().observe(this, this);
+            loginOberseve.startAsync(new EventCallBackListener() {
+                @Override
+                public void callBack(EventType event) {
+                    Toast.makeText(getApplicationContext(), event.eventName, Toast.LENGTH_SHORT).show();
+                }
+            });
             startActivity(new Intent(this, TestLiveCycleActivity.class));
         }
         if (v.getId() == R.id.btn2) {
-            LiveBus.getInstance().setValue("registerlogin");
+
+            EventType eventType = new EventType();
+            eventType.eventName = "登陆成功";
+            eventType.eventType = 1;
+
+            LiveBus.getInstance().setValue(eventType);
         }
 
         if (v.getId() == R.id.btn3) {
@@ -58,19 +79,4 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //移除事件
-        LiveBus.getInstance().removeObserver(this);
-        LiveBus.getInstance().removeObservers(this);
-    }
-
-    @Override
-    public void onChanged(@Nullable Object o) {
-        Log.v("注册接受" + this, o.toString());
-        LiveBus.getInstance().removeObserver(this);
-        LiveBus.getInstance().removeObservers(this);
-    }
 }
