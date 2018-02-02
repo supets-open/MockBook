@@ -1,17 +1,12 @@
 package com.supets.pet.module.live;
 
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
-import com.supets.pet.mvvm.example.TestLifeCycle;
-import com.supets.pet.mvvm.share.SharedViewModel;
-import com.supets.pet.mvvm.share.WifiLiveData;
+import com.supets.pet.mvvm.rxbus.TestBusActivity;
 
-public class TestLiveCycleActivity extends TestLifeCycle {
+public class TestLiveCycleActivity extends TestBusActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
