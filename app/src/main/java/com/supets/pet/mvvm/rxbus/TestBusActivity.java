@@ -16,8 +16,8 @@ import com.supets.pet.mvvm.share.SharedViewModel;
 
 public class TestBusActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private LoginOberseve loginOberseve;
-    private LoginOberseve share;
+    private EventAsyncOberseve loginOberseve;
+    private EventAsyncOberseve share;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,8 +36,8 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        loginOberseve = new LoginOberseve(this);
-        share = new LoginOberseve(this);
+        loginOberseve = new EventAsyncOberseve(this);
+        share = new EventAsyncOberseve(this);
         getLifecycle().addObserver(loginOberseve);
         getLifecycle().addObserver(share);
 
@@ -47,7 +47,7 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
 
         if (v.getId() == R.id.btn0) {
-            loginOberseve.startAsyncForever(new EventCallBackListener() {
+            loginOberseve.registerAsyncForever(new EventCallBackListener() {
                 @Override
                 public boolean callBack(EventType event) {
 
@@ -55,7 +55,7 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
                     return event.eventType == 1;
                 }
             });
-            share.startAsyncForever(new EventCallBackListener() {
+            share.registerAsyncForever(new EventCallBackListener() {
                 @Override
                 public boolean callBack(EventType event) {
                     Toast.makeText(getApplicationContext(), event.eventName+"-share", Toast.LENGTH_SHORT).show();
@@ -66,14 +66,14 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         if (v.getId() == R.id.btn1) {
-            loginOberseve.startAsync(new EventCallBackListener() {
+            loginOberseve.registerAsync(new EventCallBackListener() {
                 @Override
                 public boolean callBack(EventType event) {
                     Toast.makeText(getApplicationContext(), event.eventName, Toast.LENGTH_SHORT).show();
                     return event.eventType == 1;
                 }
             });
-            share.startAsync(new EventCallBackListener() {
+            share.registerAsync(new EventCallBackListener() {
                 @Override
                 public boolean callBack(EventType event) {
                     Toast.makeText(getApplicationContext(), event.eventName+"-share", Toast.LENGTH_SHORT).show();
@@ -87,10 +87,7 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
             EventType eventType = new EventType();
             eventType.eventName = "登陆成功";
             eventType.eventType = 1;
-
-            loginOberseve.resetFlag();
-
-            LiveBus.getInstance().setValue(eventType);
+            loginOberseve.postOberseve(eventType);
         }
 
         if (v.getId() == R.id.btn3) {

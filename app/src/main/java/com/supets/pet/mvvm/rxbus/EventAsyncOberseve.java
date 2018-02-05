@@ -53,19 +53,24 @@ public class EventAsyncOberseve implements Observer<Object>, LifecycleObserver {
         LiveBus.getInstance().removeObservers(mContext);
     }
 
-    public void startAsync(EventCallBackListener listener) {
+    public void registerAsync(EventCallBackListener listener) {
         this.mListener = listener;
         isstart = true;
         LiveBus.getInstance().observe(mContext, this);
     }
 
-    public void startAsyncForever(EventCallBackListener listener) {
+    public void registerAsyncForever(EventCallBackListener listener) {
         this.mListener = listener;
         isstart = true;
         LiveBus.getInstance().observeForever( this);
     }
 
-    public void resetFlag() {
+    private void resetFlag() {
         isstart=false;
+    }
+
+    public void postOberseve(EventType eventType){
+        resetFlag();
+        LiveBus.getInstance().setValue(eventType);
     }
 }
