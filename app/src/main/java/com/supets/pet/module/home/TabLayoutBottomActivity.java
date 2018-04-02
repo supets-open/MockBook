@@ -56,10 +56,10 @@ public class TabLayoutBottomActivity extends AppCompatActivity {
 
     private void initContent() {
         tabIndicators = new ArrayList<>();
-        tabIndicators.add("工具");
-        tabIndicators.add("工具");
-        tabIndicators.add("工具");
-        tabIndicators.add("工具");
+        tabIndicators.add("RecycleView");
+        tabIndicators.add("Image");
+        tabIndicators.add("Video");
+        tabIndicators.add("ConstraintLayout");
 
         tabFragments = new ArrayList<>();
         tabFragments.add(TabDataFragment2.newInstance("工具"));
