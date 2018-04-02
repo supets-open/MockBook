@@ -6,7 +6,7 @@
     android:background="#000000"
     android:orientation="vertical">
 
-    <com.supets.pet.mock.ui.crop.ClipImageLayout
+    <com.supets.pet.module.crop.ClipImageLayout
         android:id="@+id/clipImageLayout"
         android:layout_width="match_parent"
         android:layout_weight="1"
