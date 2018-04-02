@@ -56,16 +56,16 @@ public class TabLayoutBottomActivity extends AppCompatActivity {
 
     private void initContent() {
         tabIndicators = new ArrayList<>();
-        tabIndicators.add("RecycleView");
-        tabIndicators.add("Image");
-        tabIndicators.add("Video");
-        tabIndicators.add("ConstraintLayout");
+        tabIndicators.add("列表");
+        tabIndicators.add("图像");
+        tabIndicators.add("视频");
+        tabIndicators.add("布局");
 
         tabFragments = new ArrayList<>();
-        tabFragments.add(TabDataFragment2.newInstance("工具"));
-        tabFragments.add(TabToolsFragment.newInstance("工具"));
-        tabFragments.add(TabToolsFragment.newInstance("工具"));
-        tabFragments.add(TabToolsFragment.newInstance("工具"));
+        tabFragments.add(TabDataFragment2.newInstance("列表"));
+        tabFragments.add(TabToolsFragment.newInstance("图像"));
+        tabFragments.add(TabToolsFragment.newInstance("视频"));
+        tabFragments.add(TabToolsFragment.newInstance("布局"));
 
         contentAdapter = new ContentPagerAdapter(getSupportFragmentManager());
         mContentVp.setAdapter(contentAdapter);
