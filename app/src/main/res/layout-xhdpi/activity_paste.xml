@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.supets.pet.mock.ui.paste.RatioRelativeLayout
+    <com.supets.pet.module.paste.RatioRelativeLayout
         android:layout_width="match_parent"
         android:background="@color/appcolor"
         android:layout_height="wrap_content">
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent" />
-    </com.supets.pet.mock.ui.paste.RatioRelativeLayout>
+    </com.supets.pet.module.paste.RatioRelativeLayout>
 
     <ImageView
         android:layout_width="match_parent"
