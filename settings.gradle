@@ -1,1 +1,1 @@
-include ':app', ':appred', ':libCompileApi', ':libannotation', ':rv-gallery', ':recyclerlib'
+include ':app', ':appred', ':libCompileApi', ':libannotation', ':rv-gallery', ':recyclerlib', ':libevent'

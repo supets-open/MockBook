@@ -42,9 +42,37 @@ public class AirAccessibilityService extends AccessibilityService {
 
     }
 
+
+//
+//    private void ff(AccessibilityNodeInfo nodeInfo){
+//        if (nodeInfo != null) {
+//          int total=  nodeInfo.getChildCount();
+//            if ("android.widget.TextView".equals(nodeInfo.getClassName())){
+//                Log.v("xposerd",nodeInfo.getText()+"");
+//            }
+//            Log.v("xposerd",nodeInfo.getContentDescription()+"");
+//
+//            if (total==0){
+//               return;
+//            }
+//            for (int i=0;i<nodeInfo.getChildCount();i++){
+//                AccessibilityNodeInfo  info=  nodeInfo.getChild(i);
+//                ff(info);
+//            }
+//        }
+//    }
+
+
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
+
+//        AccessibilityNodeInfo nodeInfo = getRootInActiveWindow();
+//        if (nodeInfo != null) {
+//            ff(nodeInfo);
+//        }
+
         int eventType = event.getEventType();
         if (auto)
             Log.e("AAAAAAAA", "有事件" + eventType);
