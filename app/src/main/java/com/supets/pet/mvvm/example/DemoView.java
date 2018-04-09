@@ -2,11 +2,10 @@ package com.supets.pet.mvvm.example;
 
 import android.app.Activity;
 
+import com.supets.mvvm.Component;
+import com.supets.mvvm.ComponentLayout;
+import com.supets.mvvm.DataBindView;
 import com.supets.pet.mockui.R;
-import com.supets.pet.mvvm.Component;
-import com.supets.pet.mvvm.ComponentNo;
-import com.supets.pet.mvvm.ComponentLayout;
-import com.supets.pet.mvvm.DataBindView;
 
 /**
  * 组件定义

@@ -2,11 +2,16 @@ package com.supets.mvvm;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.AnyRes;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.FloatRange;
 import android.support.annotation.IdRes;
 import android.support.annotation.Keep;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.res.ResourcesCompat;
 import android.util.SparseArray;
@@ -69,12 +74,16 @@ public class DataBindView {
     }
 
     public DataBindView gone(@IdRes int id) {
-        view(id).setVisibility(View.GONE);
+        if (view(id).getVisibility() != View.GONE) {
+            view(id).setVisibility(View.GONE);
+        }
         return this;
     }
 
     public DataBindView invisible(@IdRes int id) {
-        view(id).setVisibility(View.INVISIBLE);
+        if (view(id).getVisibility() != View.INVISIBLE) {
+            view(id).setVisibility(View.INVISIBLE);
+        }
         return this;
     }
 
@@ -93,7 +102,7 @@ public class DataBindView {
         return this;
     }
 
-    public DataBindView color(@IdRes int id, @ColorRes int color) {
+    public DataBindView colorText(@IdRes int id, @ColorRes int color) {
         ((TextView) view(id)).setTextColor(ResourcesCompat.getColor(getContext().getResources(), color, null));
         return this;
     }
@@ -134,4 +143,25 @@ public class DataBindView {
         return mRootView;
     }
 
+    public String getString(int res, Object... args) {
+        return getContext().getString(res, args);
+    }
+
+    public Resources getResources() {
+        return getContext().getResources();
+    }
+
+    public int getColor(@ColorRes int id, @Nullable Resources.Theme theme) {
+        return ResourcesCompat.getColor(getResources(), id, theme);
+    }
+
+    public Drawable getDrawable(@DrawableRes int id,
+                                @Nullable Resources.Theme theme) {
+        return ResourcesCompat.getDrawable(getResources(), id, theme);
+    }
+
+    public DataBindView alpha(View view, @FloatRange(from = 0.0, to = 1.0) float alpha) {
+        view.setAlpha(alpha);
+        return this;
+    }
 }

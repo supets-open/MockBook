@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.supets.libevent.EventAsyncOberseve;
+import com.supets.libevent.EventCallBackListener;
+import com.supets.libevent.EventType;
 import com.supets.pet.mockui.R;
 import com.supets.pet.module.live.TestLiveCycleActivity;
 import com.supets.pet.mvvm.share.SharedViewModel;
@@ -59,7 +62,7 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
             share.registerAsyncForever(new EventCallBackListener() {
                 @Override
                 public boolean callBack(EventType event) {
-                    Toast.makeText(getApplicationContext(), event.eventName+"-share", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), event.eventName + "-share", Toast.LENGTH_SHORT).show();
                     return event.eventType == 2;
                 }
             });
@@ -70,14 +73,14 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
             loginOberseve.registerAsync(new EventCallBackListener() {
                 @Override
                 public boolean callBack(EventType event) {
-                    Toast.makeText(getApplicationContext(), event.eventName, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), event.eventName+"-login", Toast.LENGTH_SHORT).show();
                     return event.eventType == 1;
                 }
             });
             share.registerAsync(new EventCallBackListener() {
                 @Override
                 public boolean callBack(EventType event) {
-                    Toast.makeText(getApplicationContext(), event.eventName+"-share", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), event.eventName + "-share2", Toast.LENGTH_SHORT).show();
                     return event.eventType == 2;
                 }
             });
@@ -87,7 +90,7 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
 
             EventType eventType = new EventType();
             eventType.eventName = "登陆成功";
-            eventType.eventType = 2;
+            eventType.eventType = 1;
             loginOberseve.postOberseve(eventType);
         }
 

@@ -1,31 +1,18 @@
 package com.supets.pet.mvvm.example;
 
-import android.arch.core.util.Function;
-import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.Transformations;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
+import com.supets.mvvm.ComponentNo;
+import com.supets.mvvm.ViewPrenster;
 import com.supets.pet.module.live.TestLiveCycleActivity;
-import com.supets.pet.mvvm.ComponentNo;
-import com.supets.pet.mvvm.ViewPrenster;
-import com.supets.pet.mvvm.rxbus.LiveBus;
 import com.supets.pet.mvvm.share.SharedViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
  * 模块解耦和事件管理者
- *
- * @user lihongjiang
- * @description
- * @date 2017/5/19
- * @updatetime 2017/5/19
  */
 
 public class DemoPrenster extends ViewPrenster<DemoView> {

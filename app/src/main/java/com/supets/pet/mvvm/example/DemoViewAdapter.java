@@ -2,8 +2,8 @@ package com.supets.pet.mvvm.example;
 
 import android.view.View;
 
+import com.supets.mvvm.DataBindAdapter;
 import com.supets.pet.mockui.R;
-import com.supets.pet.mvvm.DataBindAdapter;
 
 /**
  * UI处理
