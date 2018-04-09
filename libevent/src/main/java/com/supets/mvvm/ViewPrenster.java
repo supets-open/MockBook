@@ -16,16 +16,13 @@ import android.util.Log;
  * @updatetime 2017/5/19
  */
 @Keep
-public abstract class ViewPrenster<T extends ViewProxy> implements LifecycleObserver {
+public abstract class ViewPrenster<T extends DataBindView> implements LifecycleObserver {
 
     protected T mView;
 
-    protected abstract void init();
-
     public ViewPrenster(T view) {
         this.mView = view;
-        ViewModelDI.injectComponentNo(this);
-        init();
+        DataBindUtils.injectComponentNo(this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)

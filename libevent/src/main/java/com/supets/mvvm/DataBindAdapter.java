@@ -3,25 +3,14 @@ package com.supets.mvvm;
 import android.support.annotation.Keep;
 import android.support.annotation.StringRes;
 
-/**
- * 视图适配器
- *
- * @user lihongjiang
- * @description
- * @date 2017/5/19
- * @updatetime 2017/5/19
- */
 @Keep
-public abstract class ViewAdapter<T extends ViewProxy> {
+public abstract class DataBindAdapter<T extends DataBindView> {
 
     protected T mView;
 
-    public ViewAdapter(T view) {
+    public DataBindAdapter(T view) {
         this.mView = view;
-        init();
     }
-
-    public abstract void init();
 
     public String string(@StringRes int id) {
         return mView.getContext().getString(id);

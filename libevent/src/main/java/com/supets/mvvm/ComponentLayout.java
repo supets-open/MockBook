@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
 @Keep
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface ViewModelLayout {
+public @interface ComponentLayout {
     int value();
 }

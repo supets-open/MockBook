@@ -8,7 +8,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 
 @Keep
-public class ViewModelDI {
+public class DataBindUtils {
 
 
     /**
@@ -18,7 +18,7 @@ public class ViewModelDI {
      */
     public static void injectActivityUI(Activity activity) {
         Class<? extends Activity> classd = activity.getClass();
-        ViewModelLayout contentView = classd.getAnnotation(ViewModelLayout.class);
+        ComponentLayout contentView = classd.getAnnotation(ComponentLayout.class);
         int res = contentView.value();
         activity.setContentView(res);
     }
@@ -26,7 +26,7 @@ public class ViewModelDI {
     public static
     @LayoutRes
     int injectViewGroupUI(Object object) {
-        ViewModelLayout contentView = object.getClass().getAnnotation(ViewModelLayout.class);
+        ComponentLayout contentView = object.getClass().getAnnotation(ComponentLayout.class);
         return contentView.value();
     }
 
