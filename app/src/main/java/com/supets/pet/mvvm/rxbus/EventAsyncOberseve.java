@@ -32,11 +32,11 @@ public class EventAsyncOberseve implements Observer<Object>, LifecycleObserver {
 
     public void doEvent(EventType eventType) {
         if (mListener != null) {
-          boolean  isSuccess= mListener.callBack(eventType);
-          if (isSuccess){
-              LiveBus.getInstance().removeObserver(this);
-              LiveBus.getInstance().removeObservers(mContext);
-          }
+            boolean isSuccess = mListener.callBack(eventType);
+            if (isSuccess) {
+                LiveBus.getInstance().removeObserver(this);
+                mListener = null;
+            }
         }
     }
 
@@ -54,23 +54,32 @@ public class EventAsyncOberseve implements Observer<Object>, LifecycleObserver {
     }
 
     public void registerAsync(EventCallBackListener listener) {
-        this.mListener = listener;
-        isstart = true;
-        LiveBus.getInstance().observe(mContext, this);
+        if (emptyCallBack()) {
+            this.mListener = listener;
+            isstart = true;
+            LiveBus.getInstance().observe(mContext, this);
+        }
     }
 
     public void registerAsyncForever(EventCallBackListener listener) {
-        this.mListener = listener;
-        isstart = true;
-        LiveBus.getInstance().observeForever( this);
+        if (emptyCallBack()) {
+            this.mListener = listener;
+            isstart = true;
+            LiveBus.getInstance().observeForever(this);
+        }
     }
 
     private void resetFlag() {
-        isstart=false;
+        isstart = false;
     }
 
-    public void postOberseve(EventType eventType){
+    public void postOberseve(EventType eventType) {
         resetFlag();
         LiveBus.getInstance().setValue(eventType);
     }
+
+    public boolean emptyCallBack() {
+        return mListener == null;
+    }
+
 }

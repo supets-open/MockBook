@@ -4,15 +4,16 @@ import android.app.Activity;
 
 import com.supets.pet.mockui.R;
 import com.supets.pet.mvvm.Component;
-import com.supets.pet.mvvm.ViewModelLayout;
-import com.supets.pet.mvvm.ViewProxy;
+import com.supets.pet.mvvm.ComponentNo;
+import com.supets.pet.mvvm.ComponentLayout;
+import com.supets.pet.mvvm.DataBindView;
 
 /**
  * 组件定义
  */
 
-@ViewModelLayout(R.layout.activity_live_test)
-public class DemoView extends ViewProxy {
+@ComponentLayout(R.layout.activity_live_test)
+public class DemoView extends DataBindView  {
 
     public DemoView(Activity mContext) {
         super(mContext);

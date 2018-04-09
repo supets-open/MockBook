@@ -21,32 +21,35 @@ import android.widget.TextView;
  * 视图模块
  */
 @Keep
-public class ViewProxy {
+public class DataBindView {
 
     private Context mContext;
     private View mRootView;
     private SparseArray<View> views = new SparseArray<>();
 
-    public ViewProxy(ViewGroup mContext) {
+    public DataBindView(ViewGroup mContext) {
         this.mContext = mContext.getContext();
-        int xml = ViewModelDI.injectViewGroupUI(this);
+        int xml = DataBindUtils.injectViewGroupUI(this);
         this.mRootView = LayoutInflater.from(mContext.getContext()).inflate(xml, mContext, false);
-        ViewModelDI.injectComponent(this, this);
+        DataBindUtils.injectComponent(this, this);
+        DataBindUtils.injectComponentNo(this);
     }
 
-    public ViewProxy(Activity mContext) {
-        int xml = ViewModelDI.injectViewGroupUI(this);
+    public DataBindView(Activity mContext) {
+        int xml = DataBindUtils.injectViewGroupUI(this);
         mContext.setContentView(xml);
         this.mContext = mContext;
         this.mRootView = mContext.getWindow().getDecorView();
-        ViewModelDI.injectComponent(this, this);
+        DataBindUtils.injectComponent(this, this);
+        DataBindUtils.injectComponentNo(this);
     }
 
-    public ViewProxy(Context mContext) {
-        int xml = ViewModelDI.injectViewGroupUI(this);
+    public DataBindView(Context mContext) {
+        int xml = DataBindUtils.injectViewGroupUI(this);
         this.mContext = mContext;
         this.mRootView = LayoutInflater.from(mContext).inflate(xml, null);
-        ViewModelDI.injectComponent(this, this);
+        DataBindUtils.injectComponent(this, this);
+        DataBindUtils.injectComponentNo(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -60,57 +63,57 @@ public class ViewProxy {
         return (T) view;
     }
 
-    public ViewProxy clickEvent(@IdRes int res, View.OnClickListener onClickListener) {
+    public DataBindView clickEvent(@IdRes int res, View.OnClickListener onClickListener) {
         view(res).setOnClickListener(onClickListener);
         return this;
     }
 
-    public ViewProxy gone(@IdRes int id) {
+    public DataBindView gone(@IdRes int id) {
         view(id).setVisibility(View.GONE);
         return this;
     }
 
-    public ViewProxy invisible(@IdRes int id) {
+    public DataBindView invisible(@IdRes int id) {
         view(id).setVisibility(View.INVISIBLE);
         return this;
     }
 
-    public ViewProxy visible(@IdRes int id) {
+    public DataBindView visible(@IdRes int id) {
         view(id).setVisibility(View.VISIBLE);
         return this;
     }
 
-    public ViewProxy text(@IdRes int id, CharSequence text) {
+    public DataBindView text(@IdRes int id, CharSequence text) {
         ((TextView) view(id)).setText(text);
         return this;
     }
 
-    public ViewProxy background(@IdRes int id, @AnyRes int drawable) {
+    public DataBindView background(@IdRes int id, @AnyRes int drawable) {
         view(id).setBackgroundResource(drawable);
         return this;
     }
 
-    public ViewProxy color(@IdRes int id, @ColorRes int color) {
+    public DataBindView color(@IdRes int id, @ColorRes int color) {
         ((TextView) view(id)).setTextColor(ResourcesCompat.getColor(getContext().getResources(), color, null));
         return this;
     }
 
-    public ViewProxy drawableLeft(@IdRes int id, @ColorRes int color) {
+    public DataBindView drawableLeft(@IdRes int id, @ColorRes int color) {
         ((TextView) view(id)).setCompoundDrawables(ResourcesCompat.getDrawable(getContext().getResources(), color, null), null, null, null);
         return this;
     }
 
-    public ViewProxy enable(@IdRes int id, boolean enable) {
+    public DataBindView enable(@IdRes int id, boolean enable) {
         view(id).setEnabled(enable);
         return this;
     }
 
-    public ViewProxy select(@IdRes int id, boolean select) {
+    public DataBindView select(@IdRes int id, boolean select) {
         view(id).setSelected(select);
         return this;
     }
 
-    public ViewProxy progress(@IdRes int id, int progress, boolean anim) {
+    public DataBindView progress(@IdRes int id, int progress, boolean anim) {
         if (Build.VERSION.SDK_INT >= 24) {
             ((ProgressBar) view(id)).setProgress(progress, anim);
         } else {

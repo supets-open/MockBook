@@ -1,21 +1,19 @@
 package com.supets.pet.mvvm.example;
 
-import android.util.Log;
 import android.view.View;
 
 import com.supets.pet.mockui.R;
-import com.supets.pet.mvvm.ViewAdapter;
+import com.supets.pet.mvvm.DataBindAdapter;
 
 /**
  * UI处理
  */
-public class DemoViewAdapter extends ViewAdapter<DemoView> implements View.OnClickListener {
+public class DemoViewAdapter extends DataBindAdapter<DemoView> implements View.OnClickListener, IDemoView {
 
     public DemoViewAdapter(DemoView view) {
         super(view);
     }
 
-    @Override
     public void init() {
         mView.view(DemoViewId.liveid).setOnClickListener(this);
         mView.view(DemoViewId.livemodel).setOnClickListener(this);
@@ -28,16 +26,25 @@ public class DemoViewAdapter extends ViewAdapter<DemoView> implements View.OnCli
     @Override
     public void onClick(View v) {
         if (v.getId() == DemoViewId.liveid) {
-            mView.mPrenster.requestUserName();
+            requestUserName();
         } if (v.getId() == DemoViewId.livemodel) {
-            mView.mPrenster.startGo();
+            startGo();
         }
+    }
+
+    @Override
+    public void requestUserName() {
+        mView.mPrenster.requestUserName();
+    }
+
+    @Override
+    public void startGo() {
+        mView.mPrenster.startGo();
     }
 
     public interface DemoViewId {
         int liveid = R.id.live;
         int livemodel = R.id.livemodel;
     }
-
 
 }

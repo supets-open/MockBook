@@ -28,23 +28,38 @@ import java.util.List;
  * @updatetime 2017/5/19
  */
 
-public class DemoPrenster extends ViewPrenster<DemoView> implements Observer<Object> {
+public class DemoPrenster extends ViewPrenster<DemoView> {
 
-    @ComponentNo
-    public DemoViewModel mViewModel;
+    @ComponentNo()
+    public DemoViewModel mDemoViewModel;
 
     @ComponentNo
     public DemoDataRepository dataRepository;
-
 
     public DemoPrenster(DemoView view) {
         super(view);
     }
 
     @Override
-    protected void init() {
+    public void onCreate() {
+        super.onCreate();
+        init();
+        mView.mAdapter.init();
+    }
 
-//        Transformations.map(mViewModel.getUsers(), new Function<List<String>, String>() {
+    public void init() {
+
+//        SharedViewModel model = ViewModelProviders.of(mView.getOwner()).get(SharedViewModel.class);
+//        model.getSelected().observe(mView.getOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                //更新数据
+//                mDemoViewModel.updateData(s);
+//            }
+//        });
+
+
+//        Transformations.map(mDemoViewModel.getUsers(), new Function<List<String>, String>() {
 //            @Override
 //            public String apply(List<String> input) {
 //                return input.toString();
@@ -56,42 +71,24 @@ public class DemoPrenster extends ViewPrenster<DemoView> implements Observer<Obj
 //                Log.v("一次更新", strings);
 //            }
 //        });
-//
-//        mViewModel.names.observe(mView.getOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String strings) {
-//                Log.v("二次更新", strings);
-//            }
-//        });
-//
-//        mViewModel.data2.observe(mView.getOwner(), new Observer<List<String>>() {
-//            @Override
-//            public void onChanged(@Nullable List<String> strings) {
-//                Log.v("三次更新", strings.toString());
-//            }
-//        });
-//
-//        mViewModel.data3.observe(mView.getOwner(), new Observer<List<String>>() {
-//            @Override
-//            public void onChanged(@Nullable List<String> strings) {
-//                Log.v("四次更新", strings.toString());
-//            }
-//        });
+
+        mDemoViewModel.users.observe(mView.getOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                mView.mAdapter.updateName(s);
+            }
+        });
+
     }
 
     public void requestUserName() {
+        //获取网络数据
+        String data = dataRepository.getData();
+        //更新数据
+        mDemoViewModel.updateData(data);
 
-        ArrayList<String> data = dataRepository.getData();
-        mViewModel.updateData(data);
-
-//        SharedViewModel model = ViewModelProviders.of(mView.getOwner()).get(SharedViewModel.class);
-//        model.select("niha");
-
-        //所有都转发
-        //LiveBus.getInstance().observeForever( this);
-        //只发对应的owner
-        LiveBus.getInstance().observe(mView.getOwner(), this);
-        LiveBus.getInstance().setValue("hah");
+        SharedViewModel model = ViewModelProviders.of(mView.getOwner()).get(SharedViewModel.class);
+        model.select("niha");
 
     }
 
@@ -99,22 +96,4 @@ public class DemoPrenster extends ViewPrenster<DemoView> implements Observer<Obj
         mView.getContext().startActivity(new Intent(mView.getContext(), TestLiveCycleActivity.class));
     }
 
-
-
-    @Override
-    public void onDestory() {
-        super.onDestory();
-        //移除事件
-        LiveBus.getInstance().removeObserver(this);
-        LiveBus.getInstance().removeObservers(mView.getOwner());
-    }
-
-    @Override
-    public void onChanged(@Nullable Object o) {
-        Log.v("rxbus",o.toString()+"rxbus"+this);
-
-        //移除事件
-        LiveBus.getInstance().removeObserver(this);
-        LiveBus.getInstance().removeObservers(mView.getOwner());
-    }
 }

@@ -47,6 +47,7 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
 
         if (v.getId() == R.id.btn0) {
+
             loginOberseve.registerAsyncForever(new EventCallBackListener() {
                 @Override
                 public boolean callBack(EventType event) {
@@ -86,7 +87,7 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
 
             EventType eventType = new EventType();
             eventType.eventName = "登陆成功";
-            eventType.eventType = 1;
+            eventType.eventType = 2;
             loginOberseve.postOberseve(eventType);
         }
 
