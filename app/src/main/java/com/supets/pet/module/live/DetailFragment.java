@@ -10,17 +10,17 @@ import android.widget.TextView;
 
 import com.supets.pet.base.BaseFragment;
 import com.supets.pet.mockui.R;
-import com.supets.pet.mvvm.share.SharedViewModel;
+import com.supets.pet.mvvm.share.TestSharedViewModel;
 
 public class DetailFragment extends BaseFragment {
 
-    private  TextView textView;
+    private TextView textView;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        SharedViewModel model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
-        model.getSelected().observe(this, new Observer<String>() {
+        TestSharedViewModel model = ViewModelProviders.of(getActivity()).get(TestSharedViewModel.class);
+        model.getData().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import com.supets.mvvm.ComponentNo;
 import com.supets.mvvm.ViewPrenster;
 import com.supets.pet.module.live.TestLiveCycleActivity;
-import com.supets.pet.mvvm.share.SharedViewModel;
+import com.supets.pet.mvvm.share.TestSharedViewModel;
 
 
 /**
@@ -74,7 +74,7 @@ public class DemoPrenster extends ViewPrenster<DemoView> {
         //更新数据
         mDemoViewModel.updateData(data);
 
-        SharedViewModel model = ViewModelProviders.of(mView.getOwner()).get(SharedViewModel.class);
+        TestSharedViewModel model = ViewModelProviders.of(mView.getOwner()).get(TestSharedViewModel.class);
         model.select("niha");
 
     }

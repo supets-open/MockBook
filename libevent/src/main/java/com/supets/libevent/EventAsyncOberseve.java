@@ -5,15 +5,16 @@ import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 
 
 public class EventAsyncOberseve implements Observer<Object>, LifecycleObserver {
 
-    private AppCompatActivity mContext;
+    private FragmentActivity mContext;
 
-    public EventAsyncOberseve(AppCompatActivity context) {
+    public EventAsyncOberseve(FragmentActivity context) {
         this.mContext = context;
+        context.getLifecycle().addObserver(this);
     }
 
     private boolean isstart = false;
@@ -69,17 +70,11 @@ public class EventAsyncOberseve implements Observer<Object>, LifecycleObserver {
         }
     }
 
-    private void resetFlag() {
-        isstart = false;
-    }
-
-    public void postOberseve(EventType eventType) {
-        resetFlag();
+    public static void boradcastOberseve(EventType eventType) {
         LiveBus.getInstance().setValue(eventType);
     }
 
-    public void postOberseve2(EventType eventType) {
-        resetFlag();
+    public static void postBcastOberseve(EventType eventType) {
         LiveBus.getInstance().postValue(eventType);
     }
 

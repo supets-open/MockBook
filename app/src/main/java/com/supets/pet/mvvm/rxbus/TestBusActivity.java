@@ -19,8 +19,6 @@ import com.supets.pet.mvvm.share.TestSharedViewModel;
 
 public class TestBusActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EventAsyncOberseve loginOberseve;
-    private EventAsyncOberseve share;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,34 +38,29 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        loginOberseve = new EventAsyncOberseve(this);
-        share = new EventAsyncOberseve(this);
-        getLifecycle().addObserver(loginOberseve);
-        getLifecycle().addObserver(share);
-
     }
 
     @Override
     public void onClick(View v) {
 
         if (v.getId() == R.id.btn0) {
-            loginOberseve.registerAsyncForever(new EventCallBackListener() {
+            new EventAsyncOberseve(this).registerAsyncForever(new EventCallBackListener() {
                 @Override
                 public boolean callBack(EventType event) {
 
                     Toast.makeText(getApplicationContext(), event.eventName, Toast.LENGTH_SHORT).show();
-                    return event.eventType == 1;
+                    return event.eventType==1;
                 }
             });
             startActivity(new Intent(this, TestLiveCycleActivity.class));
         }
 
         if (v.getId() == R.id.btn1) {
-            share.registerAsync(new EventCallBackListener() {
+            new EventAsyncOberseve(this).registerAsync(new EventCallBackListener() {
                 @Override
                 public boolean callBack(EventType event) {
                     Toast.makeText(getApplicationContext(), event.eventName + "-share2", Toast.LENGTH_SHORT).show();
-                    return event.eventType == 2;
+                    return event.eventType==1;
                 }
             });
             startActivity(new Intent(this, TestLiveCycleActivity.class));
@@ -75,11 +68,10 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
 
 
         if (v.getId() == R.id.btn2) {
-
             EventType eventType = new EventType();
             eventType.eventName = "登陆成功";
-            eventType.eventType = 1;
-            loginOberseve.postOberseve(eventType);
+            eventType.eventType = 2;
+            EventAsyncOberseve.boradcastOberseve(eventType);
         }
 
         if (v.getId() == R.id.btn3) {
