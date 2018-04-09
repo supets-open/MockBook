@@ -10,10 +10,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.squareup.leakcanary.RefWatcher;
 import com.supets.libevent.EventAsyncOberseve;
 import com.supets.libevent.EventCallBackListener;
 import com.supets.libevent.EventType;
 import com.supets.libevent.LiveBus;
+import com.supets.pet.MyApplication;
 import com.supets.pet.mockui.R;
 import com.supets.pet.module.live.TestLiveCycleActivity;
 import com.supets.pet.mvvm.share.TestSharedViewModel;
@@ -50,7 +52,7 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
                 public boolean callBack(EventType event) {
 
                     Toast.makeText(getApplicationContext(), event.eventName, Toast.LENGTH_SHORT).show();
-                    return event.eventType==1;
+                    return event.eventType == 1;
                 }
             });
             startActivity(new Intent(this, TestLiveCycleActivity.class));
@@ -61,7 +63,7 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
                 @Override
                 public boolean callBack(EventType event) {
                     Toast.makeText(getApplicationContext(), event.eventName + "-share2", Toast.LENGTH_SHORT).show();
-                    return event.eventType==1;
+                    return event.eventType == 1;
                 }
             });
             startActivity(new Intent(this, TestLiveCycleActivity.class));
@@ -80,6 +82,13 @@ public class TestBusActivity extends AppCompatActivity implements View.OnClickLi
             model.select("发送共享数据");
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        RefWatcher refWatcher = MyApplication.getRefWatcher(this);//1
+        refWatcher.watch(this);
     }
 
 }
