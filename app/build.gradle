@@ -1,6 +1,6 @@
 //apply plugin: 'com.android.library'
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -115,7 +115,8 @@ dependencies {
     //  compile 'cn.bingoogolapple:bga-qrcodecore:1.1.3@aar'
     //  compile 'cn.bingoogolapple:bga-zbar:1.1.3@aar'
 
-    apt project(':libCompileApi')
+    //apt project(':libCompileApi')
+    annotationProcessor project(':libCompileApi')
 
     //  compile project(path: ':rv-gallery')
     //  compile project(path: ':recyclerlib')
