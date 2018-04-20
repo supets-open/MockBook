@@ -63,7 +63,6 @@ public class TianMaoActivity extends FragmentActivity {
 
 
         header = findViewById(R.id.header);
-        header.setNestedScrollingEnabled(false);
 
         // 模拟获取数据
         getData();
