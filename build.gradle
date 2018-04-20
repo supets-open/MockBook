@@ -45,9 +45,9 @@ ext {
     targetCompatibility = JavaVersion.VERSION_1_7
 
     minSdkVersion = 14
-    targetSdkVersion = 26
-    compileSdkVersion = 26
-    buildToolsVersion = "27.0.1"
+    targetSdkVersion = 22
+    compileSdkVersion = 27
+    buildToolsVersion = "27.0.3"
     supportLibVersion = "26.1.0"
 }
 
