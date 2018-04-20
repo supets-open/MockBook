@@ -33,6 +33,7 @@
         <activity android:name="com.supets.pet.banner.BannerNormalActivity" />
         <activity android:name="com.supets.pet.pull.activity.LoadMoreActivity" />
         <activity android:name="com.supets.pet.pull.activity.LoadMoreWrapperActivity" />
+        <activity android:name="com.supets.pet.tianmao.TianMaoActivity" />
 
     </application>
 </manifest>

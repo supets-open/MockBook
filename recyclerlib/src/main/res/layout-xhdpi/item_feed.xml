@@ -35,5 +35,4 @@
         android:scaleType="centerCrop"
         android:src="@drawable/taeyeon_one" />
 
-
 </RelativeLayout>

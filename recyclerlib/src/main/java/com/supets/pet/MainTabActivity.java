@@ -16,6 +16,7 @@ import com.supets.pet.banner.BannerMainActivity;
 import com.supets.pet.gallery.GalleryActivity;
 import com.supets.pet.pull.activity.LoadMoreWrapperActivity;
 import com.supets.pet.suspendbar.SuspendActivity;
+import com.supets.pet.tianmao.TianMaoActivity;
 
 import java.util.ArrayList;
 
@@ -41,6 +42,7 @@ public class MainTabActivity extends AppCompatActivity {
             data.add(new ClickType(1, "RecyclerView实现Gallery"));
             data.add(new ClickType(2, "RecyclerView实现Banner"));
             data.add(new ClickType(3, "RecyclerView实现下拉刷新和上拉加载更多"));
+            data.add(new ClickType(4, "RecyclerView实现天猫效果"));
         }
 
         @Override
@@ -98,6 +100,10 @@ public class MainTabActivity extends AppCompatActivity {
 
                 if (mData.type == 3) {
                     Intent intent = new Intent(view.getContext(), LoadMoreWrapperActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+                if (mData.type == 4) {
+                    Intent intent = new Intent(view.getContext(), TianMaoActivity.class);
                     view.getContext().startActivity(intent);
                 }
             }
