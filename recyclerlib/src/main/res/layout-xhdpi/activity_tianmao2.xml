@@ -29,11 +29,12 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <com.supets.pet.tianmao.RecycleViewPager
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
 
     </android.support.design.widget.CoordinatorLayout>
 
