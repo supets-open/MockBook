@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/libCompileApi" />
             <option value="$PROJECT_DIR$/libannotation" />
             <option value="$PROJECT_DIR$/libevent" />
+            <option value="$PROJECT_DIR$/libfilesload" />
             <option value="$PROJECT_DIR$/recyclerlib" />
             <option value="$PROJECT_DIR$/rv-gallery" />
           </set>

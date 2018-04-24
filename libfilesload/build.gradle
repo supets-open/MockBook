@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -37,7 +36,4 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile "android.arch.lifecycle:runtime:1.1.0"
-    compile "android.arch.lifecycle:extensions:1.1.0"
-    annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
 }

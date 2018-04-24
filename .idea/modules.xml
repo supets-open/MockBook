@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/libCompileApi/libCompileApi.iml" filepath="$PROJECT_DIR$/libCompileApi/libCompileApi.iml" />
       <module fileurl="file://$PROJECT_DIR$/libannotation/libannotation.iml" filepath="$PROJECT_DIR$/libannotation/libannotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/libevent/libevent.iml" filepath="$PROJECT_DIR$/libevent/libevent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libfilesload/libfilesload.iml" filepath="$PROJECT_DIR$/libfilesload/libfilesload.iml" />
       <module fileurl="file://$PROJECT_DIR$/recyclerlib/recyclerlib.iml" filepath="$PROJECT_DIR$/recyclerlib/recyclerlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/rv-gallery/rv-gallery.iml" filepath="$PROJECT_DIR$/rv-gallery/rv-gallery.iml" />
     </modules>
