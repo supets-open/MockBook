@@ -1,7 +1,11 @@
 package com.supets.mvvm;
 
 import android.app.Activity;
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleObserver;
+import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -14,6 +18,7 @@ import android.support.annotation.Keep;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.res.ResourcesCompat;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +31,7 @@ import android.widget.TextView;
  * 视图模块
  */
 @Keep
-public class DataBindView {
+public class DataBindView implements LifecycleObserver {
 
     private Context mContext;
     private View mRootView;
@@ -164,4 +169,40 @@ public class DataBindView {
         view.setAlpha(alpha);
         return this;
     }
+
+
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    public void onResume() {
+        Log.v("ViewPrenster", "onResume");
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    public void onPause() {
+        Log.v("ViewPrenster", "onPause");
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    public void onStart() {
+        Log.v("ViewPrenster", "onStart");
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void onStop() {
+        Log.v("ViewPrenster", "onStop");
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void onDestory() {
+        Log.v("ViewPrenster", "onDestory");
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    public void onCreate() {
+        Log.v("ViewPrenster", "onCreate");
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    }
+
 }

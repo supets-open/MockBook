@@ -79,25 +79,25 @@ public class DownLoadMainActivity extends FragmentActivity implements OnClickLis
                                     .getKbps()));
                     info.setSecondSize(info.getSecondSize() + length);
                 }
-                if (timer == null) {
-                    timer = new Timer();
-                    timer.schedule(new TimerTask() {
-
-                        @Override
-                        public void run() {
-                            DownloadingInfo info = null;
-                            for (Entry<String, DownloadingInfo> entry : downloadingInfos
-                                    .entrySet()) {
-                                info = entry.getValue();
-                                if (info != null) {
-                                    info.setKbps(decimalFormat.format(info
-                                            .getSecondSize() / 1024.0));
-                                    info.setSecondSize(0);
-                                }
-                            }
-                        }
-                    }, 0, 1000);
-                }
+//                if (timer == null) {
+//                    timer = new Timer();
+//                    timer.schedule(new TimerTask() {
+//
+//                        @Override
+//                        public void run() {
+//                            DownloadingInfo info = null;
+//                            for (Entry<String, DownloadingInfo> entry : downloadingInfos
+//                                    .entrySet()) {
+//                                info = entry.getValue();
+//                                if (info != null) {
+//                                    info.setKbps(decimalFormat.format(info
+//                                            .getSecondSize() / 1024.0));
+//                                    info.setSecondSize(0);
+//                                }
+//                            }
+//                        }
+//                    }, 0, 1000);
+//                }
             }
 
             @Override

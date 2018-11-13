@@ -19,7 +19,7 @@ public class DemoView extends DataBindView  {
     }
 
     @Component()
-    public DemoViewAdapter mAdapter;
+    public DemoViewDelegate mAdapter;
 
     @Component()
     public DemoPrenster mPrenster;

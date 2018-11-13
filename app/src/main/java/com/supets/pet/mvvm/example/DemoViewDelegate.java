@@ -8,10 +8,11 @@ import com.supets.pet.mockui.R;
 /**
  * UI处理
  */
-public class DemoViewAdapter extends DataBindAdapter<DemoView> implements View.OnClickListener, IDemoView {
+public class DemoViewDelegate extends DataBindAdapter<DemoView> implements View.OnClickListener {
 
-    public DemoViewAdapter(DemoView view) {
+    public DemoViewDelegate(DemoView view) {
         super(view);
+        init();
     }
 
     public void init() {
@@ -27,17 +28,16 @@ public class DemoViewAdapter extends DataBindAdapter<DemoView> implements View.O
     public void onClick(View v) {
         if (v.getId() == DemoViewId.liveid) {
             requestUserName();
-        } if (v.getId() == DemoViewId.livemodel) {
+        }
+        if (v.getId() == DemoViewId.livemodel) {
             startGo();
         }
     }
 
-    @Override
     public void requestUserName() {
         mView.mPrenster.requestUserName();
     }
 
-    @Override
     public void startGo() {
         mView.mPrenster.startGo();
     }

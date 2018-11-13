@@ -25,13 +25,7 @@ public class DemoPrenster extends ViewPrenster<DemoView> {
 
     public DemoPrenster(DemoView view) {
         super(view);
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
         init();
-        mView.mAdapter.init();
     }
 
     public void init() {
@@ -82,5 +76,6 @@ public class DemoPrenster extends ViewPrenster<DemoView> {
     public void startGo() {
         mView.getContext().startActivity(new Intent(mView.getContext(), TestLiveCycleActivity.class));
     }
+
 
 }

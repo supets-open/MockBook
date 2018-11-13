@@ -32,10 +32,13 @@ public class BannerMainActivity extends AppCompatActivity implements BannerLayou
         bannerVertical = findViewById(R.id.recycler_ver);
         //解决recyclerView嵌套问题
         List<String> list = new ArrayList<>();
-        list.add("http://oo6pz0u05.bkt.clouddn.com/17-12-13/69427561.jpg");
-        list.add("http://oo6pz0u05.bkt.clouddn.com/17-12-13/23738150.jpg");
-        list.add("http://oo6pz0u05.bkt.clouddn.com/17-12-13/30127126.jpg");
-        list.add("http://oo6pz0u05.bkt.clouddn.com/17-12-13/36125492.jpg");
+        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536232185126&di=ef1e4f07528cc04a7128f76b2f093aec&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019812554bd3b6000001bf72b5388a.jpg%401280w_1l_2o_100sh.jpg");
+        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536232185126&di=ef1e4f07528cc04a7128f76b2f093aec&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019812554bd3b6000001bf72b5388a.jpg%401280w_1l_2o_100sh.jpg");
+        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536232185126&di=ef1e4f07528cc04a7128f76b2f093aec&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019812554bd3b6000001bf72b5388a.jpg%401280w_1l_2o_100sh.jpg");
+        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536232185126&di=ef1e4f07528cc04a7128f76b2f093aec&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019812554bd3b6000001bf72b5388a.jpg%401280w_1l_2o_100sh.jpg");
+        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536232185126&di=ef1e4f07528cc04a7128f76b2f093aec&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019812554bd3b6000001bf72b5388a.jpg%401280w_1l_2o_100sh.jpg");
+        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536232185126&di=ef1e4f07528cc04a7128f76b2f093aec&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019812554bd3b6000001bf72b5388a.jpg%401280w_1l_2o_100sh.jpg");
+        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536232185126&di=ef1e4f07528cc04a7128f76b2f093aec&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019812554bd3b6000001bf72b5388a.jpg%401280w_1l_2o_100sh.jpg");
 
         banner.initBannerImageView(list);
         bannerVertical.initBannerImageView(list);
