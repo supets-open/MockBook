@@ -1,4 +1,4 @@
-package com.supets.mvvm;
+package com.supets.mvvm.di;
 
 import android.support.annotation.Keep;
 
@@ -8,8 +8,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Keep
+@Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface ComponentLayout {
-    int value();
+public @interface ComponentNo {
+    Class<?> getSubClass() default String.class;
 }

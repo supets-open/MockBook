@@ -1,14 +1,27 @@
 package com.supets.pet.mvvm.example;
 
+import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
-import com.supets.mvvm.ComponentNo;
-import com.supets.mvvm.ViewPrenster;
+import com.supets.mvvm.di.ComponentNo;
+import com.supets.mvvm.presenter.ViewPrenster;
 import com.supets.pet.module.live.TestLiveCycleActivity;
 import com.supets.pet.mvvm.share.TestSharedViewModel;
+import com.uber.autodispose.AutoDispose;
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider;
+
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import lombok.Getter;
+
+import static android.support.constraint.Constraints.TAG;
 
 
 /**
@@ -18,14 +31,37 @@ import com.supets.pet.mvvm.share.TestSharedViewModel;
 public class DemoPrenster extends ViewPrenster<DemoView> {
 
     @ComponentNo()
-    public DemoViewModel mDemoViewModel;
+    @Getter
+    private DemoViewModel mDemoViewModel;
 
     @ComponentNo
-    public DemoDataRepository dataRepository;
+    @Getter
+    private DemoDataRepository dataRepository;
 
     public DemoPrenster(DemoView view) {
         super(view);
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        getView().getMDelegate().init();
         init();
+
+        Observable.interval(1, TimeUnit.SECONDS)
+                .doOnDispose(new Action() {
+                    @Override
+                    public void run() throws Exception {
+                        Log.i(TAG, "Disposing subscription from onResume() with untilEvent ON_DESTROY");
+                    }
+                }).as(AutoDispose.<Long>autoDisposable(AndroidLifecycleScopeProvider.from(getView().getOwner(), Lifecycle.Event.ON_DESTROY)))//OnDestory时自动解绑
+                .subscribe(new Consumer<Long>() {
+                    @Override
+                    public void accept(Long num) throws Exception {
+                        Log.i(TAG, "Started in onResume(), running until in onDestroy(): " + num);
+                    }
+                });
+
     }
 
     public void init() {
@@ -53,10 +89,10 @@ public class DemoPrenster extends ViewPrenster<DemoView> {
 //            }
 //        });
 
-        mDemoViewModel.users.observe(mView.getOwner(), new Observer<String>() {
+        mDemoViewModel.users.observe(getView().getOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                mView.mAdapter.updateName(s);
+                getView().getMDelegate().updateName(s);
             }
         });
 
@@ -68,14 +104,13 @@ public class DemoPrenster extends ViewPrenster<DemoView> {
         //更新数据
         mDemoViewModel.updateData(data);
 
-        TestSharedViewModel model = ViewModelProviders.of(mView.getOwner()).get(TestSharedViewModel.class);
+        TestSharedViewModel model = ViewModelProviders.of(getView().getFragmentActivity()).get(TestSharedViewModel.class);
         model.select("niha");
 
     }
 
     public void startGo() {
-        mView.getContext().startActivity(new Intent(mView.getContext(), TestLiveCycleActivity.class));
+        getView().getContext().startActivity(new Intent(getView().getContext(), TestLiveCycleActivity.class));
     }
-
 
 }

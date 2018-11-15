@@ -2,26 +2,25 @@ package com.supets.pet.mvvm.example;
 
 import android.view.View;
 
-import com.supets.mvvm.DataBindAdapter;
+import com.supets.mvvm.view.ViewDelegate;
 import com.supets.pet.mockui.R;
 
 /**
- * UI处理
+ * UI处理  事件采用接口回调或者eventbus
  */
-public class DemoViewDelegate extends DataBindAdapter<DemoView> implements View.OnClickListener {
+public class DemoViewDelegate extends ViewDelegate<DemoView> implements View.OnClickListener {
 
     public DemoViewDelegate(DemoView view) {
         super(view);
-        init();
     }
 
     public void init() {
-        mView.view(DemoViewId.liveid).setOnClickListener(this);
-        mView.view(DemoViewId.livemodel).setOnClickListener(this);
+        getView().getRootView().findViewById(DemoViewId.liveid).setOnClickListener(this);
+        getView().getRootView().findViewById(DemoViewId.livemodel).setOnClickListener(this);
     }
 
     public void updateName(String name) {
-        mView.text(DemoViewId.liveid, name);
+        ViewDelegate.text(getView().getRootView(), DemoViewId.liveid, name);
     }
 
     @Override
@@ -35,11 +34,11 @@ public class DemoViewDelegate extends DataBindAdapter<DemoView> implements View.
     }
 
     public void requestUserName() {
-        mView.mPrenster.requestUserName();
+
     }
 
     public void startGo() {
-        mView.mPrenster.startGo();
+
     }
 
     public interface DemoViewId {
