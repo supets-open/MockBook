@@ -1,7 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.recyclerlib"
-    tools:overrideLibrary="com.ryan.rv_gallery">
+    package="com.example.recyclerlib">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

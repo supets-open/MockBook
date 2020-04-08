@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MockBook.iml" filepath="$PROJECT_DIR$/MockBook.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/appred/appred.iml" filepath="$PROJECT_DIR$/appred/appred.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libCompileApi/libCompileApi.iml" filepath="$PROJECT_DIR$/libCompileApi/libCompileApi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libannotation/libannotation.iml" filepath="$PROJECT_DIR$/libannotation/libannotation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libevent/libevent.iml" filepath="$PROJECT_DIR$/libevent/libevent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libfilesload/libfilesload.iml" filepath="$PROJECT_DIR$/libfilesload/libfilesload.iml" />
-      <module fileurl="file://$PROJECT_DIR$/recyclerlib/recyclerlib.iml" filepath="$PROJECT_DIR$/recyclerlib/recyclerlib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rv-gallery/rv-gallery.iml" filepath="$PROJECT_DIR$/rv-gallery/rv-gallery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MockBook.iml" filepath="$PROJECT_DIR$/MockBook.iml" group="MockBook" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="MockBook/app" />
+      <module fileurl="file://$PROJECT_DIR$/appred/appred.iml" filepath="$PROJECT_DIR$/appred/appred.iml" group="MockBook/appred" />
+      <module fileurl="file://$PROJECT_DIR$/libCompileApi/libCompileApi.iml" filepath="$PROJECT_DIR$/libCompileApi/libCompileApi.iml" group="MockBook/libCompileApi" />
+      <module fileurl="file://$PROJECT_DIR$/libannotation/libannotation.iml" filepath="$PROJECT_DIR$/libannotation/libannotation.iml" group="MockBook/libannotation" />
+      <module fileurl="file://$PROJECT_DIR$/libevent/libevent.iml" filepath="$PROJECT_DIR$/libevent/libevent.iml" group="MockBook/libevent" />
+      <module fileurl="file://$PROJECT_DIR$/libfilesload/libfilesload.iml" filepath="$PROJECT_DIR$/libfilesload/libfilesload.iml" group="MockBook/libfilesload" />
+      <module fileurl="file://$PROJECT_DIR$/recyclerlib/recyclerlib.iml" filepath="$PROJECT_DIR$/recyclerlib/recyclerlib.iml" group="MockBook/recyclerlib" />
+      <module fileurl="file://$PROJECT_DIR$/rv-gallery/rv-gallery.iml" filepath="$PROJECT_DIR$/rv-gallery/rv-gallery.iml" group="MockBook/rv-gallery" />
     </modules>
   </component>
 </project>

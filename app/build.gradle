@@ -48,10 +48,6 @@ android {
     }
 
 
-    productFlavors {
-        localhost {}
-    }
-
 }
 
 
@@ -85,39 +81,35 @@ def getVersionName() {
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:design:26.1.0'
-    compile 'com.android.support:recyclerview-v7:26.1.0'
-    compile 'com.android.support:cardview-v7:26.1.0'
-    compile 'com.android.support:support-annotations:26.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
-    compile 'com.cloudpet.base:baserouter:1.0.0'
-    compile 'com.cloudpet.ui:commonui:1.1.2'
-    compile 'com.cloudpet.ui:themelib:1.2.0'
-    compile 'com.supets.lib:maillib:2.2.0'
-    compile 'com.supets.lib:jsoneditlib:1.4.0'
+    implementation 'com.cloudpet.base:baserouter:1.0.0'
+    implementation 'com.cloudpet.ui:commonui:1.1.2'
+    implementation 'com.cloudpet.ui:themelib:1.2.0'
+    implementation 'com.supets.lib:maillib:2.2.0'
+    implementation 'com.supets.lib:jsoneditlib:1.4.0'
 
     //  compile 'com.facebook.stetho:stetho:1.4.1'
     //  compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
     //  compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
-    compile 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.zhy:okhttputils:2.6.2'
 
-    compile 'pub.devrel:easypermissions:0.1.7'
-    compile 'cn.bingoogolapple:bga-photopicker:1.1.0@aar'
-    compile 'cn.bingoogolapple:bga-adapter:1.1.0@aar'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'pub.devrel:easypermissions:0.1.7'
+    implementation 'cn.bingoogolapple:bga-photopicker:1.1.0@aar'
+    implementation 'cn.bingoogolapple:bga-adapter:1.1.0@aar'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 
-    compile 'com.google.zxing:core:3.2.1'
-    compile 'cn.bingoogolapple:bga-qrcodecore:1.1.9@aar'
-    compile 'cn.bingoogolapple:bga-zxing:1.1.9@aar'
+    implementation 'com.google.zxing:core:3.2.1'
+    implementation 'cn.bingoogolapple:bga-qrcodecore:1.1.9@aar'
+    implementation 'cn.bingoogolapple:bga-zxing:1.1.9@aar'
 
     //  compile 'cn.bingoogolapple:bga-qrcodecore:1.1.3@aar'
     //  compile 'cn.bingoogolapple:bga-zbar:1.1.3@aar'
@@ -130,32 +122,32 @@ dependencies {
     //  compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
     //  compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-7'
 
-    compile project(':libevent')
-    compile project(':libfilesload')
+    implementation project(':libevent')
+    implementation project(':libfilesload')
 
-    compile "android.arch.lifecycle:runtime:1.1.1"
-    compile "android.arch.lifecycle:extensions:1.1.1"
+    implementation "android.arch.lifecycle:runtime:1.1.1"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
 
 
-    compile "android.arch.persistence.room:runtime:1.1.1"
-    compile "android.arch.persistence.room:rxjava2:1.1.1"
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    implementation "android.arch.persistence.room:rxjava2:1.1.1"
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
 
-    compile 'io.reactivex.rxjava2:rxjava:2.2.2'
-    compile 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
 
-    compile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    implementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
 
     //compile 'com.tencent:mmkv:1.0.10'
 
-    compile 'com.uber.autodispose:autodispose:0.6.1'
-    compile 'com.uber.autodispose:autodispose-android-archcomponents:0.6.1'
+    implementation 'com.uber.autodispose:autodispose:0.6.1'
+    implementation 'com.uber.autodispose:autodispose-android-archcomponents:0.6.1'
 
-    compile 'org.jetbrains:annotations-java5:15.0'
-    compile 'org.glassfish:javax.annotation:10.0-b28'
+    implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation 'org.glassfish:javax.annotation:10.0-b28'
     //compile 'com.google.code.findbugs:jsr305:3.0.1'
 
-    compile "org.projectlombok:lombok:1.16.14"
+    //implementation "org.projectlombok:lombok:1.16.14"
     annotationProcessor "org.projectlombok:lombok:1.16.14"
 }
