@@ -12,11 +12,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.recyclerlib.R;
-import com.supets.pet.banner.BannerMainActivity;
 import com.supets.pet.gallery.GalleryActivity;
 import com.supets.pet.pull.activity.LoadMoreWrapperActivity;
 import com.supets.pet.suspendbar.SuspendActivity;
-import com.supets.pet.tianmao.TianMaoActivity;
+import com.supets.pet.tianmao.TianMaoActivity2;
+import com.supets.pet.tianmao.TianMaoActivity3;
 
 import java.util.ArrayList;
 
@@ -94,8 +94,7 @@ public class MainTabActivity extends AppCompatActivity {
                 }
 
                 if (mData.type == 2) {
-                    Intent intent = new Intent(view.getContext(), BannerMainActivity.class);
-                    view.getContext().startActivity(intent);
+
                 }
 
                 if (mData.type == 3) {
@@ -103,7 +102,7 @@ public class MainTabActivity extends AppCompatActivity {
                     view.getContext().startActivity(intent);
                 }
                 if (mData.type == 4) {
-                    Intent intent = new Intent(view.getContext(), TianMaoActivity.class);
+                    Intent intent = new Intent(view.getContext(), TianMaoActivity3.class);
                     view.getContext().startActivity(intent);
                 }
             }

@@ -26,7 +26,7 @@ public class TianMaoActivity3 extends FragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_tianmao);
+        setContentView(R.layout.activity_tianmao3);
         TabLayout tabLayout = findViewById(R.id.tab);
         //tab可滚动
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);

@@ -37,7 +37,7 @@ public class RecycleViewPager extends LinearLayout {
 
     private void init() {
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 6; i++) {
             RecyclerView recyclerView = new RecyclerView(getContext());
             recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             MultiFeedAdapter loadMoreAdapter = new MultiFeedAdapter();

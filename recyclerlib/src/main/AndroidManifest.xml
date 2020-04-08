@@ -27,11 +27,10 @@
         <activity android:name="com.supets.pet.gallery.GalleryActivity" />
         <activity android:name="com.supets.pet.suspendbar.MultiActivity" />
         <activity android:name="com.supets.pet.suspendbar.SuspendActivity" />
-        <activity android:name="com.supets.pet.banner.BannerMainActivity" />
-        <activity android:name="com.supets.pet.banner.BannerNormalActivity" />
         <activity android:name="com.supets.pet.pull.activity.LoadMoreActivity" />
         <activity android:name="com.supets.pet.pull.activity.LoadMoreWrapperActivity" />
-        <activity android:name="com.supets.pet.tianmao.TianMaoActivity" />
+        <activity android:name="com.supets.pet.tianmao.TianMaoActivity2" />
+        <activity android:name="com.supets.pet.tianmao.TianMaoActivity3" />
 
     </application>
 </manifest>
